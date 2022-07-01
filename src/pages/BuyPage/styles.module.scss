@@ -1,0 +1,16 @@
+.BuyPage {
+  min-height: calc(100vh - 182px);
+
+  .filtersContainer {
+    display: flex;
+    justify-content: center;
+    height: 580px;
+    padding-top: 219px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(../../assets/images/main-background.jpg);
+    background-size: cover;
+  }
+}
