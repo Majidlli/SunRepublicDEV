@@ -1,20 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'whatwg-fetch';
-import { Provider } from 'react-redux';
 
-import './helpers/globalAuth';
-
-import { configureStore } from './redux/store';
 import Routes from './routes';
 
-const store = configureStore();
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Routes />
-    </Provider>
+    <Routes />
   </React.StrictMode>,
   document.getElementById('root')
 );

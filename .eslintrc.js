@@ -1,5 +1,12 @@
 module.exports = {
-  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+    'plugin:prettier/recommended',
+    'prettier/react',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+  ],
   env: {
     browser: true,
     es6: true,
@@ -8,6 +15,7 @@ module.exports = {
   },
   plugins: ['prettier'],
   parserOptions: {
+    ecmaVersion: 2020,
     ecmaFeatures: {
       ecmaVersion: 6,
       sourceType: 'module',
@@ -36,7 +44,7 @@ module.exports = {
     'react/style-prop-object': 2,
     'react/static-property-placement': 2,
     'react/sort-comp': 2,
-    'react/prop-types': 1,
+    'react/prop-types': 0,
     'react/self-closing-comp': 2,
     'react/no-unused-state': 2,
     'react/no-unused-prop-types': 2,

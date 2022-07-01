@@ -1,21 +1,17 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import ExamplePage from '../pages/ExamplePage';
-// import PrivateRoute from "../containers/PrivateRoute";
+import Layout from '../containers/Layout';
+import HomePage from '../pages/HomePage';
 
-const Routes = () => (
+const RoutesComponent = () => (
   <BrowserRouter>
-    <Switch>
-      {/* <PrivateRoute path="/dashboard" component={DashboardRoutes} /> */}
-      {/* <Route exact path="/login" component={LoginPage} /> */}
-      {/* <Route exact path="/forgot-password" component={ForgotPasswordPage} /> */}
-      {/* <Route exact path="/reset-password" component={ResetPasswordPage} /> */}
-      {/* <Route exact path="/error" component={ErrorPage} /> */}
-
-      <Route path="/" component={ExamplePage} />
-    </Switch>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Layout>
   </BrowserRouter>
 );
 
-export default Routes;
+export default RoutesComponent;

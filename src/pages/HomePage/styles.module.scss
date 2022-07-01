@@ -1,0 +1,109 @@
+.HomePage {
+  min-height: calc(100vh - 182px);
+
+  .searchContainer {
+    height: 588px;
+    padding-top: 185px;
+    padding-left: 7%;
+    padding-right: 7%;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(../../assets/images/main-background.jpg);
+    background-size: cover;
+    border: 1px solid transparent;
+
+    h1 {
+      margin: 0;
+      margin-bottom: 61px;
+      padding-left: 10px;
+      font-weight: 800;
+      font-size: 100px;
+      line-height: 120px;
+      color: rgba(255, 255, 255, 0.6);
+
+      span {
+        color: #ef5225;
+        opacity: 0.6;
+      }
+    }
+
+    .search {
+      display: flex;
+      justify-content: space-between;
+      input {
+        width: calc(100% - 20px - 65px);
+        height: 65px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      button {
+        width: 65px;
+        height: 65px;
+        background-color: #ef5225;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 64px;
+    padding-left: 7%;
+    padding-right: 7%;
+
+    .description {
+      margin-right: 13%;
+      margin-bottom: 122px;
+      h2 {
+        width: 485px;
+        margin: 0;
+        margin-bottom: 17px;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 58px;
+      }
+
+      p {
+        width: 313px;
+        margin: 0;
+        margin-bottom: 24px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 490px;
+      }
+    }
+
+    .map {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      align-items: center;
+      max-width: 1000px;
+      aspect-ratio: 587 / 482;
+      margin-bottom: 122px;
+      font-size: 48px;
+      background-color: lightgray;
+      border-radius: 8px;
+    }
+  }
+}
