@@ -1,14 +1,18 @@
 .Footer {
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 182px;
   padding-top: 32px;
-  padding-left: 7%;
-  padding-right: 13%;
+  padding-left: 100px;
+  padding-right: 100px;
   background-color: black;
   .container {
     display: flex;
     justify-content: space-between;
-    max-width: 1143px;
+    max-width: 1240px;
+    flex: 1;
+    padding-right: 92px;
 
     .col {
       display: flex;
