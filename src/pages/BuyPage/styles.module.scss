@@ -13,4 +13,11 @@
       url(../../assets/images/main-background.jpg);
     background-size: cover;
   }
+
+  .propertyListContainer {
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

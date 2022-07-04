@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import axios from 'axios';
 
@@ -8,6 +8,8 @@ import { API_URL } from '../../constants/main';
 import classes from './styles.module.scss';
 
 export default function AddPropertyPage() {
+  const [password, setPassword] = useState('');
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [images, setImages] = useState('');
@@ -21,6 +23,24 @@ export default function AddPropertyPage() {
   const [region, setRegion] = useState('');
   const [floorCount, setFloorCount] = useState('');
   const [action, setAction] = useState('sell');
+
+  const formRef = useRef();
+
+  const validatePassword = async () => {
+    try {
+      const response = await axios.post(`${API_URL}/admin/password`, {
+        password,
+      });
+
+      if (response.data.isValid) {
+        setIsPasswordValid(true);
+      } else {
+        alert('WRONG PASSWORD');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const createProperty = async () => {
     try {
@@ -39,7 +59,27 @@ export default function AddPropertyPage() {
       form.append('floorCount', floorCount);
       form.append('action', action);
 
-      await axios.post(`${API_URL}/property`, form);
+      await axios.post(`${API_URL}/property`, form, {
+        headers: {
+          password,
+        },
+      });
+
+      setTitle('');
+      setDescription('');
+      setImages('');
+      setBedrooms('');
+      setBathrooms('');
+      setPrice('');
+      setArea('');
+      setHasPool(false);
+      setHasHOAFee(false);
+      setType('');
+      setRegion('');
+      setFloorCount('');
+      setAction('sell');
+
+      formRef.current.reset();
 
       alert('SUCCESS');
     } catch (error) {
@@ -48,11 +88,36 @@ export default function AddPropertyPage() {
     }
   };
 
+  if (!isPasswordValid) {
+    return (
+      <div className={classes.AddPropertyPage}>
+        <div className={classes.container}>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              validatePassword();
+            }}
+          >
+            <label>
+              Password
+              <input
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </label>
+            <Button onClick={validatePassword}>Proceed</Button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={classes.AddPropertyPage}>
       <div className={classes.container}>
         <h1>Add Property</h1>
-        <form>
+        <form ref={formRef}>
           <label>
             Title
             <input
@@ -133,11 +198,15 @@ export default function AddPropertyPage() {
           </label>
           <label>
             Type
-            <input
-              type="text"
+            <select
               value={type}
               onChange={(event) => setType(event.target.value)}
-            />
+            >
+              <option value="single family">Single Family</option>
+              <option value="townhouse">Townhouse</option>
+              <option value="condo">Condo</option>
+              <option value="other">Other</option>
+            </select>
           </label>
           <label>
             Region

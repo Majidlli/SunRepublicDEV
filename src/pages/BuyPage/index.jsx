@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import PropertyList from '../../components/PropertyList';
 import Filters from '../../components/Filters';
 
 import classes from './styles.module.scss';
@@ -41,6 +42,12 @@ export default function BuyPage() {
           floorCount={floorCount}
           setFloorCount={setFloorCount}
         />
+      </div>
+      <div className={classes.propertyListContainer}>
+        <PropertyList title="Available options" />
+      </div>
+      <div className={classes.propertyListContainer}>
+        <PropertyList title="Added recently" />
       </div>
     </div>
   );
