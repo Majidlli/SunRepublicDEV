@@ -1,10 +1,27 @@
 import React from 'react';
 
-import Button from '../../components/Button';
+import axios from 'axios';
+import { useQueryClient } from 'react-query';
 
+import Button from '../../components/Button';
+import { API_URL } from '../../constants/main';
 import classes from './styles.module.scss';
 
+async function getProperty(recent) {
+  const response = await axios.get(`${API_URL}/property`, {
+    params: {
+      recent,
+    },
+  });
+  return response.data;
+}
+
 export default function HomePage() {
+  const queryClinet = useQueryClient();
+
+  queryClinet.prefetchQuery('property', () => getProperty(false));
+  queryClinet.prefetchQuery('recentProperty', () => getProperty(true));
+
   return (
     <div className={classes.HomePage}>
       <div className={classes.searchContainer}>

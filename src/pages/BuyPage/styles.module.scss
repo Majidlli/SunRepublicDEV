@@ -4,7 +4,7 @@
   .filtersContainer {
     display: flex;
     justify-content: center;
-    height: 580px;
+    height: 560px;
     padding-top: 219px;
     padding-left: 100px;
     padding-right: 100px;
@@ -14,10 +14,18 @@
     background-size: cover;
   }
 
-  .propertyListContainer {
-    display: flex;
-    justify-content: center;
-    padding-left: 100px;
-    padding-right: 100px;
+  .mainContent {
+    padding-top: 64px;
+    padding-bottom: 96px;
+    .propertyListContainer {
+      display: flex;
+      justify-content: center;
+      padding-left: 100px;
+      padding-right: 100px;
+
+      &:first-child {
+        margin-bottom: 24px;
+      }
+    }
   }
 }

@@ -1,0 +1,33 @@
+.Property {
+  width: 400px;
+
+  header {
+    position: relative;
+    width: 100%;
+    height: 278px;
+    margin-bottom: 20px;
+    background-image: url(../../../assets/images/property.jpg);
+    background-size: cover;
+
+    button {
+      position: absolute;
+      top: 220px;
+      right: 16px;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    overflow: hidden;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+  }
+}

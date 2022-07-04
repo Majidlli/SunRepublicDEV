@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import PropertyList from '../../components/PropertyList';
 import Filters from '../../components/Filters';
@@ -16,11 +16,16 @@ export default function BuyPage() {
   const [type, setType] = useState('');
   const [region, setRegion] = useState('');
   const [floorCount, setFloorCount] = useState('');
+  const [searchKey, setSearchKey] = useState(null);
+
+  const filtersRef = useRef();
 
   return (
     <div className={classes.BuyPage}>
       <div className={classes.filtersContainer}>
         <Filters
+          setSearchKey={setSearchKey}
+          filtersRef={filtersRef}
           bedrooms={bedrooms}
           setBedrooms={setBedrooms}
           bathrooms={bathrooms}
@@ -43,11 +48,33 @@ export default function BuyPage() {
           setFloorCount={setFloorCount}
         />
       </div>
-      <div className={classes.propertyListContainer}>
-        <PropertyList title="Available options" />
-      </div>
-      <div className={classes.propertyListContainer}>
-        <PropertyList title="Added recently" />
+      <div className={classes.mainContent}>
+        <div className={classes.propertyListContainer}>
+          <PropertyList
+            title="Available options"
+            filtersRef={filtersRef}
+            bedrooms={bedrooms}
+            bathrooms={bathrooms}
+            minPrice={minPrice}
+            maxPrice={maxPrice}
+            area={area}
+            hasPool={hasPool}
+            hasHOAFee={hasHOAFee}
+            type={type}
+            region={region}
+            floorCount={floorCount}
+            searchKey={searchKey}
+            queryName="property"
+          />
+        </div>
+        <div className={classes.propertyListContainer}>
+          <PropertyList
+            title="Added recently"
+            filtersRef={filtersRef}
+            queryName="recentProperty"
+            recent
+          />
+        </div>
       </div>
     </div>
   );

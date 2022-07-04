@@ -1,18 +1,43 @@
 .PropertyList {
-  max-width: 1240px;
   flex: 1;
+  max-width: 1240px;
+  height: 558px;
+
+  h1 {
+    margin: 0;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 77px;
+  }
 
   .listContainer {
     position: relative;
-    .list {
-      border: 1px solid red;
-    }
-    button {
+    .arrowButton {
       position: absolute;
+      top: 130px;
+      right: -40px;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
 
       &.previous {
+        right: unset;
         left: -40px;
       }
+    }
+    .list {
+      padding: 0;
+      list-style: none;
+      overflow: hidden;
+    }
+    .inner {
+      position: relative;
+      display: flex;
+      gap: 20px;
+
+      transition: all 0.2s;
     }
   }
 }

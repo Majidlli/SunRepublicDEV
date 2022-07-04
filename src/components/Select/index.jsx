@@ -33,7 +33,7 @@ export default function Select({
         onClick={() => setIsOptionsListVisible((prevState) => !prevState)}
         ref={selectorRef}
       >
-        {value || placeholder}
+        {options.find((option) => option.value === value)?.label || placeholder}
       </div>
       {isOptionsListVisible && (
         <div className={classes.options} ref={optionsRef}>
@@ -41,13 +41,13 @@ export default function Select({
             return (
               <div
                 className={classes.option}
-                key={option}
+                key={option.value}
                 onClick={() => {
-                  setValue(option);
+                  setValue(option.value);
                   setIsOptionsListVisible(false);
                 }}
               >
-                {option}
+                {option.label}
               </div>
             );
           })}
