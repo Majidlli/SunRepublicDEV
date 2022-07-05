@@ -63,7 +63,7 @@ export default function PropertyList({
 
   const propertyWidth = (width - 40) / 3;
 
-  const { data, refetch } = useQuery(queryName, () =>
+  const { data, refetch, isFetching } = useQuery(queryName, () =>
     getProperty(
       recent,
       bedrooms,
@@ -89,9 +89,9 @@ export default function PropertyList({
   return (
     <div
       className={classes.PropertyList}
-      style={{ width: data?.length >= 3 ? width : '' }}
+      style={{ width: data?.rows.length >= 3 ? width : '' }}
     >
-      <h1>{title}</h1>
+      {title && <h1>{title}</h1>}
       <div className={classes.listContainer}>
         {page > 0 && (
           <button
@@ -123,9 +123,10 @@ export default function PropertyList({
                 return (
                   <li key={property.id}>
                     <Property
+                      isFetching={isFetching}
                       propertyData={property}
                       propertyWidth={propertyWidth}
-                      propertyCount={data.length}
+                      propertyCount={data?.rows?.length}
                     />
                   </li>
                 );

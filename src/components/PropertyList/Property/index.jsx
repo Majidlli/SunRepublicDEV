@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import Truncate from 'react-truncate';
 
 import Button from '../../Button';
@@ -11,6 +12,8 @@ export default function Property({
   propertyCount,
   propertyData,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div
       className={classes.Property}
@@ -21,7 +24,12 @@ export default function Property({
           backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,
         }}
       >
-        <Button style={{ width: 126, borderRadius: 6 }}>DETAILS</Button>
+        <Button
+          style={{ width: 126, borderRadius: 6 }}
+          onClick={() => navigate(`/property/${propertyData.id}`)}
+        >
+          DETAILS
+        </Button>
       </header>
       <div className={classes.info}>
         <h1>
