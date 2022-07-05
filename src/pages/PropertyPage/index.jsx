@@ -1,19 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
-import axios from 'axios';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
 import ImageGallery from '../../components/ImageGallery';
 import PropertyList from '../../components/PropertyList';
 import Button from '../../components/Button';
-import { API_URL } from '../../constants/main';
+import PropertyService from '../../services/PropertyService';
 import classes from './styles.module.scss';
-
-async function getProperty(id) {
-  const response = await axios.get(`${API_URL}/property/${id}`);
-  return response.data;
-}
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -24,9 +18,13 @@ const formatter = new Intl.NumberFormat('en-US', {
 export default function PropertyPage() {
   const { id } = useParams();
 
-  const { data } = useQuery(['singleProperty', id], () => getProperty(id), {
-    staleTime: Infinity,
-  });
+  const { data } = useQuery(
+    ['singleProperty', id],
+    () => PropertyService.getSingleProperty(id),
+    {
+      staleTime: Infinity,
+    }
+  );
 
   const containerRef = useRef();
   const galleryContainerRef = useRef();
@@ -57,7 +55,7 @@ export default function PropertyPage() {
                   borderRadius: 6,
                 }}
               >
-                FOR SALE
+                FOR {data?.action === 'sell' ? 'SALE' : 'RENT'}
               </Button>
               <Button>CONTACT US</Button>
             </div>
@@ -89,11 +87,14 @@ export default function PropertyPage() {
         <h2>Similar queries</h2>
       </div>
       <div className={classes.propertyListContainer}>
-        <PropertyList
-          filtersRef={containerRef}
-          queryName="recentProperty"
-          recent
-        />
+        {data && (
+          <PropertyList
+            filtersRef={containerRef}
+            queryName="recentRentProperty"
+            action={data?.action}
+            recent
+          />
+        )}
       </div>
     </>
   );

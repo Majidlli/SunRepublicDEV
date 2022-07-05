@@ -5,7 +5,7 @@ import Filters from '../../components/Filters';
 
 import classes from './styles.module.scss';
 
-export default function BuyPage() {
+export default function BuyOrRentPage({ currentPage }) {
   const [bedrooms, setBedrooms] = useState('');
   const [bathrooms, setBathrooms] = useState('');
   const [minPrice, setMinPrice] = useState('');
@@ -21,7 +21,7 @@ export default function BuyPage() {
   const filtersRef = useRef();
 
   return (
-    <div className={classes.BuyPage}>
+    <div className={classes.BuyOrRentPage}>
       <div className={classes.filtersContainer}>
         <Filters
           setSearchKey={setSearchKey}
@@ -64,14 +64,18 @@ export default function BuyPage() {
             region={region}
             floorCount={floorCount}
             searchKey={searchKey}
-            queryName="property"
+            queryName={currentPage === 'rent' ? 'rentProperty' : 'property'}
+            action={currentPage === 'rent' ? 'rent' : 'sell'}
           />
         </div>
         <div className={classes.propertyListContainer}>
           <PropertyList
             title="Added recently"
             filtersRef={filtersRef}
-            queryName="recentProperty"
+            queryName={
+              currentPage === 'rent' ? 'recentRentProperty' : 'recentProperty'
+            }
+            action={currentPage === 'rent' ? 'rent' : 'sell'}
             recent
           />
         </div>

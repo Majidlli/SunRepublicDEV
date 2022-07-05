@@ -89,7 +89,6 @@ export default function ImageGallery({ images = [] }) {
   };
 
   useEffect(() => {
-    console.log('!!!!!!!!!');
     setCurrentImageIndex(0);
     if (images.length === 2) {
       setNextImageIndex(1);

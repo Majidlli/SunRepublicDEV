@@ -1,44 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import axios from 'axios';
 import classNames from 'classnames';
-
 import { useQuery } from 'react-query';
+
 import Property from './Property';
 import useResizeObserver from '../../hooks/useResizeObserver';
-import { API_URL } from '../../constants/main';
+import PropertyService from '../../services/PropertyService';
 import classes from './styles.module.scss';
-
-async function getProperty(
-  recent,
-  bedrooms,
-  bathrooms,
-  minPrice,
-  maxPrice,
-  area,
-  hasPool,
-  hasHOAFee,
-  type,
-  region,
-  floorCount
-) {
-  const response = await axios.get(`${API_URL}/property`, {
-    params: {
-      recent,
-      bedrooms,
-      bathrooms,
-      minPrice,
-      maxPrice,
-      area,
-      hasPool,
-      hasHOAFee,
-      type,
-      region,
-      floorCount,
-    },
-  });
-  return response.data;
-}
 
 export default function PropertyList({
   title,
@@ -56,6 +24,7 @@ export default function PropertyList({
   region,
   floorCount,
   recent,
+  action,
 }) {
   const [page, setPage] = useState(0);
 
@@ -64,7 +33,7 @@ export default function PropertyList({
   const propertyWidth = (width - 40) / 3;
 
   const { data, refetch, isFetching } = useQuery(queryName, () =>
-    getProperty(
+    PropertyService.getPropertyList({
       recent,
       bedrooms,
       bathrooms,
@@ -75,12 +44,17 @@ export default function PropertyList({
       hasHOAFee,
       type,
       region,
-      floorCount
-    )
+      floorCount,
+      action,
+    })
   );
 
   useEffect(() => {
-    if (searchKey && queryName !== 'recentProperty') {
+    if (
+      searchKey &&
+      queryName !== 'recentProperty' &&
+      queryName !== 'recentRentProperty'
+    ) {
       refetch();
       setPage(0);
     }
