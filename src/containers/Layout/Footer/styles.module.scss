@@ -9,66 +9,87 @@
   background-color: black;
   .container {
     display: flex;
-    justify-content: space-between;
     max-width: 1240px;
     flex: 1;
-    padding-right: 92px;
 
-    .col {
+    .logoContainer {
+      img {
+        width: 134px;
+        height: 116px;
+      }
+    }
+
+    .cols {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      padding-right: 92px;
+      .col {
+        display: flex;
+        flex-direction: column;
 
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
 
-        li {
+          li {
+            height: 24px;
+
+            a {
+              font-weight: 600;
+              font-size: 22px;
+              line-height: 148%;
+              color: white;
+              text-decoration: none;
+            }
+          }
+        }
+
+        &.first {
+          padding-top: 36px;
+
           a {
+            margin-bottom: 8px;
             font-weight: 600;
             font-size: 22px;
             line-height: 148%;
             color: white;
             text-decoration: none;
           }
-        }
-      }
 
-      &.first {
-        //  margin-right: 17%;
-        padding-top: 41px;
-
-        a {
-          margin-bottom: 8px;
-          font-weight: 600;
-          font-size: 22px;
-          line-height: 148%;
-          color: white;
-          text-decoration: none;
-        }
-
-        small {
-          font-weight: 600;
-          font-size: 22px;
-          line-height: 148%;
-          color: white;
-        }
-      }
-
-      &.fourth {
-        div {
-          display: flex;
-          align-items: center;
-          margin-bottom: 17px;
-          cursor: pointer;
-          img {
-            margin-right: 8px;
-          }
-          span {
+          small {
             font-weight: 600;
             font-size: 22px;
             line-height: 148%;
             color: white;
+          }
+        }
+
+        &.fourth {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          div,
+          .socialLink {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            cursor: pointer;
+            img {
+              width: 24px;
+              height: 24px;
+              margin-right: 8px;
+            }
+            span {
+              font-weight: 600;
+              font-size: 22px;
+              line-height: 148%;
+              color: white;
+            }
           }
         }
       }

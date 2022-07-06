@@ -66,8 +66,6 @@ export default function PropertyPage() {
                   <li>Bathrooms: {data?.bathrooms}</li>
                   <li>Pool: {data?.hasPool === true ? 'Yes' : 'No'}</li>
                   <li>HOA Fee: {data?.hasHOAFee === true ? 'Yes' : 'No'}</li>
-                  <li>Type: {data?.type}</li>
-                  <li>Floor Count: {data?.floorCount}</li>
                 </ul>
               </div>
               <div className={classes.col}>
@@ -76,6 +74,8 @@ export default function PropertyPage() {
                   <li style={{ textTransform: 'none' }}>
                     Square Feet: {data?.area}ft<sup>2</sup>
                   </li>
+                  <li>Type: {data?.type}</li>
+                  <li>Floor Count: {data?.floorCount}</li>
                 </ul>
               </div>
             </div>

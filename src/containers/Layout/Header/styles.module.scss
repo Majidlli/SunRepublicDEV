@@ -37,6 +37,14 @@
         padding: 0;
 
         li {
+          img {
+            position: relative;
+            top: -11px;
+            z-index: 22;
+            width: 90px;
+            height: 77px;
+          }
+
           a {
             text-decoration: none;
             font-weight: 600;
@@ -44,6 +52,10 @@
             line-height: 148%;
             color: white;
             opacity: 0.6;
+
+            &.link {
+              opacity: 1;
+            }
 
             &.active {
               position: relative;

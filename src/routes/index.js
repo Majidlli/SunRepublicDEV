@@ -9,7 +9,13 @@ import AddPropertyPage from '../pages/AddPropertyPage';
 import PropertyPage from '../pages/PropertyPage';
 import SellPage from '../pages/SellPage';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const RoutesComponent = () => (
   <BrowserRouter>

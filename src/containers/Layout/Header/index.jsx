@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
+import logoHeader from '../../../assets/images/logoHeader.png';
 import classes from './styles.module.scss';
 
 export default function Header() {
@@ -10,6 +11,11 @@ export default function Header() {
       <div className={classes.container}>
         <nav className={classes.navigationMenu}>
           <ul>
+            <li>
+              <Link to="/" className={classes.link}>
+                <img src={logoHeader} alt="Logo" />
+              </Link>
+            </li>
             <li>
               <NavLink
                 to="/"
