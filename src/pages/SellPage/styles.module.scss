@@ -1,0 +1,52 @@
+.SellPage {
+  min-height: calc(100vh - 182px);
+
+  &.secondStep {
+    .emptySpace {
+      height: 639px;
+    }
+  }
+
+  .backgroundContainer {
+    display: flex;
+    justify-content: center;
+    height: 560px;
+    padding-top: 185px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(../../assets/images/main-background.jpg);
+    background-size: cover;
+    .container {
+      flex: 1;
+      max-width: 1240px;
+      h1 {
+        margin: 0;
+        padding-left: 10px;
+        font-weight: 800;
+        font-size: 100px;
+        line-height: 120px;
+        color: rgba(255, 255, 255, 0.6);
+        span {
+          color: #ef5225;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  .formContainer {
+    position: absolute;
+    top: 310px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 615px;
+  }
+
+  .emptySpace {
+    height: 501px;
+  }
+}

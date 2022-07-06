@@ -7,6 +7,7 @@ import HomePage from '../pages/HomePage';
 import BuyOrRentPage from '../pages/BuyOrRentPage';
 import AddPropertyPage from '../pages/AddPropertyPage';
 import PropertyPage from '../pages/PropertyPage';
+import SellPage from '../pages/SellPage';
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const RoutesComponent = () => (
           <Route path="/" element={<HomePage />} />
           <Route path="/buy" element={<BuyOrRentPage currentPage="buy" />} />
           <Route path="/rent" element={<BuyOrRentPage currentPage="rent" />} />
+          <Route path="/sell" element={<SellPage />} />
           <Route path="/add-property" element={<AddPropertyPage />} />
           <Route path="/property/:id" element={<PropertyPage />} />
         </Routes>
