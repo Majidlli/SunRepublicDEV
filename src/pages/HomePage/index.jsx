@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from 'react-query';
 
 import Button from '../../components/Button';
@@ -21,6 +22,8 @@ export default function HomePage() {
   queryClinet.prefetchQuery('recentRentProperty', () =>
     PropertyService.getPropertyList({ recent: true, action: 'rent' })
   );
+
+  const navigate = useNavigate();
 
   return (
     <div className={classes.HomePage}>
@@ -57,8 +60,8 @@ export default function HomePage() {
               industry.
             </p>
             <div className={classes.buttons}>
-              <Button>RENT</Button>
-              <Button>SELL</Button>
+              <Button onClick={() => navigate('/rent')}>RENT</Button>
+              <Button onClick={() => navigate('/sell')}>SELL</Button>
             </div>
           </div>
           <div className={classes.map}>MAP</div>

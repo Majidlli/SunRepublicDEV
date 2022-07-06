@@ -8,6 +8,7 @@ import BuyOrRentPage from '../pages/BuyOrRentPage';
 import AddPropertyPage from '../pages/AddPropertyPage';
 import PropertyPage from '../pages/PropertyPage';
 import SellPage from '../pages/SellPage';
+import PropertyListPage from '../pages/PropertyListPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,6 +28,7 @@ const RoutesComponent = () => (
           <Route path="/rent" element={<BuyOrRentPage currentPage="rent" />} />
           <Route path="/sell" element={<SellPage />} />
           <Route path="/add-property" element={<AddPropertyPage />} />
+          <Route path="/property-list" element={<PropertyListPage />} />
           <Route path="/property/:id" element={<PropertyPage />} />
         </Routes>
       </Layout>
