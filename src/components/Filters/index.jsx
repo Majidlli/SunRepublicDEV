@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Button from '../Button';
 import Select from '../Select';
-
+import { t } from '../../i18n';
 import classes from './styles.module.scss';
 
 export default function Filters({
@@ -61,12 +61,12 @@ export default function Filters({
     <div className={classes.Filters} ref={filtersRef}>
       <div className={classes.col}>
         <Select
-          label="Bedrooms"
-          placeholder="Any"
+          label={t('Bedrooms')}
+          placeholder={t('Any')}
           value={bedrooms}
           setValue={setBedrooms}
           options={[
-            { label: 'Any', value: '' },
+            { label: t('Any'), value: '' },
             { label: 1, value: 1 },
             { label: 2, value: 2 },
             { label: 3, value: 3 },
@@ -75,12 +75,12 @@ export default function Filters({
           ]}
         />
         <Select
-          label="Bathrooms"
-          placeholder="Any"
+          label={t('Bathrooms')}
+          placeholder={t('Any')}
           value={bathrooms}
           setValue={setBathrooms}
           options={[
-            { label: 'Any', value: '' },
+            { label: t('Any'), value: '' },
             { label: 1, value: 1 },
             { label: 2, value: 2 },
             { label: 3, value: 3 },
@@ -90,8 +90,8 @@ export default function Filters({
         />
         <div className={classes.shortSelects}>
           <Select
-            label="Price"
-            placeholder="From"
+            label={t('Price')}
+            placeholder={t('From')}
             value={minPrice}
             setValue={setMinPrice}
             options={[
@@ -110,7 +110,7 @@ export default function Filters({
           />
           <Select
             label="&nbsp;"
-            placeholder="To"
+            placeholder={t('To')}
             value={maxPrice}
             setValue={setMaxPrice}
             options={maxPriceOptions}
@@ -119,12 +119,12 @@ export default function Filters({
       </div>
       <div className={classes.col}>
         <Select
-          label="Square Feet"
-          placeholder="Any"
+          label={t('Square Feet')}
+          placeholder={t('Any')}
           value={area}
           setValue={setArea}
           options={[
-            { label: 'Any', value: '' },
+            { label: t('Any'), value: '' },
             { label: 1, value: 1 },
             { label: 2, value: 2 },
             { label: 3, value: 3 },
@@ -133,56 +133,56 @@ export default function Filters({
           ]}
         />
         <Select
-          label="Pool"
-          placeholder="All"
+          label={t('Pool')}
+          placeholder={t('All')}
           value={hasPool}
           setValue={setHasPool}
           options={[
-            { label: 'All', value: '' },
-            { label: 'Pool', value: true },
-            { label: 'No Pool', value: false },
+            { label: t('All'), value: '' },
+            { label: t('Pool present'), value: true },
+            { label: t('No Pool'), value: false },
           ]}
         />
         <Select
-          label="HOA Fee"
-          placeholder="Any"
+          label={t('HOA Fee')}
+          placeholder={t('Any')}
           value={hasHOAFee}
           setValue={setHasHOAFee}
           options={[
-            { label: 'Any', value: '' },
-            { label: 'HOA Fee', value: true },
-            { label: 'No Fee', value: false },
+            { label: t('Any'), value: '' },
+            { label: t('HOA Fee present'), value: true },
+            { label: t('No Fee'), value: false },
           ]}
         />
       </div>
       <div className={classes.col}>
         <Select
-          label="Type"
-          placeholder="Any"
+          label={t('Type')}
+          placeholder={t('Any')}
           value={type}
           setValue={setType}
           options={[
-            { label: 'Any', value: '' },
-            { label: 'Single Family', value: 'single family' },
-            { label: 'Townhouse', value: 'townhouse' },
-            { label: 'Condo', value: 'condo' },
-            { label: 'Other', value: 'other' },
+            { label: t('Any'), value: '' },
+            { label: t('Single Family'), value: 'single family' },
+            { label: t('Townhouse'), value: 'townhouse' },
+            { label: t('Condo'), value: 'condo' },
+            { label: t('Other'), value: 'other' },
           ]}
         />
         <Select
-          label="Region"
-          placeholder="Any"
+          label={t('Region')}
+          placeholder={t('Any')}
           value={region}
           setValue={setRegion}
-          options={[{ label: 'Any', value: '' }]}
+          options={[{ label: t('Any'), value: '' }]}
         />
         <Select
-          label="Floor Count"
-          placeholder="Any"
+          label={t('Floor Count')}
+          placeholder={t('Any')}
           value={floorCount}
           setValue={setFloorCount}
           options={[
-            { label: 'Any', value: '' },
+            { label: t('Any'), value: '' },
             { label: 1, value: 1 },
             { label: 2, value: 2 },
             { label: 3, value: 3 },

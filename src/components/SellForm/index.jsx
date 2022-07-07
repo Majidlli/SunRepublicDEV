@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import classNames from 'classnames';
 
+import { t } from '../../i18n';
 import Images from './Images';
 import Button from '../Button';
 import TextInput from '../TextInput';
@@ -64,7 +65,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
       )}
       onSubmit={formik.handleSubmit}
     >
-      <h2>TITLE</h2>
+      <h2>{t('TITLE')}</h2>
       <div className={classes.steps}>
         <div
           className={classNames(
@@ -73,7 +74,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
             currentStep === 2 && classes.finished
           )}
         >
-          1 step
+          1 {t('step')}
         </div>
         <div
           className={classNames(
@@ -82,16 +83,16 @@ export default function SellForm({ currentStep, setCurrentStep }) {
             isFinished && classes.finished
           )}
         >
-          2 step
+          2 {t('step')}
         </div>
       </div>
       {currentStep === 1 && (
         <div className={classes.inputs}>
           <div className={classes.textInputContainer}>
             <TextInput
-              label="Name"
+              label={t('Name')}
               name="name"
-              placeholder="Enter your Name"
+              placeholder={t('Enter your Name')}
               value={formik.values.name}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -102,7 +103,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
           </div>
           <div className={classes.textInputContainer}>
             <PhoneInput
-              label="Phone"
+              label={t('Phone')}
               name="phone"
               placeholder=""
               value={formik.values.phone}
@@ -115,9 +116,9 @@ export default function SellForm({ currentStep, setCurrentStep }) {
           </div>
           <div className={classes.textInputContainer}>
             <TextInput
-              label="Email"
+              label={t('Email')}
               name="email"
-              placeholder="Enter your Email"
+              placeholder={t('Enter your Email')}
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -128,9 +129,9 @@ export default function SellForm({ currentStep, setCurrentStep }) {
           </div>
           <div className={classes.textInputContainer}>
             <TextInput
-              label="Description"
+              label={t('Description')}
               name="description"
-              placeholder="Tell more"
+              placeholder={t('Tell more')}
               value={formik.values.description}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -157,7 +158,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
               )
             }
           >
-            NEXT
+            {t('NEXT')}
           </Button>
         )}
         {currentStep === 2 && (
@@ -165,7 +166,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
             onClick={() => setIsFinished(true)}
             disabled={images.length === 0}
           >
-            SEND
+            {t('SEND')}
           </Button>
         )}
       </div>

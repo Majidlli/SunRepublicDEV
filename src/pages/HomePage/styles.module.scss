@@ -16,10 +16,12 @@
     .container {
       flex: 1;
       max-width: 1240px;
+
       h1 {
         margin: 0;
         margin-bottom: 61px;
         padding-left: 10px;
+        font-family: 'Smooch Sans';
         font-weight: 800;
         font-size: 100px;
         line-height: 120px;
@@ -34,6 +36,7 @@
       .search {
         display: flex;
         justify-content: space-between;
+
         input {
           width: calc(100% - 20px - 65px);
           height: 65px;
@@ -74,6 +77,7 @@
       justify-content: space-between;
       max-width: 1240px;
       flex: 1;
+
       .description {
         margin-bottom: 122px;
         margin-right: 80px;

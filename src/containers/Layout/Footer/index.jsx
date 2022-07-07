@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
+import { t } from '../../../i18n';
 import instagramIcon from '../../../assets/images/instagram.svg';
 import facebookIcon from '../../../assets/images/facebook.svg';
 import whatsAppIcon from '../../../assets/images/whatsapp.svg';
@@ -27,29 +28,29 @@ export default function Footer() {
           <div className={classNames(classes.col, classes.second)}>
             <ul>
               <li>
-                <Link to="/">HOME</Link>
+                <Link to="/">{t('HOME')}</Link>
               </li>
               <li>
-                <Link to="/buy">BUY</Link>
+                <Link to="/buy">{t('BUY')}</Link>
               </li>
               <li>
-                <Link to="/rent">RENT</Link>
+                <Link to="/rent">{t('RENT')}</Link>
               </li>
               <li>
-                <Link to="/sell">SELL</Link>
+                <Link to="/sell">{t('SELL')}</Link>
               </li>
             </ul>
           </div>
           <div className={classNames(classes.col, classes.third)}>
             <ul>
               <li>
-                <Link to="/what-we-sell">WHAT WE SELL</Link>
+                <Link to="/what-we-sell">{t('WHAT WE SELL')}</Link>
               </li>
               <li>
-                <Link to="/contact-us">CONTACT US</Link>
+                <Link to="/contact-us">{t('CONTACT US')}</Link>
               </li>
               <li>
-                <Link to="/about">ABOUT</Link>
+                <Link to="/about">{t('ABOUT')}</Link>
               </li>
             </ul>
           </div>

@@ -2,10 +2,14 @@ import React from 'react';
 
 import { NavLink, Link } from 'react-router-dom';
 
+import useSwitchLanguage from '../../../hooks/useSwitchLanguage';
+import i18n, { t } from '../../../i18n';
 import logoHeader from '../../../assets/images/logoHeader.png';
 import classes from './styles.module.scss';
 
 export default function Header() {
+  const changeLanguage = useSwitchLanguage();
+
   return (
     <header className={classes.Header}>
       <div className={classes.container}>
@@ -23,7 +27,7 @@ export default function Header() {
                   isActive ? classes.active : undefined
                 }
               >
-                HOME
+                {t('HOME')}
               </NavLink>
             </li>
             <li>
@@ -33,7 +37,7 @@ export default function Header() {
                   isActive ? classes.active : undefined
                 }
               >
-                BUY
+                {t('BUY')}
               </NavLink>
             </li>
             <li>
@@ -43,7 +47,7 @@ export default function Header() {
                   isActive ? classes.active : undefined
                 }
               >
-                RENT
+                {t('RENT')}
               </NavLink>
             </li>
             <li>
@@ -53,7 +57,7 @@ export default function Header() {
                   isActive ? classes.active : undefined
                 }
               >
-                SELL
+                {t('SELL')}
               </NavLink>
             </li>
             <li>
@@ -63,7 +67,7 @@ export default function Header() {
                   isActive ? classes.active : undefined
                 }
               >
-                WHAT WE SELL
+                {t('WHAT WE SELL')}
               </NavLink>
             </li>
             <li>
@@ -73,7 +77,7 @@ export default function Header() {
                   isActive ? classes.active : undefined
                 }
               >
-                CONTACT US
+                {t('CONTACT US')}
               </NavLink>
             </li>
             <li>
@@ -83,7 +87,7 @@ export default function Header() {
                   isActive ? classes.active : undefined
                 }
               >
-                ABOUT
+                {t('ABOUT')}
               </NavLink>
             </li>
           </ul>
@@ -91,6 +95,9 @@ export default function Header() {
         <a className={classes.phone} href="tel:(123) 000 0110">
           (123) 000 0110
         </a>
+      </div>
+      <div className={classes.languageSwitcher} onClick={changeLanguage}>
+        {i18n.language}
       </div>
     </header>
   );

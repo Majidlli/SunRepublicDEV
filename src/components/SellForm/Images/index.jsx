@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 
+import { t } from '../../../i18n';
 import classes from './styles.module.scss';
 
 export default function Images({ images = [], setImages }) {
@@ -74,7 +75,7 @@ export default function Images({ images = [], setImages }) {
             </defs>
           </svg>
         </button>
-        <h1>Add photos</h1>
+        <h1>{t('Add photos')}</h1>
       </div>
       {images.map((img) => {
         return (

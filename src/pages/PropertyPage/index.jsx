@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
+import i18n, { t } from '../../i18n';
 import ImageGallery from '../../components/ImageGallery';
 import PropertyList from '../../components/PropertyList';
 import Button from '../../components/Button';
@@ -33,6 +34,17 @@ export default function PropertyPage() {
     galleryContainerRef.current.style.width = 'unset';
   }, []);
 
+  let title = data?.title;
+  let description = data?.description;
+
+  if (i18n.language === 'en') {
+    title = data?.title || data?.titleRus;
+    description = data?.description || data?.descriptionRus;
+  } else if (i18n.language === 'ru') {
+    title = data?.titleRus || data?.title;
+    description = data?.descriptionRus || data?.description;
+  }
+
   return (
     <>
       <div className={classes.PropertyPage}>
@@ -42,7 +54,7 @@ export default function PropertyPage() {
           </div>
           <div className={classes.mainData}>
             <header>
-              <h1>{data?.title}</h1>
+              <h1>{title}</h1>
               <span className={classes.price}>
                 $ {formatter.format(data?.price).replace('$', '')}
               </span>
@@ -55,36 +67,55 @@ export default function PropertyPage() {
                   borderRadius: 6,
                 }}
               >
-                FOR {data?.action === 'sell' ? 'SALE' : 'RENT'}
+                {data?.action === 'sell' ? t('FOR SALE') : t('FOR RENT')}
               </Button>
-              <Button>CONTACT US</Button>
+              <Button>{t('CONTACT US')}</Button>
             </div>
             <div className={classes.specs}>
               <div className={classes.col}>
                 <ul>
-                  <li>Bedrooms: {data?.bedrooms}</li>
-                  <li>Bathrooms: {data?.bathrooms}</li>
-                  <li>Pool: {data?.hasPool === true ? 'Yes' : 'No'}</li>
-                  <li>HOA Fee: {data?.hasHOAFee === true ? 'Yes' : 'No'}</li>
+                  <li>
+                    {t('Bedrooms')}: {data?.bedrooms}
+                  </li>
+                  <li>
+                    {t('Bathrooms')}: {data?.bathrooms}
+                  </li>
+                  <li>
+                    {t('Pool')}: {data?.hasPool === true ? t('Yes') : t('No')}
+                  </li>
+                  <li>
+                    {t('HOA Fee')}:{' '}
+                    {data?.hasHOAFee === true ? t('Yes') : t('No')}
+                  </li>
                 </ul>
               </div>
               <div className={classes.col}>
                 <ul>
-                  <li>Region: {data?.region}</li>
-                  <li style={{ textTransform: 'none' }}>
-                    Square Feet: {data?.area}ft<sup>2</sup>
+                  <li>
+                    {t('Region')}: {data?.region}
                   </li>
-                  <li>Type: {data?.type}</li>
-                  <li>Floor Count: {data?.floorCount}</li>
+                  <li style={{ textTransform: 'none' }}>
+                    {t('Square Feet')}: {data?.area}ft<sup>2</sup>
+                  </li>
+                  <li>
+                    {t('Type')}:{' '}
+                    {t(
+                      data?.type?.charAt(0)?.toUpperCase() +
+                        data?.type?.slice(1)
+                    )}
+                  </li>
+                  <li>
+                    {t('Floor Count')}: {data?.floorCount}
+                  </li>
                 </ul>
               </div>
             </div>
-            <div className={classes.description}>{data?.description}</div>
+            <div className={classes.description}>{description}</div>
           </div>
         </div>
       </div>
       <div className={classes.similarQueries}>
-        <h2>Similar queries</h2>
+        <h2>{t('Similar queries')}</h2>
       </div>
       <div className={classes.propertyListContainer}>
         {data && (

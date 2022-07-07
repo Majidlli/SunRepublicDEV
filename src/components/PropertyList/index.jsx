@@ -25,6 +25,7 @@ export default function PropertyList({
   floorCount,
   recent,
   action,
+  // currentPage,
 }) {
   const [page, setPage] = useState(0);
 

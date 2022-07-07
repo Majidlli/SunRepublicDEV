@@ -12,12 +12,24 @@
   padding-right: 100px;
   background-color: rgba(0, 0, 0, 0.7);
 
+  .languageSwitcher {
+    position: absolute;
+    right: 40px;
+    font-family: 'Smooch Sans';
+    font-weight: bold;
+    font-size: 28px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
   .container {
     display: flex;
     flex: 1;
     max-width: 1240px;
     .phone {
       margin-left: auto;
+      font-family: 'Smooch Sans';
       text-decoration: none;
       font-weight: 600;
       font-size: 22px;

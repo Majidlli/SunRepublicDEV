@@ -11,7 +11,9 @@ export default function AddPropertyPage() {
   const [password, setPassword] = useState('');
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [title, setTitle] = useState('');
+  const [titleRus, setTitleRus] = useState('');
   const [description, setDescription] = useState('');
+  const [descriptionRus, setDescriptionRus] = useState('');
   const [images, setImages] = useState('');
   const [bedrooms, setBedrooms] = useState('');
   const [bathrooms, setBathrooms] = useState('');
@@ -47,7 +49,9 @@ export default function AddPropertyPage() {
       const form = new FormData();
       Array.from(images).forEach((image) => form.append('file', image));
       form.append('title', title);
+      form.append('titleRus', titleRus);
       form.append('description', description);
+      form.append('descriptionRus', descriptionRus);
       form.append('bedrooms', bedrooms);
       form.append('bathrooms', bathrooms);
       form.append('price', price);
@@ -124,6 +128,14 @@ export default function AddPropertyPage() {
               type="text"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
+            />
+          </label>
+          <label>
+            Title (russian)
+            <input
+              type="text"
+              value={titleRus}
+              onChange={(event) => setTitleRus(event.target.value)}
             />
           </label>
           <label>
@@ -248,6 +260,13 @@ export default function AddPropertyPage() {
             <textarea
               value={description}
               onChange={(event) => setDescription(event.target.value)}
+            />
+          </label>
+          <label>
+            Description (russian)
+            <textarea
+              value={descriptionRus}
+              onChange={(event) => setDescriptionRus(event.target.value)}
             />
           </label>
           <label>

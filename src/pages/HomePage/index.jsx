@@ -3,6 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from 'react-query';
 
+import { t } from '../../i18n';
 import Button from '../../components/Button';
 import PropertyService from '../../services/PropertyService';
 import classes from './styles.module.scss';
@@ -54,14 +55,11 @@ export default function HomePage() {
       <div className={classes.info}>
         <div className={classes.container}>
           <div className={classes.description}>
-            <h2>Make your property an island with Sun</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </p>
+            <h2>{t('Make your property an island with Sun')}</h2>
+            <p>{t(`Lorem Ipsum`)}</p>
             <div className={classes.buttons}>
-              <Button onClick={() => navigate('/rent')}>RENT</Button>
-              <Button onClick={() => navigate('/sell')}>SELL</Button>
+              <Button onClick={() => navigate('/rent')}>{t('RENT')}</Button>
+              <Button onClick={() => navigate('/sell')}>{t('SELL')}</Button>
             </div>
           </div>
           <div className={classes.map}>MAP</div>

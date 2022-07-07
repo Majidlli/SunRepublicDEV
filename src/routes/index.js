@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -10,6 +10,9 @@ import PropertyPage from '../pages/PropertyPage';
 import SellPage from '../pages/SellPage';
 import PropertyListPage from '../pages/PropertyListPage';
 
+// import i18n from '../i18n';
+import { UIContext } from '../context';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -18,22 +21,50 @@ const queryClient = new QueryClient({
   },
 });
 
-const RoutesComponent = () => (
-  <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/buy" element={<BuyOrRentPage currentPage="buy" />} />
-          <Route path="/rent" element={<BuyOrRentPage currentPage="rent" />} />
-          <Route path="/sell" element={<SellPage />} />
-          <Route path="/add-property" element={<AddPropertyPage />} />
-          <Route path="/property-list" element={<PropertyListPage />} />
-          <Route path="/property/:id" element={<PropertyPage />} />
-        </Routes>
-      </Layout>
-    </QueryClientProvider>
-  </BrowserRouter>
-);
+const RoutesComponent = () => {
+  const [layoutKey, setLayoutKey] = useState(Math.random());
+
+  const forceUpdate = useCallback(() => {
+    setLayoutKey(Math.random());
+  }, []);
+
+  /*   useLayoutEffect(() => {
+    if (i18n.language === 'en') {
+      document.body.style.fontFamily = `'Smooch Sans', sans-serif`;
+    } else if (i18n.language === 'ru') {
+      document.body.style.fontFamily = `'Alumni Sans', sans-serif`;
+    }
+  }, [layoutKey]); */
+
+  return (
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <UIContext.Provider
+          value={useMemo(() => {
+            return { forceUpdate };
+          }, [forceUpdate])}
+        >
+          <Layout key={layoutKey}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route
+                path="/buy"
+                element={<BuyOrRentPage currentPage="sell" />}
+              />
+              <Route
+                path="/rent"
+                element={<BuyOrRentPage currentPage="rent" />}
+              />
+              <Route path="/sell" element={<SellPage />} />
+              <Route path="/add-property" element={<AddPropertyPage />} />
+              <Route path="/property-list" element={<PropertyListPage />} />
+              <Route path="/property/:id" element={<PropertyPage />} />
+            </Routes>
+          </Layout>
+        </UIContext.Provider>
+      </QueryClientProvider>
+    </BrowserRouter>
+  );
+};
 
 export default RoutesComponent;

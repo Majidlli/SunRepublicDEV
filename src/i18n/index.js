@@ -1,10 +1,14 @@
 import i18n from 'i18next';
 import en from './en.json';
+import ru from './ru.json';
 
 i18n.init({
   resources: {
     en: {
       translation: en,
+    },
+    ru: {
+      translation: ru,
     },
     // Add another translations here
     // and to /i18next-parser.config.js
