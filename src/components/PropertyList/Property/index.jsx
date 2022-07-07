@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import Truncate from 'react-truncate';
+import MultiClamp from 'react-multi-clamp';
 
 import i18n, { t } from '../../../i18n';
 import Button from '../../Button';
@@ -45,11 +45,11 @@ export default function Property({
       </header>
       <div className={classes.info}>
         <h1>
-          <Truncate lines={1}>{title}</Truncate>
+          <MultiClamp clamp={1}>{title}</MultiClamp>
         </h1>
-        <p>
-          <Truncate lines={2}>{description}</Truncate>
-        </p>
+        <MultiClamp className={classes.description} clamp={2}>
+          {description}
+        </MultiClamp>
       </div>
     </div>
   );

@@ -23,6 +23,8 @@ const queryClient = new QueryClient({
 
 const RoutesComponent = () => {
   const [layoutKey, setLayoutKey] = useState(Math.random());
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isSearched, setIsSearched] = useState(false);
 
   const forceUpdate = useCallback(() => {
     setLayoutKey(Math.random());
@@ -41,8 +43,14 @@ const RoutesComponent = () => {
       <QueryClientProvider client={queryClient}>
         <UIContext.Provider
           value={useMemo(() => {
-            return { forceUpdate };
-          }, [forceUpdate])}
+            return {
+              forceUpdate,
+              searchTerm,
+              setSearchTerm,
+              isSearched,
+              setIsSearched,
+            };
+          }, [forceUpdate, isSearched, searchTerm])}
         >
           <Layout key={layoutKey}>
             <Routes>

@@ -16,6 +16,7 @@ const PropertyService = {
     region,
     floorCount,
     action,
+    searchTerm,
   }) {
     const response = await axios.get(`${API_URL}/property`, {
       params: {
@@ -31,6 +32,7 @@ const PropertyService = {
         region,
         floorCount,
         action,
+        searchTerm,
       },
     });
     return response.data;

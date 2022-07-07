@@ -1,41 +1,73 @@
-import React from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { useQueryClient } from 'react-query';
 
+import { UIContext } from '../../context';
 import { t } from '../../i18n';
+import SearchResults from '../../components/SearchResults';
 import Button from '../../components/Button';
 import PropertyService from '../../services/PropertyService';
 import classes from './styles.module.scss';
 
 export default function HomePage() {
+  const [searchValue, setSearchValue] = useState('');
+
+  const { searchTerm, setSearchTerm, isSearched, setIsSearched } =
+    useContext(UIContext);
+
   const queryClinet = useQueryClient();
 
-  queryClinet.prefetchQuery('property', () =>
-    PropertyService.getPropertyList({ recent: false, action: 'sell' })
-  );
-  queryClinet.prefetchQuery('recentProperty', () =>
-    PropertyService.getPropertyList({ recent: true, action: 'sell' })
-  );
-  queryClinet.prefetchQuery('rentProperty', () =>
-    PropertyService.getPropertyList({ recent: false, action: 'rent' })
-  );
-  queryClinet.prefetchQuery('recentRentProperty', () =>
-    PropertyService.getPropertyList({ recent: true, action: 'rent' })
-  );
+  const containerRef = useRef();
+
+  useEffect(() => {
+    queryClinet.prefetchQuery('property', () =>
+      PropertyService.getPropertyList({ recent: false, action: 'sell' })
+    );
+    queryClinet.prefetchQuery('recentProperty', () =>
+      PropertyService.getPropertyList({ recent: true, action: 'sell' })
+    );
+    queryClinet.prefetchQuery('rentProperty', () =>
+      PropertyService.getPropertyList({ recent: false, action: 'rent' })
+    );
+    queryClinet.prefetchQuery('recentRentProperty', () =>
+      PropertyService.getPropertyList({ recent: true, action: 'rent' })
+    );
+  }, [queryClinet]);
 
   const navigate = useNavigate();
+
+  const search = () => {
+    if (searchValue.trim()) {
+      setSearchTerm(searchValue);
+      setIsSearched(true);
+    }
+  };
+
+  useEffect(() => {
+    setSearchValue(searchTerm);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={classes.HomePage}>
       <div className={classes.searchContainer}>
-        <div className={classes.container}>
+        <div className={classes.container} ref={containerRef}>
           <h1>
             Buy with <span>Sun</span>
           </h1>
           <div className={classes.search}>
-            <input type="text" />
-            <button type="button">
+            <input
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  search();
+                }
+              }}
+              type="text"
+              value={searchValue}
+              onChange={(event) => setSearchValue(event.target.value)}
+            />
+            <button type="button" onClick={search}>
               <svg
                 width="32"
                 height="32"
@@ -54,15 +86,24 @@ export default function HomePage() {
       </div>
       <div className={classes.info}>
         <div className={classes.container}>
-          <div className={classes.description}>
-            <h2>{t('Make your property an island with Sun')}</h2>
-            <p>{t(`Lorem Ipsum`)}</p>
-            <div className={classes.buttons}>
-              <Button onClick={() => navigate('/rent')}>{t('RENT')}</Button>
-              <Button onClick={() => navigate('/sell')}>{t('SELL')}</Button>
-            </div>
-          </div>
-          <div className={classes.map}>MAP</div>
+          {isSearched ? (
+            <SearchResults
+              containerRef={containerRef}
+              searchTerm={searchTerm}
+            />
+          ) : (
+            <>
+              <div className={classes.description}>
+                <h2>{t('Make your property an island with Sun')}</h2>
+                <p>{t(`Lorem Ipsum`)}</p>
+                <div className={classes.buttons}>
+                  <Button onClick={() => navigate('/rent')}>{t('RENT')}</Button>
+                  <Button onClick={() => navigate('/sell')}>{t('SELL')}</Button>
+                </div>
+              </div>
+              <div className={classes.map}>MAP</div>
+            </>
+          )}
         </div>
       </div>
     </div>

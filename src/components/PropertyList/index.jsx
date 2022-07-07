@@ -25,7 +25,7 @@ export default function PropertyList({
   floorCount,
   recent,
   action,
-  // currentPage,
+  searchTerm,
 }) {
   const [page, setPage] = useState(0);
 
@@ -47,6 +47,7 @@ export default function PropertyList({
       region,
       floorCount,
       action,
+      searchTerm,
     })
   );
 
@@ -60,6 +61,13 @@ export default function PropertyList({
       setPage(0);
     }
   }, [queryName, refetch, searchKey]);
+
+  useEffect(() => {
+    if (searchTerm) {
+      refetch();
+      setPage(0);
+    }
+  }, [searchTerm]);
 
   return (
     <div
