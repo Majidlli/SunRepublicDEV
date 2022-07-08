@@ -1,0 +1,29 @@
+.MostPopularBig {
+  max-width: 566px;
+  .imageContainer {
+    width: 100%;
+    max-width: 566px;
+    height: 393px;
+    margin-bottom: 16px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .description {
+    margin: 0;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+  }
+}

@@ -10,6 +10,9 @@ import PropertyPage from '../pages/PropertyPage';
 import SellPage from '../pages/SellPage';
 import PropertyListPage from '../pages/PropertyListPage';
 import ContactUsPage from '../pages/ContactUsPage';
+import AddBlogPostPage from '../pages/AddBlogPostPage';
+import WhatWeSellPage from '../pages/WhatWeSellPage';
+import BlogPostPage from '../pages/BlogPostPage';
 
 // import i18n from '../i18n';
 import { UIContext } from '../context';
@@ -69,6 +72,9 @@ const RoutesComponent = () => {
               <Route path="/property-list" element={<PropertyListPage />} />
               <Route path="/property/:id" element={<PropertyPage />} />
               <Route path="/contact-us" element={<ContactUsPage />} />
+              <Route path="/add-post" element={<AddBlogPostPage />} />
+              <Route path="/what-we-sell" element={<WhatWeSellPage />} />
+              <Route path="/posts/:id" element={<BlogPostPage />} />
             </Routes>
           </Layout>
         </UIContext.Provider>
