@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useState, Suspense } from 'react';
 
+import PageTitle from '../../components/PageTitle';
 import classes from './styles.module.scss';
 
 const SellForm = React.lazy(() => import('../../components/SellForm'));
@@ -15,13 +16,7 @@ export default function SellPage() {
         currentStep === 2 && classes.secondStep
       )}
     >
-      <div className={classes.backgroundContainer}>
-        <div className={classes.container}>
-          <h1>
-            Sell with <span>Sun</span>
-          </h1>
-        </div>
-      </div>
+      <PageTitle />
       <div className={classes.formContainer}>
         <Suspense fallback={<div>Loading...</div>}>
           <SellForm currentStep={currentStep} setCurrentStep={setCurrentStep} />

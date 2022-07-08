@@ -9,6 +9,7 @@ import AddPropertyPage from '../pages/AddPropertyPage';
 import PropertyPage from '../pages/PropertyPage';
 import SellPage from '../pages/SellPage';
 import PropertyListPage from '../pages/PropertyListPage';
+import ContactUsPage from '../pages/ContactUsPage';
 
 // import i18n from '../i18n';
 import { UIContext } from '../context';
@@ -67,6 +68,7 @@ const RoutesComponent = () => {
               <Route path="/add-property" element={<AddPropertyPage />} />
               <Route path="/property-list" element={<PropertyListPage />} />
               <Route path="/property/:id" element={<PropertyPage />} />
+              <Route path="/contact-us" element={<ContactUsPage />} />
             </Routes>
           </Layout>
         </UIContext.Provider>
