@@ -67,7 +67,7 @@ export default function PropertyList({
       refetch();
       setPage(0);
     }
-  }, [refetch, searchTerm]);
+  }, [refetch, searchTerm, queryName]);
 
   return (
     <div

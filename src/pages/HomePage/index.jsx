@@ -40,11 +40,20 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   const search = () => {
-    if (searchValue.trim()) {
+    if (searchValue && searchValue.trim()) {
       setSearchTerm(searchValue);
       navigate(`/?search=${searchValue}`);
     }
   };
+
+  useEffect(() => {
+    if (!searchParam) {
+      setSearchValue('');
+    } else {
+      setSearchValue(searchParam);
+      setSearchTerm(searchParam);
+    }
+  }, [searchParam, setSearchTerm]);
 
   return (
     <div className={classes.HomePage}>
@@ -83,7 +92,7 @@ export default function HomePage() {
       </div>
       <div className={classes.info}>
         <div className={classes.container}>
-          {searchParam ? (
+          {searchParam && searchTerm ? (
             <SearchResults
               containerRef={containerRef}
               searchTerm={searchTerm}
