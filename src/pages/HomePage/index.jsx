@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext, useEffect } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useQueryClient } from 'react-query';
 
 import { UIContext } from '../../context';
@@ -13,12 +13,14 @@ import classes from './styles.module.scss';
 export default function HomePage() {
   const [searchValue, setSearchValue] = useState('');
 
-  const { searchTerm, setSearchTerm, isSearched, setIsSearched } =
-    useContext(UIContext);
+  const { searchTerm, setSearchTerm } = useContext(UIContext);
 
   const queryClinet = useQueryClient();
 
   const containerRef = useRef();
+
+  const [searchParams] = useSearchParams();
+  const searchParam = searchParams.get('search');
 
   useEffect(() => {
     queryClinet.prefetchQuery('property', () =>
@@ -40,14 +42,9 @@ export default function HomePage() {
   const search = () => {
     if (searchValue.trim()) {
       setSearchTerm(searchValue);
-      setIsSearched(true);
+      navigate(`/?search=${searchValue}`);
     }
   };
-
-  useEffect(() => {
-    setSearchValue(searchTerm);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div className={classes.HomePage}>
@@ -86,7 +83,7 @@ export default function HomePage() {
       </div>
       <div className={classes.info}>
         <div className={classes.container}>
-          {isSearched ? (
+          {searchParam ? (
             <SearchResults
               containerRef={containerRef}
               searchTerm={searchTerm}
