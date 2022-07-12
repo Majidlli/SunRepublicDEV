@@ -22,7 +22,7 @@ export default function Regular({ data, postWidth, postsCount }) {
         style={{ width: postsCount >= 3 ? postWidth : '' }}
       >
         <div className={classes.imageContainer}>
-          <img src={STATIC_URL + data?.imagePath} alt="" />
+          <img src={STATIC_URL + data?.imagePath} height={277} alt="" />
         </div>
         <h1>
           <MultiClamp clamp={3}>{title}</MultiClamp>

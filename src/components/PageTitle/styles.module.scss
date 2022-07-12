@@ -10,6 +10,11 @@
     url(../../assets/images/main-background.jpg);
   background-size: cover;
   border: 1px solid transparent;
+
+  &.about {
+    padding-top: 154px;
+  }
+
   .container {
     flex: 1;
     max-width: 1240px;
@@ -24,7 +29,7 @@
       line-height: 120px;
       color: rgba(255, 255, 255, 0.6);
 
-      span {
+      span.accent {
         color: #ef5225;
         opacity: 0.6;
       }

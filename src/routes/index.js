@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -13,8 +13,11 @@ import ContactUsPage from '../pages/ContactUsPage';
 import AddBlogPostPage from '../pages/AddBlogPostPage';
 import WhatWeSellPage from '../pages/WhatWeSellPage';
 import BlogPostPage from '../pages/BlogPostPage';
+import AboutPage from '../pages/AboutPage';
 
 // import i18n from '../i18n';
+import BlogPostsService from '../services/BlogPostsService';
+import PropertyService from '../services/PropertyService';
 import { UIContext } from '../context';
 
 const queryClient = new QueryClient({
@@ -33,6 +36,27 @@ const RoutesComponent = () => {
   const forceUpdate = useCallback(() => {
     setLayoutKey(Math.random());
   }, []);
+
+  useEffect(() => {
+    queryClient.prefetchQuery('property', () =>
+      PropertyService.getPropertyList({ recent: false, action: 'sell' })
+    );
+    queryClient.prefetchQuery('recentProperty', () =>
+      PropertyService.getPropertyList({ recent: true, action: 'sell' })
+    );
+    queryClient.prefetchQuery('rentProperty', () =>
+      PropertyService.getPropertyList({ recent: false, action: 'rent' })
+    );
+    queryClient.prefetchQuery('recentRentProperty', () =>
+      PropertyService.getPropertyList({ recent: true, action: 'rent' })
+    );
+
+    queryClient.prefetchQuery('blogPosts', BlogPostsService.getPosts);
+    queryClient.prefetchQuery(
+      'mostPopularBlogPosts',
+      BlogPostsService.getMostPopularPosts
+    );
+  });
 
   /*   useLayoutEffect(() => {
     if (i18n.language === 'en') {
@@ -75,6 +99,7 @@ const RoutesComponent = () => {
               <Route path="/add-post" element={<AddBlogPostPage />} />
               <Route path="/what-we-sell" element={<WhatWeSellPage />} />
               <Route path="/posts/:id" element={<BlogPostPage />} />
+              <Route path="/about" element={<AboutPage />} />
             </Routes>
           </Layout>
         </UIContext.Provider>

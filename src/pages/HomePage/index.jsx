@@ -1,13 +1,11 @@
 import React, { useState, useRef, useContext, useEffect } from 'react';
 
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useQueryClient } from 'react-query';
 
 import { UIContext } from '../../context';
 import { t } from '../../i18n';
 import SearchResults from '../../components/SearchResults';
 import Button from '../../components/Button';
-import PropertyService from '../../services/PropertyService';
 import classes from './styles.module.scss';
 
 export default function HomePage() {
@@ -15,27 +13,10 @@ export default function HomePage() {
 
   const { searchTerm, setSearchTerm } = useContext(UIContext);
 
-  const queryClinet = useQueryClient();
-
   const containerRef = useRef();
 
   const [searchParams] = useSearchParams();
   const searchParam = searchParams.get('search');
-
-  useEffect(() => {
-    queryClinet.prefetchQuery('property', () =>
-      PropertyService.getPropertyList({ recent: false, action: 'sell' })
-    );
-    queryClinet.prefetchQuery('recentProperty', () =>
-      PropertyService.getPropertyList({ recent: true, action: 'sell' })
-    );
-    queryClinet.prefetchQuery('rentProperty', () =>
-      PropertyService.getPropertyList({ recent: false, action: 'rent' })
-    );
-    queryClinet.prefetchQuery('recentRentProperty', () =>
-      PropertyService.getPropertyList({ recent: true, action: 'rent' })
-    );
-  }, [queryClinet]);
 
   const navigate = useNavigate();
 

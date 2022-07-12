@@ -1,0 +1,19 @@
+.FAQ {
+  display: flex;
+  justify-content: center;
+  padding-top: 42px;
+  padding-bottom: 46px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../../assets/images/faq-background.jpg);
+  background-size: cover;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    max-width: 1240px;
+  }
+}

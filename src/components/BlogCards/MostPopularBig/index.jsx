@@ -23,7 +23,7 @@ export default function MostPopularBig({ data }) {
     <Link to={`/posts/${data.id}`}>
       <article className={classes.MostPopularBig}>
         <div className={classes.imageContainer}>
-          <img src={STATIC_URL + data?.imagePath} alt="" />
+          <img src={STATIC_URL + data?.imagePath} alt="" height={393} />
         </div>
         <h1>
           <MultiClamp clamp={1}>{title}</MultiClamp>

@@ -54,7 +54,7 @@ export default function MostPopularSmall({ data }) {
     <Link to={`/posts/${data.id}`}>
       <article className={classes.MostPopularSmall}>
         <div className={classes.imageContainer}>
-          <img src={STATIC_URL + data?.imagePath} alt="" />
+          <img src={STATIC_URL + data?.imagePath} height={162} alt="" />
         </div>
         <div className={classes.details}>
           <span className={classes.date}>

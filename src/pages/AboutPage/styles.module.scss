@@ -1,0 +1,197 @@
+.AboutPage {
+  .container {
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    .content {
+      max-width: 1240px;
+      flex: 1;
+      padding-top: 64px;
+
+      h1.mainHeading {
+        margin: 0;
+        margin-bottom: 16px;
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 77px;
+      }
+
+      ol {
+        margin: 0;
+        margin-bottom: 64px;
+        padding: 0;
+        padding-left: 17px;
+
+        li {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 29px;
+
+          &::marker {
+            color: #ef5225;
+          }
+        }
+      }
+
+      .reasons {
+        margin-bottom: 68px;
+        h2 {
+          margin: 0;
+          margin-bottom: 24px;
+          font-weight: 600;
+          font-size: 64px;
+          line-height: 77px;
+        }
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          column-gap: 20px;
+          row-gap: 49px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          li {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: calc((100% - 40px) / 3);
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+
+            div {
+              min-width: 80px;
+              height: 80px;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-color: #ef5225;
+              border-radius: 50%;
+
+              &.first {
+                background-image: url(../../assets/images/about/notes.svg);
+              }
+
+              &.second {
+                background-image: url(../../assets/images/about/license.svg);
+              }
+
+              &.third {
+                background-image: url(../../assets/images/about/handshake.svg);
+              }
+
+              &.fourth {
+                background-image: url(../../assets/images/about/car.svg);
+              }
+
+              &.fifth {
+                background-image: url(../../assets/images/about/building.svg);
+              }
+
+              &.sixth {
+                background-image: url(../../assets/images/about/user.svg);
+              }
+            }
+          }
+        }
+      }
+
+      .team {
+        margin-bottom: 64px;
+        h2 {
+          margin: 0;
+          margin-bottom: 16px;
+          font-weight: 600;
+          font-size: 64px;
+          line-height: 77px;
+        }
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          li {
+            width: calc((100% - 40px) / 3);
+            margin: 0;
+            padding: 0;
+
+            .photoContainer {
+              position: relative;
+              width: 100%;
+              height: 368px;
+
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+
+              .buttonContainer {
+                position: absolute;
+                right: 16px;
+                bottom: 16px;
+
+                button {
+                  width: 126px;
+                  border-radius: 6px;
+                }
+              }
+            }
+
+            h1 {
+              margin: 0;
+              font-weight: 600;
+              font-size: 40px;
+              line-height: 48px;
+            }
+
+            p {
+              margin: 0;
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 29px;
+            }
+          }
+        }
+      }
+
+      .faq {
+        h2 {
+          margin: 0;
+          margin-bottom: 16px;
+          font-weight: 600;
+          font-size: 64px;
+          line-height: 77px;
+        }
+      }
+
+      .blog {
+        padding-bottom: 100px;
+        h2 {
+          margin: 0;
+          margin-bottom: 16px;
+          font-weight: 600;
+          font-size: 64px;
+          line-height: 77px;
+        }
+        ul {
+          display: flex;
+          column-gap: 20px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          li {
+          }
+        }
+      }
+    }
+  }
+}
