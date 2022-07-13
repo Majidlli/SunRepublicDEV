@@ -58,7 +58,7 @@ export default function ContactUsPage() {
 
   return (
     <div className={classes.ContactUsPage}>
-      <PageTitle title="Title" />
+      <PageTitle title={t('Title')} />
       <div className={classes.forms}>
         <form className={classes.form} onSubmit={formik.handleSubmit}>
           <h2>{t('MAKE A TOUR WITH US')}</h2>

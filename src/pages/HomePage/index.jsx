@@ -41,7 +41,7 @@ export default function HomePage() {
       <div className={classes.searchContainer}>
         <div className={classes.container} ref={containerRef}>
           <h1>
-            Buy with <span>Sun</span>
+            {t('Buy with')} <span>Sun</span>
           </h1>
           <div className={classes.search}>
             <input
@@ -84,7 +84,7 @@ export default function HomePage() {
                 <h2>{t('Make your property an island with Sun')}</h2>
                 <p>{t(`Lorem Ipsum`)}</p>
                 <div className={classes.buttons}>
-                  <Button onClick={() => navigate('/rent')}>{t('BUY')}</Button>
+                  <Button onClick={() => navigate('/buy')}>{t('BUY')}</Button>
                   <Button onClick={() => navigate('/sell')}>{t('SELL')}</Button>
                 </div>
               </div>
