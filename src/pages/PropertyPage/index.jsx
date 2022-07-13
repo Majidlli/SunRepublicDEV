@@ -83,10 +83,6 @@ export default function PropertyPage() {
                   <li>
                     {t('Pool')}: {data?.hasPool === true ? t('Yes') : t('No')}
                   </li>
-                  <li>
-                    {t('HOA Fee')}:{' '}
-                    {data?.hasHOAFee === true ? t('Yes') : t('No')}
-                  </li>
                 </ul>
               </div>
               <div className={classes.col}>

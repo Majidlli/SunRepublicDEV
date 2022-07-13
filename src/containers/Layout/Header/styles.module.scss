@@ -8,27 +8,72 @@
   width: 100%;
   height: 114px;
   padding-top: 35px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 180px;
+  padding-right: 180px;
   background-color: rgba(0, 0, 0, 0.7);
 
   .languageSwitcher {
     position: absolute;
     right: 40px;
+    display: flex;
+    gap: 5px;
     font-family: 'Smooch Sans';
     font-weight: bold;
     font-size: 28px;
     color: white;
     text-transform: uppercase;
     cursor: pointer;
+
+    img {
+      width: 20px;
+    }
+
+    .languagesList {
+      position: absolute;
+      top: 40px;
+      left: -10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: calc(100% + 20px);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background-color: #262626;
+      border-radius: 4px;
+
+      div {
+        display: flex;
+        gap: 5px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ef5225;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 22;
+    width: 150px;
   }
 
   .container {
     display: flex;
     flex: 1;
     max-width: 1240px;
+
     .phone {
       margin-left: auto;
+      padding-left: 20px;
       font-family: 'Smooch Sans';
       text-decoration: none;
       font-weight: 600;
@@ -49,14 +94,6 @@
         padding: 0;
 
         li {
-          img {
-            position: relative;
-            top: -11px;
-            z-index: 22;
-            width: 90px;
-            height: 77px;
-          }
-
           a {
             text-decoration: none;
             font-weight: 600;
@@ -66,6 +103,10 @@
             opacity: 0.6;
 
             &.link {
+              opacity: 1;
+            }
+
+            &:hover {
               opacity: 1;
             }
 

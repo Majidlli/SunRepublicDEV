@@ -84,7 +84,7 @@ export default function HomePage() {
                 <h2>{t('Make your property an island with Sun')}</h2>
                 <p>{t(`Lorem Ipsum`)}</p>
                 <div className={classes.buttons}>
-                  <Button onClick={() => navigate('/rent')}>{t('RENT')}</Button>
+                  <Button onClick={() => navigate('/rent')}>{t('BUY')}</Button>
                   <Button onClick={() => navigate('/sell')}>{t('SELL')}</Button>
                 </div>
               </div>

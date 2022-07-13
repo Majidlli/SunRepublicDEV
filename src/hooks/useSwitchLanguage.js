@@ -5,18 +5,10 @@ import { UIContext } from '../context';
 
 function useSwitchLanguage() {
   const { forceUpdate } = useContext(UIContext);
-  return () => {
-    if (i18n.language === 'en') {
-      i18n.changeLanguage('ru', () => {
-        forceUpdate();
-      });
-      localStorage.setItem('language', 'ru');
-    } else {
-      i18n.changeLanguage('en', () => {
-        forceUpdate();
-      });
-      localStorage.setItem('language', 'en');
-    }
+  return (language) => {
+    i18n.changeLanguage(language, () => {
+      forceUpdate();
+    });
   };
 }
 

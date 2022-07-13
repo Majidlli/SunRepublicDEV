@@ -19,8 +19,6 @@ export default function Filters({
   setArea,
   hasPool,
   setHasPool,
-  hasHOAFee,
-  setHasHOAFee,
   type,
   setType,
   region,
@@ -141,17 +139,6 @@ export default function Filters({
             { label: t('All'), value: '' },
             { label: t('Pool present'), value: true },
             { label: t('No Pool'), value: false },
-          ]}
-        />
-        <Select
-          label={t('HOA Fee')}
-          placeholder={t('Any')}
-          value={hasHOAFee}
-          setValue={setHasHOAFee}
-          options={[
-            { label: t('Any'), value: '' },
-            { label: t('HOA Fee present'), value: true },
-            { label: t('No Fee'), value: false },
           ]}
         />
       </div>

@@ -20,7 +20,6 @@ export default function AddPropertyPage() {
   const [price, setPrice] = useState('');
   const [area, setArea] = useState('');
   const [hasPool, setHasPool] = useState(false);
-  const [hasHOAFee, setHasHOAFee] = useState(false);
   const [type, setType] = useState('');
   const [region, setRegion] = useState('');
   const [floorCount, setFloorCount] = useState('');
@@ -57,7 +56,6 @@ export default function AddPropertyPage() {
       form.append('price', price);
       form.append('area', area);
       form.append('hasPool', hasPool);
-      form.append('hasHOAFee', hasHOAFee);
       form.append('type', type);
       form.append('region', region);
       form.append('floorCount', floorCount);
@@ -77,7 +75,6 @@ export default function AddPropertyPage() {
       setPrice('');
       setArea('');
       setHasPool(false);
-      setHasHOAFee(false);
       setType('');
       setRegion('');
       setFloorCount('');
@@ -186,25 +183,6 @@ export default function AddPropertyPage() {
               name="hasPool"
               onChange={() => setHasPool(false)}
               checked={!hasPool}
-            />
-            No
-          </label>
-          <label>
-            Has HOA Fee
-            <input
-              type="radio"
-              value="Yes"
-              name="hasHOAFee"
-              onChange={() => setHasHOAFee(true)}
-              checked={hasHOAFee}
-            />
-            Yes
-            <input
-              type="radio"
-              value="No"
-              name="hasHOAFee"
-              onChange={() => setHasHOAFee(false)}
-              checked={!hasHOAFee}
             />
             No
           </label>

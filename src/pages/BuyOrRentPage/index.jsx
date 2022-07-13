@@ -18,8 +18,6 @@ export default function BuyOrRentPage({ currentPage }) {
   const [areaRent, setAreaRent] = useState('');
   const [hasPool, setHasPool] = useState('');
   const [hasPoolRent, setHasPoolRent] = useState('');
-  const [hasHOAFee, setHasHOAFee] = useState('');
-  const [hasHOAFeeRent, setHasHOAFeeRent] = useState('');
   const [type, setType] = useState('');
   const [typeRent, setTypeRent] = useState('');
   const [region, setRegion] = useState('');
@@ -51,8 +49,6 @@ export default function BuyOrRentPage({ currentPage }) {
             setArea={setArea}
             hasPool={hasPool}
             setHasPool={setHasPool}
-            hasHOAFee={hasHOAFee}
-            setHasHOAFee={setHasHOAFee}
             type={type}
             setType={setType}
             region={region}
@@ -77,8 +73,6 @@ export default function BuyOrRentPage({ currentPage }) {
             setArea={setAreaRent}
             hasPool={hasPoolRent}
             setHasPool={setHasPoolRent}
-            hasHOAFee={hasHOAFeeRent}
-            setHasHOAFee={setHasHOAFeeRent}
             type={typeRent}
             setType={setTypeRent}
             region={regionRent}
@@ -100,7 +94,6 @@ export default function BuyOrRentPage({ currentPage }) {
               maxPrice={maxPrice}
               area={area}
               hasPool={hasPool}
-              hasHOAFee={hasHOAFee}
               type={type}
               region={region}
               floorCount={floorCount}
@@ -120,7 +113,6 @@ export default function BuyOrRentPage({ currentPage }) {
               maxPrice={maxPriceRent}
               area={areaRent}
               hasPool={hasPoolRent}
-              hasHOAFee={hasHOAFeeRent}
               type={typeRent}
               region={regionRent}
               floorCount={floorCountRent}
