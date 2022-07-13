@@ -12,6 +12,14 @@
   padding-right: 180px;
   background-color: rgba(0, 0, 0, 0.7);
 
+  &.russian {
+    .container {
+      .navigationMenu {
+        max-width: 1000px;
+      }
+    }
+  }
+
   .languageSwitcher {
     position: absolute;
     right: 40px;

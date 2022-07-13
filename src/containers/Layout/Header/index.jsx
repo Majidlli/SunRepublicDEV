@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import { NavLink, Link } from 'react-router-dom';
 
+import classNames from 'classnames';
 import useOnClickOutside from '../../../hooks/useOnClickOutside';
 import useSwitchLanguage from '../../../hooks/useSwitchLanguage';
 import i18n, { t } from '../../../i18n';
@@ -22,7 +23,12 @@ export default function Header() {
   );
 
   return (
-    <header className={classes.Header}>
+    <header
+      className={classNames(
+        classes.Header,
+        i18n.language === 'ru' && classes.russian
+      )}
+    >
       <Link to="/" className={classes.link}>
         <img src={logoHeader} alt="Logo" className={classes.logo} />
       </Link>
