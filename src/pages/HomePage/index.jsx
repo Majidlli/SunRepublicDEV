@@ -6,6 +6,7 @@ import { UIContext } from '../../context';
 import { t } from '../../i18n';
 import SearchResults from '../../components/SearchResults';
 import Button from '../../components/Button';
+import Map from '../../components/Map';
 import classes from './styles.module.scss';
 
 export default function HomePage() {
@@ -88,7 +89,7 @@ export default function HomePage() {
                   <Button onClick={() => navigate('/sell')}>{t('SELL')}</Button>
                 </div>
               </div>
-              <div className={classes.map}>MAP</div>
+              <Map />
             </>
           )}
         </div>
