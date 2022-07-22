@@ -1,6 +1,7 @@
 import React, { useState, useRef, useContext, useEffect } from 'react';
 
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import classNames from 'classnames';
 
 import { UIContext } from '../../context';
 import { t } from '../../i18n';
@@ -73,7 +74,12 @@ export default function HomePage() {
         </div>
       </div>
       <div className={classes.info}>
-        <div className={classes.container}>
+        <div
+          className={classNames(
+            classes.container,
+            searchParam && searchTerm && classes.propertyList
+          )}
+        >
           {searchParam && searchTerm ? (
             <SearchResults
               containerRef={containerRef}

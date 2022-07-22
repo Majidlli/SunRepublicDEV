@@ -66,6 +66,10 @@
     }
   }
 
+  .menuButton {
+    display: none;
+  }
+
   .logo {
     position: absolute;
     top: 0;
@@ -135,6 +139,57 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .Header {
+    height: 47px;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    .languageSwitcher {
+      top: 10px;
+      right: 64px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 148%;
+    }
+
+    .menuButton {
+      display: block;
+      display: flex;
+      align-items: center;
+      padding-right: 23px;
+      button {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+      }
+    }
+
+    .logo {
+      top: 2px;
+      width: 54px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      .phone {
+        margin-right: 80px;
+        padding-left: 0;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 148%;
+        white-space: nowrap;
+      }
+
+      .navigationMenu {
+        display: none;
       }
     }
   }

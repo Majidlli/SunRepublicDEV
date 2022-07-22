@@ -9,11 +9,37 @@
     url(../../assets/images/faq-background.jpg);
   background-size: cover;
 
+  h1 {
+    display: none;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
     gap: 16px;
     flex: 1;
     max-width: 1240px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .FAQ {
+    display: block;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    h1 {
+      display: block;
+      margin: 0;
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 36px;
+      color: white;
+    }
+    .container {
+      max-width: unset;
+    }
   }
 }

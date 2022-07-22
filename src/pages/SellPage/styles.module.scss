@@ -7,36 +7,6 @@
     }
   }
 
-  .backgroundContainer {
-    display: flex;
-    justify-content: center;
-    height: 560px;
-    padding-top: 185px;
-    padding-left: 100px;
-    padding-right: 100px;
-    background-color: rgba(0, 0, 0, 0.4);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url(../../assets/images/main-background.jpg);
-    background-size: cover;
-    .container {
-      flex: 1;
-      max-width: 1240px;
-      h1 {
-        margin: 0;
-        padding-left: 10px;
-        font-family: 'Smooch Sans';
-        font-weight: 800;
-        font-size: 100px;
-        line-height: 120px;
-        color: rgba(255, 255, 255, 0.6);
-        span {
-          color: #ef5225;
-          opacity: 0.6;
-        }
-      }
-    }
-  }
-
   .formContainer {
     position: absolute;
     top: 310px;
@@ -49,5 +19,26 @@
 
   .emptySpace {
     height: 501px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .SellPage {
+    min-height: unset;
+
+    &.secondStep {
+      .emptySpace {
+        height: 598px;
+      }
+    }
+
+    .formContainer {
+      top: 112px;
+      min-height: unset;
+    }
+
+    .emptySpace {
+      height: 446px;
+    }
   }
 }

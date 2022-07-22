@@ -75,6 +75,63 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <div className={classes.mobileContainer}>
+        <div className={classes.col}>
+          <div className={classes.logoContainer}>
+            <img src={logoFooter} alt="Logo" />
+          </div>
+          <div className={classes.info}>
+            <a className={classes.phone} href="tel:(123) 000 0110">
+              (123) 000 0110
+            </a>
+            <small>© 2010-2022 by Sunrepublic.</small>
+          </div>
+          <div className={classes.social}>
+            <a
+              className={classes.socialLink}
+              href="https://www.instagram.com/sunrepublic.vip/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={instagramIcon} alt="Instagram" />
+              <span>Instagram</span>
+            </a>
+            <div className={classes.socialLink}>
+              <img src={facebookIcon} alt="Facebook" />
+              <span>Facebook</span>
+            </div>
+            <div className={classes.socialLink}>
+              <img src={whatsAppIcon} alt="WhatsApp" />
+              <span>WhatsApp</span>
+            </div>
+          </div>
+        </div>
+        <div className={classes.col}>
+          <ul className={classes.links}>
+            <li>
+              <Link to="/">{t('HOME')}</Link>
+            </li>
+            <li>
+              <Link to="/buy">{t('BUY')}</Link>
+            </li>
+            <li>
+              <Link to="/rent">{t('RENT')}</Link>
+            </li>
+            <li>
+              <Link to="/sell">{t('SELL')}</Link>
+            </li>
+            <li>
+              <Link to="/what-we-sell">{t('WHAT WE SELL')}</Link>
+            </li>
+            <li>
+              <Link to="/contact-us">{t('CONTACT US')}</Link>
+            </li>
+            <li>
+              <Link to="/about">{t('ABOUT')}</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </footer>
   );
 }

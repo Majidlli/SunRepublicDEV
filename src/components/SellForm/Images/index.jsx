@@ -1,16 +1,21 @@
 import React, { useRef } from 'react';
 
+import { useMediaQuery } from 'react-responsive';
+
 import { t } from '../../../i18n';
 import classes from './styles.module.scss';
 
 export default function Images({ images = [], setImages }) {
   const inputRef = useRef();
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
-  const emptyPhotoSockets = Array.from(Array(11 - images.length));
+  const maxImagesLength = isTabletOrMobile ? 5 : 11;
+
+  const emptyPhotoSockets = Array.from(Array(maxImagesLength - images.length));
 
   const addImages = (event) => {
     setImages((prevImages) => {
-      if (prevImages.length === 11) {
+      if (prevImages.length === maxImagesLength) {
         return prevImages;
       }
 
@@ -18,8 +23,9 @@ export default function Images({ images = [], setImages }) {
         return !prevImages.some((prvImg) => prvImg.name === file.name);
       });
 
-      if (prevImages.length + newImages.length > 11) {
-        const imagesToRemove = prevImages.length + newImages.length - 11;
+      if (prevImages.length + newImages.length > maxImagesLength) {
+        const imagesToRemove =
+          prevImages.length + newImages.length - maxImagesLength;
         newImages = newImages.slice(-1 * imagesToRemove);
       }
 

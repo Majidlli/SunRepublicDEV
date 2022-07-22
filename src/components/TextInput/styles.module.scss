@@ -11,7 +11,6 @@
   }
 
   input {
-    // padding-bottom: 8px;
     font-family: 'Smooch Sans', 'Alumni Sans';
     font-weight: 600;
     font-size: 22px;
@@ -28,6 +27,23 @@
     &::placeholder {
       color: white;
       opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .TextInput {
+    .label {
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    input {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
     }
   }
 }

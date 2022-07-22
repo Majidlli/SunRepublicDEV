@@ -84,3 +84,30 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 1024px) {
+  .SellForm {
+    max-width: 345px;
+    padding: 40px;
+    border-radius: 12px;
+    &.secondStep {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    h2 {
+      height: 33px;
+      font-weight: 600;
+      font-size: 34px;
+      line-height: 41px;
+    }
+
+    .steps {
+      margin-bottom: 14px;
+    }
+
+    .inputs {
+      margin-bottom: 20px;
+    }
+  }
+}

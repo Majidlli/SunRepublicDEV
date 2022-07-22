@@ -27,3 +27,31 @@
     line-height: 29px;
   }
 }
+
+@media (max-width: 1024px) {
+  .MostPopularBig {
+    width: 100%;
+    max-width: unset;
+    .imageContainer {
+      max-width: unset;
+      height: unset;
+      aspect-ratio: 387 / 252;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-bottom: 0;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .description {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}

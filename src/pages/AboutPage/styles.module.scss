@@ -187,8 +187,115 @@
           margin: 0;
           padding: 0;
           list-style: none;
+        }
+      }
+    }
+  }
+}
 
-          li {
+@media (max-width: 1024px) {
+  .AboutPage {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+
+      .content {
+        padding-top: 30px;
+        h1.mainHeading {
+          display: none;
+        }
+
+        ol {
+          display: none;
+        }
+
+        .reasons {
+          margin-bottom: 30px;
+          h2 {
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 36px;
+          }
+
+          ul {
+            flex-direction: column;
+
+            li {
+              width: 100%;
+
+              div {
+                min-width: 60px;
+                width: 60px;
+                height: 60px;
+                background-size: 35px;
+              }
+            }
+          }
+        }
+
+        .team {
+          margin-bottom: 30px;
+          h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 36px;
+            text-align: center;
+          }
+
+          ul {
+            gap: 15px;
+
+            li {
+              width: calc((100% - 15px) / 2);
+              .photoContainer {
+                height: unset;
+                aspect-ratio: 185 / 139;
+                margin-bottom: 10px;
+                border-radius: 6px;
+                overflow: hidden;
+
+                .buttonContainer {
+                  right: 10px;
+                  bottom: 10px;
+                  button {
+                    width: 63px;
+                    min-height: 29px;
+
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 19px;
+                  }
+                }
+              }
+
+              h1 {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+              }
+
+              p {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+              }
+            }
+          }
+        }
+
+        .blog {
+          padding-bottom: 39px;
+          h2 {
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 43px;
+          }
+          ul {
+            flex-direction: column;
+            gap: 20px;
           }
         }
       }

@@ -1,5 +1,8 @@
 import React, { useState, useRef } from 'react';
 
+import { useMediaQuery } from 'react-responsive';
+
+import PropertyListMobile from '../../components/PropertyListMobile';
 import PropertyList from '../../components/PropertyList';
 import Filters from '../../components/Filters';
 import { t } from '../../i18n';
@@ -29,6 +32,12 @@ export default function BuyOrRentPage({ currentPage }) {
 
   const filtersRef = useRef();
   const filtersRefRent = useRef();
+
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+
+  const PropertyListComponent = isTabletOrMobile
+    ? PropertyListMobile
+    : PropertyList;
 
   return (
     <div className={classes.BuyOrRentPage}>
@@ -85,7 +94,7 @@ export default function BuyOrRentPage({ currentPage }) {
       <div className={classes.mainContent}>
         <div className={classes.propertyListContainer}>
           {currentPage === 'sell' && (
-            <PropertyList
+            <PropertyListComponent
               title={t('Available options')}
               filtersRef={filtersRef}
               bedrooms={bedrooms}
@@ -104,7 +113,7 @@ export default function BuyOrRentPage({ currentPage }) {
             />
           )}
           {currentPage === 'rent' && (
-            <PropertyList
+            <PropertyListComponent
               title={t('Available options')}
               filtersRef={filtersRefRent}
               bedrooms={bedroomsRent}
@@ -124,7 +133,7 @@ export default function BuyOrRentPage({ currentPage }) {
           )}
         </div>
         <div className={classes.propertyListContainer}>
-          <PropertyList
+          <PropertyListComponent
             title={t('Added recently')}
             filtersRef={filtersRef}
             queryName={

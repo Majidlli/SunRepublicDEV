@@ -24,3 +24,18 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .Filters {
+    height: unset;
+    flex-direction: column;
+    .col {
+      gap: 20px;
+      .buttonContainer {
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

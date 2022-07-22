@@ -7,6 +7,7 @@ function useSwitchLanguage() {
   const { forceUpdate } = useContext(UIContext);
   return (language) => {
     i18n.changeLanguage(language, () => {
+      localStorage.setItem('language', language);
       forceUpdate();
     });
   };

@@ -6,7 +6,6 @@ import { t } from '../../i18n';
 import classes from './styles.module.scss';
 
 export default function PageTitle({ title, about }) {
-  console.log(about);
   return (
     <div className={classNames(classes.PageTitle, about && classes.about)}>
       <div className={classes.container}>

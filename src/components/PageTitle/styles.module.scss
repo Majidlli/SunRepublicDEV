@@ -36,3 +36,25 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .PageTitle {
+    height: 226px;
+    padding-top: 66px;
+    padding-left: 20px;
+    padding-right: 20px;
+    &.about {
+      padding-top: 68px;
+    }
+
+    .container {
+      h1 {
+        margin-bottom: 0;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 36px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+}

@@ -47,6 +47,7 @@ export default function FAQ() {
 
   return (
     <div className={classes.FAQ}>
+      <h1>Frequently Asked Questions</h1>
       <div className={classes.container}>
         {questions.map((question) => {
           return <Question question={question} key={question.question} />;

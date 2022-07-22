@@ -1,5 +1,6 @@
 import React from 'react';
 
+import axios from 'axios';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
@@ -11,6 +12,7 @@ import PageTitle from '../../components/PageTitle';
 import instagramIcon from '../../assets/images/instagram.svg';
 import facebookIcon from '../../assets/images/facebook.svg';
 import whatsAppIcon from '../../assets/images/whatsapp.svg';
+import { API_URL } from '../../constants/main';
 import classes from './styles.module.scss';
 
 const validationSchema = yup.object({
@@ -43,6 +45,15 @@ const validationSchema = yup.object({
 });
 
 export default function ContactUsPage() {
+  const sendMessage = async (values, { resetForm }) => {
+    try {
+      await axios.post(`${API_URL}/contact`, values);
+      resetForm();
+    } catch (error) {
+      console.log();
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -51,9 +62,7 @@ export default function ContactUsPage() {
       description: '',
     },
     validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit: sendMessage,
   });
 
   return (

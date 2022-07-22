@@ -50,3 +50,10 @@
     color: white !important;
   }
 }
+
+@media (max-width: 1024px) {
+  .input {
+    font-size: 20px !important;
+    line-height: 24px !important;
+  }
+}

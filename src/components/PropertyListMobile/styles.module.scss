@@ -1,0 +1,66 @@
+.PropertyListMobile {
+  h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: left;
+    color: black;
+  }
+
+  .listContainer {
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-bottom: 30px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-right: 15px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .inner {
+      //position: absolute;
+      display: flex;
+      transition: all 0.2s;
+
+      &::after {
+        content: '';
+        display: block;
+        height: 20px;
+        min-width: 15px;
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+
+    .page {
+      width: 7px;
+      height: 7px;
+      background-color: #d9d9d9;
+      border-radius: 50%;
+      transition: all 0.2s;
+
+      &.active {
+        width: 26px;
+        background-color: #ef5225;
+        border-radius: 30px;
+      }
+    }
+  }
+}

@@ -111,3 +111,81 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .ContactUsPage {
+    min-height: unset;
+
+    .emptySpace {
+      height: 782px;
+    }
+
+    .forms {
+      top: 75px;
+      display: block;
+      padding: 40px;
+      .form,
+      .contactInfo {
+        max-width: unset;
+      }
+
+      .form {
+        margin-bottom: 20px;
+        padding-top: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 40px;
+
+        h2 {
+          width: 178px;
+          margin-bottom: 20px;
+          font-weight: 600;
+          font-size: 34px;
+          line-height: 41px;
+          text-align: center;
+        }
+
+        .inputs {
+          margin-bottom: 20px;
+        }
+      }
+
+      .contactInfo {
+        padding-top: 40px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 49px;
+        h2 {
+          margin-bottom: 20px;
+          font-weight: 600;
+          font-size: 34px;
+          line-height: 41px;
+        }
+
+        .social {
+          width: 150px;
+
+          a {
+            width: unset;
+          }
+
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+
+        .phoneNumbers {
+          gap: 10px;
+          .phone {
+            width: 119px;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 148%;
+            background-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

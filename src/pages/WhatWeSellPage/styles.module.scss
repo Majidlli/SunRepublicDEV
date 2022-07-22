@@ -63,3 +63,55 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .WhatWeSellPage {
+    min-height: unset;
+
+    .container {
+      padding-top: 30px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 30px;
+
+      .mostPopular {
+        max-width: unset;
+        margin-bottom: 30px;
+        h2 {
+          margin-bottom: 20px;
+          font-weight: 600;
+          font-size: 36px;
+          line-height: 43px;
+        }
+
+        .posts {
+          display: block;
+          .list {
+            gap: 20px;
+            padding-top: 30px;
+          }
+        }
+      }
+
+      .blogPostsList {
+        max-width: unset;
+        h2 {
+          margin-bottom: 30px;
+          font-weight: 600;
+          font-size: 36px;
+          line-height: 43px;
+        }
+
+        ul {
+          flex-direction: column;
+          gap: 20px;
+          li {
+            margin-bottom: 0;
+            display: flex;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -43,3 +43,32 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .BlogPostPage {
+    min-height: unset;
+
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+      .content {
+        max-width: unset;
+        padding-top: 30px;
+        padding-bottom: 4px;
+        h1 {
+        }
+
+        img {
+          width: 100%;
+          height: unset;
+          float: unset;
+        }
+
+        .textContent {
+          p {
+          }
+        }
+      }
+    }
+  }
+}
