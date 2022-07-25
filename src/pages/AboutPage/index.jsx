@@ -7,16 +7,11 @@ import { t } from '../../i18n';
 import useResizeObserver from '../../hooks/useResizeObserver';
 import BlogPostsService from '../../services/BlogPostsService';
 import FAQ from '../../components/FAQ';
-import Button from '../../components/Button';
 import PageTitle from '../../components/PageTitle';
-import randomPerson1 from '../../assets/images/about/random-person-1.jpg';
 import randomPerson2 from '../../assets/images/about/random-person-2.jpg';
-import randomPerson3 from '../../assets/images/about/random-person-3.jpg';
-import randomPerson4 from '../../assets/images/about/random-person-4.jpg';
-import randomPerson5 from '../../assets/images/about/random-person-5.jpg';
-import randomPerson6 from '../../assets/images/about/random-person-6.jpg';
 import classes from './styles.module.scss';
 import Regular from '../../components/BlogCards/Regular';
+import RenderTeam from '../../components/RenderTeam';
 
 export default function AboutPage() {
   const { data } = useQuery(
@@ -83,66 +78,60 @@ export default function AboutPage() {
           <div className={classes.team}>
             <h2>{t('Meet Our Team')}</h2>
             <ul>
-              <li>
-                <div className={classes.photoContainer}>
-                  <img src={randomPerson1} alt="" />
-                  <div className={classes.buttonContainer}>
-                    <Button>{t('CONTACT')}</Button>
-                  </div>
-                </div>
-                <h1>{t('Name')}</h1>
-                <p>{t('aboutLorem')}</p>
-              </li>
-              <li>
-                <div className={classes.photoContainer}>
-                  <img src={randomPerson2} alt="" />
-                  <div className={classes.buttonContainer}>
-                    <Button>{t('CONTACT')}</Button>
-                  </div>
-                </div>
-                <h1>{t('Name')}</h1>
-                <p>{t('aboutLorem')}</p>
-              </li>
-              <li>
-                <div className={classes.photoContainer}>
-                  <img src={randomPerson3} alt="" />
-                  <div className={classes.buttonContainer}>
-                    <Button>{t('CONTACT')}</Button>
-                  </div>
-                </div>
-                <h1>{t('Name')}</h1>
-                <p>{t('aboutLorem')}</p>
-              </li>
-              <li>
-                <div className={classes.photoContainer}>
-                  <img src={randomPerson4} alt="" />
-                  <div className={classes.buttonContainer}>
-                    <Button>{t('CONTACT')}</Button>
-                  </div>
-                </div>
-                <h1>{t('Name')}</h1>
-                <p>{t('aboutLorem')}</p>
-              </li>
-              <li>
-                <div className={classes.photoContainer}>
-                  <img src={randomPerson5} alt="" />
-                  <div className={classes.buttonContainer}>
-                    <Button>{t('CONTACT')}</Button>
-                  </div>
-                </div>
-                <h1>{t('Name')}</h1>
-                <p>{t('aboutLorem')}</p>
-              </li>
-              <li>
-                <div className={classes.photoContainer}>
-                  <img src={randomPerson6} alt="" />
-                  <div className={classes.buttonContainer}>
-                    <Button>{t('CONTACT')}</Button>
-                  </div>
-                </div>
-                <h1>{t('Name')}</h1>
-                <p>{t('aboutLorem')}</p>
-              </li>
+              <RenderTeam
+                name={t('Tural Aliyev')}
+                email="tural@sunrepublic.vip"
+                phone="+90 533 843 53 63"
+                img={randomPerson2}
+              />
+              <RenderTeam
+                name={t('Mamed Gafarov')}
+                email="mamed@sunrepublic.vip"
+                phone="+90 548 865 36 15"
+                img={randomPerson2}
+              />
+              <RenderTeam
+                name={t('Kseniya Kuksina')}
+                email="info@sunrepublic.vip"
+                phone="+90 533 857 85 35"
+                img={randomPerson2}
+              />
+              <RenderTeam
+                name={t('Andrii Yakimets')}
+                email="andrew@sunrepublic.vip"
+                phone="+90 533 845 77 88"
+                img={randomPerson2}
+              />
+              <RenderTeam
+                name={t('Shakhin Aliyev')}
+                email="shakhin@sunrepublic.vip"
+                phone="+90 533 825 04 55"
+                img={randomPerson2}
+              />
+              <RenderTeam
+                name={t('Margarita Zavraiska')}
+                email="margo@sunrepublic.vip"
+                phone="+90 539 104 77 88"
+                img={randomPerson2}
+              />
+              <RenderTeam
+                name={t('Daniyar Ishmedov')}
+                email="daniyar@sunrepublic.vip"
+                phone="+90 548 847 20 72"
+                img={randomPerson2}
+              />
+              <RenderTeam
+                name={t('Nargiz Ibragimova')}
+                email="sabina@sunrepublic.vip"
+                phone="+90 548 828 83 14"
+                img={randomPerson2}
+              />
+              <RenderTeam
+                name={t('Sabina Rahimova')}
+                email="sabina@sunrepublic.vip"
+                phone="+90 539 100 11 17"
+                img={randomPerson2}
+              />
             </ul>
           </div>
           <div className={classes.faq}>
