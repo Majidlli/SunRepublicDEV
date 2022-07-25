@@ -33,15 +33,14 @@ export default function AboutPage() {
   return (
     <div className={classes.AboutPage}>
       <PageTitle
-        about
         title={
           <span>
             {t('About Our')} <br />
             {t('Company')}
             <br />
-            Sun Republic
           </span>
         }
+        about="Sun Republic"
       />
       <div className={classes.container}>
         <div className={classNames(classes.content)} ref={contentRef}>
