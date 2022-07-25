@@ -13,6 +13,8 @@
 
   .svgMap {
     transform: scale(1.15) translate(-10px);
+    width: 100%;
+    height: 120%;
 
     g {
       transform-origin: center center;
