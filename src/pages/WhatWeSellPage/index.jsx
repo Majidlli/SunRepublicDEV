@@ -27,7 +27,7 @@ export default function WhatWeSellPage() {
 
   return (
     <div className={classes.WhatWeSellPage}>
-      <PageTitle title={t('Title')} />
+      <PageTitle title={t('Read with')} />
       <div className={classes.container} ref={containerRef}>
         {mostPopularBlogPosts?.data && (
           <div className={classes.mostPopular}>
