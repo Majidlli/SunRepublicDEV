@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
+import axios from 'axios';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import classNames from 'classnames';
 
+import { API_URL } from '../../constants/main';
 import { t } from '../../i18n';
 import Images from './Images';
 import Button from '../Button';
@@ -56,6 +58,26 @@ export default function SellForm({ currentStep, setCurrentStep }) {
       setCurrentStep(2);
     },
   });
+
+  const sendForm = async () => {
+    try {
+      const form = new FormData();
+
+      form.append('name', formik.values.name);
+      form.append('phone', formik.values.phone);
+      form.append('email', formik.values.email);
+      form.append('description', formik.values.description);
+
+      images.forEach((image) => {
+        form.append('file', image);
+      });
+
+      await axios.post(`${API_URL}/contact/sell`, form);
+      setIsFinished(true);
+    } catch (error) {
+      console.log();
+    }
+  };
 
   return (
     <form
@@ -162,10 +184,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
           </Button>
         )}
         {currentStep === 2 && (
-          <Button
-            onClick={() => setIsFinished(true)}
-            disabled={images.length === 0}
-          >
+          <Button onClick={sendForm} disabled={images.length === 0}>
             {t('SEND')}
           </Button>
         )}
