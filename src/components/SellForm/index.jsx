@@ -61,6 +61,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
 
   const sendForm = async () => {
     try {
+      setIsFinished(true);
       const form = new FormData();
 
       form.append('name', formik.values.name);
@@ -73,7 +74,10 @@ export default function SellForm({ currentStep, setCurrentStep }) {
       });
 
       await axios.post(`${API_URL}/contact/sell`, form);
-      setIsFinished(true);
+      formik.handleReset();
+      setImages([]);
+      setCurrentStep(1);
+      setIsFinished(false);
     } catch (error) {
       console.log();
     }
