@@ -11,13 +11,13 @@ export default function PropetyCarousel({ containerRef }) {
 
   useEffect(() => {
     if (containerRef.current) {
-      setNumberOfItems(Math.floor(containerRef.current.offsetWidth / 290) + 1);
+      setNumberOfItems(Math.floor(containerRef.current.offsetWidth / 250));
     }
   }, [containerRef]);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
-      setNumberOfItems(Math.floor(containerRef.current.offsetWidth / 290) + 1);
+      setNumberOfItems(Math.floor(containerRef.current.offsetWidth / 250));
     });
   }, [containerRef]);
 
