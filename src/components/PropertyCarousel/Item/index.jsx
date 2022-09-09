@@ -7,8 +7,8 @@ import properyPlaceholder from '../../../assets/images/propertyPlaceholder.png';
 
 export default function Item() {
   return (
-    <Link to="/buy">
-      <div className={classes.Item}>
+    <Link to="/buy" className={classes.Item}>
+      <div className={classes.container}>
         <img src={properyPlaceholder} alt="" />
         <h1>Title</h1>
       </div>
