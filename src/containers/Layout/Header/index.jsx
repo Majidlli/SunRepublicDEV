@@ -109,8 +109,8 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <a className={classes.phone} href="tel:(123) 000 0110">
-          (123) 000 0110
+        <a className={classes.phone} href="tel:+90 533 845 77 88">
+          +90 533 845 77 88
         </a>
       </div>
       <div

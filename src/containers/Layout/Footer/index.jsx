@@ -8,6 +8,7 @@ import { t } from '../../../i18n';
 import instagramIcon from '../../../assets/images/instagram.svg';
 import facebookIcon from '../../../assets/images/facebook.svg';
 import whatsAppIcon from '../../../assets/images/whatsapp.svg';
+import youtubeIcon from '../../../assets/images/youtube.png';
 import logoFooter from '../../../assets/images/logoFooter.png';
 import classes from './styles.module.scss';
 
@@ -20,8 +21,8 @@ export default function Footer() {
         </div>
         <div className={classes.cols}>
           <div className={classNames(classes.col, classes.first)}>
-            <a className={classes.phone} href="tel:(123) 000 0110">
-              (123) 000 0110
+            <a className={classes.phone} href="tel:+90 533 845 77 88">
+              +90 533 845 77 88
             </a>
             <small>© 2010-2022 by Sunrepublic.</small>
           </div>
@@ -64,14 +65,33 @@ export default function Footer() {
               <img src={instagramIcon} alt="Instagram" />
               <span>Instagram</span>
             </a>
-            <div>
+            <a
+              className={classes.socialLink}
+              href="https://www.facebook.com/sunrepublic.vip/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={facebookIcon} alt="Facebook" />
               <span>Facebook</span>
-            </div>
-            <div>
+            </a>
+            <a
+              className={classes.socialLink}
+              href="https://wa.me/905338457788"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={whatsAppIcon} alt="WhatsApp" />
               <span>WhatsApp</span>
-            </div>
+            </a>
+            <a
+              className={classes.socialLink}
+              href="https://www.youtube.com/c/IrinDrealty"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={youtubeIcon} alt="YouTube" />
+              <span>YouTube</span>
+            </a>
           </div>
         </div>
       </div>
@@ -81,8 +101,8 @@ export default function Footer() {
             <img src={logoFooter} alt="Logo" />
           </div>
           <div className={classes.info}>
-            <a className={classes.phone} href="tel:(123) 000 0110">
-              (123) 000 0110
+            <a className={classes.phone} href="tel:+90 533 845 77 88">
+              +90 533 845 77 88
             </a>
             <small>© 2010-2022 by Sunrepublic.</small>
           </div>
@@ -96,14 +116,33 @@ export default function Footer() {
               <img src={instagramIcon} alt="Instagram" />
               <span>Instagram</span>
             </a>
-            <div className={classes.socialLink}>
+            <a
+              className={classes.socialLink}
+              href="https://www.facebook.com/sunrepublic.vip/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={facebookIcon} alt="Facebook" />
               <span>Facebook</span>
-            </div>
-            <div className={classes.socialLink}>
+            </a>
+            <a
+              className={classes.socialLink}
+              href="https://wa.me/905338457788"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={whatsAppIcon} alt="WhatsApp" />
               <span>WhatsApp</span>
-            </div>
+            </a>
+            <a
+              className={classes.socialLink}
+              href="https://www.youtube.com/c/IrinDrealty"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={youtubeIcon} alt="YouTube" />
+              <span>YouTube</span>
+            </a>
           </div>
         </div>
         <div className={classes.col}>

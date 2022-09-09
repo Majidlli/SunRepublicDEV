@@ -1,19 +1,22 @@
-import React, { useState, useRef, useContext, useEffect } from 'react';
+/* eslint-disable jsx-a11y/media-has-caption */
+import React, { useRef, useContext } from 'react';
 
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { UIContext } from '../../context';
 import { t } from '../../i18n';
-import SearchResults from '../../components/SearchResults';
+// import SearchResults from '../../components/SearchResults';
+import PropetyCarousel from '../../components/PropertyCarousel';
 import Button from '../../components/Button';
 import Map from '../../components/Map';
+import presentationVideo from '../../assets/videos/presentation.mp4';
 import classes from './styles.module.scss';
 
 export default function HomePage() {
-  const [searchValue, setSearchValue] = useState('');
+  // const [searchValue, setSearchValue] = useState('');
 
-  const { searchTerm, setSearchTerm } = useContext(UIContext);
+  const { searchTerm /* setSearchTerm */ } = useContext(UIContext);
 
   const containerRef = useRef();
 
@@ -22,21 +25,21 @@ export default function HomePage() {
 
   const navigate = useNavigate();
 
-  const search = () => {
+  /*  const search = () => {
     if (searchValue && searchValue.trim()) {
       setSearchTerm(searchValue);
       navigate(`/?search=${searchValue}`);
     }
   };
-
-  useEffect(() => {
+ */
+  /* useEffect(() => {
     if (!searchParam) {
       setSearchValue('');
     } else {
       setSearchValue(searchParam);
       setSearchTerm(searchParam);
     }
-  }, [searchParam, setSearchTerm]);
+  }, [searchParam, setSearchTerm]); */
 
   return (
     <div className={classes.HomePage}>
@@ -45,7 +48,7 @@ export default function HomePage() {
           <h1>
             {t('Buy with')} <span>Sun</span>
           </h1>
-          <div className={classes.search}>
+          {/* <div className={classes.search}>
             <input
               onKeyDown={(event) => {
                 if (event.key === 'Enter') {
@@ -70,17 +73,23 @@ export default function HomePage() {
                 />
               </svg>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={classes.info}>
+        <div className={classes.videoContainer}>
+          <video src={presentationVideo} className={classes.video} controls />
+        </div>
+        <div className={classes.carouselContainer}>
+          <PropetyCarousel containerRef={containerRef} />
+        </div>
         <div
           className={classNames(
             classes.container,
             searchParam && searchTerm && classes.propertyList
           )}
         >
-          {searchParam && searchTerm ? (
+          {/* {searchParam && searchTerm ? (
             <SearchResults
               containerRef={containerRef}
               searchTerm={searchTerm}
@@ -97,9 +106,20 @@ export default function HomePage() {
               </div>
               <Map />
             </>
-          )}
+          )} */}
+
+          <div className={classes.description}>
+            <h2>{t('Make your property an island with Sun')}</h2>
+            <p>{t(`Lorem Ipsum`)}</p>
+            <div className={classes.buttons}>
+              <Button onClick={() => navigate('/buy')}>{t('BUY')}</Button>
+              <Button onClick={() => navigate('/sell')}>{t('SELL')}</Button>
+            </div>
+          </div>
+          <Map />
         </div>
       </div>
+      <div />
     </div>
   );
 }

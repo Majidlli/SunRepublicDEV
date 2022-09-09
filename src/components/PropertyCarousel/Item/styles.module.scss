@@ -1,0 +1,19 @@
+.Item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 290px;
+  cursor: pointer;
+
+  img {
+    width: 70%;
+    aspect-ratio: 1;
+    margin-bottom: 5px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  h1 {
+    margin: 0;
+  }
+}
