@@ -12,6 +12,7 @@ import PageTitle from '../../components/PageTitle';
 import instagramIcon from '../../assets/images/instagram.svg';
 import facebookIcon from '../../assets/images/facebook.svg';
 import whatsAppIcon from '../../assets/images/whatsapp.svg';
+import youtubeIcon from '../../assets/images/youtube.png';
 import { API_URL } from '../../constants/main';
 import classes from './styles.module.scss';
 
@@ -50,7 +51,7 @@ export default function ContactUsPage() {
       await axios.post(`${API_URL}/contact`, values);
       resetForm();
     } catch (error) {
-      console.log();
+      console.log(error);
     }
   };
 
@@ -149,22 +150,37 @@ export default function ContactUsPage() {
             >
               <img src={instagramIcon} alt="Instagram" />
             </a>
-            <div>
+            <a
+              href="https://www.facebook.com/sunrepublic.vip/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={facebookIcon} alt="Facebook" />
-            </div>
-            <div>
+            </a>
+            <a
+              href="https://wa.me/905338457788"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={whatsAppIcon} alt="WhatsApp" />
-            </div>
+            </a>
+            <a
+              href="https://www.youtube.com/c/IrinDrealty"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={youtubeIcon} alt="YouTube" />
+            </a>
           </div>
           <div className={classes.phoneNumbers}>
-            <a className={classes.phone} href="tel:(123) 000 0110">
-              (123) 000 0110
+            <a className={classes.phone} href="tel:+90 533 845 77 88">
+              +90 533 845 77 88
             </a>
-            <a className={classes.phone} href="tel:(123) 000 0110">
-              (123) 000 0110
+            <a className={classes.phone} href="tel:+90 533 825 04 55">
+              +90 533 825 04 55
             </a>
-            <a className={classes.phone} href="tel:(123) 000 0110">
-              (123) 000 0110
+            <a className={classes.phone} href="tel:+90 548 865 36 15">
+              +90 548 865 36 15
             </a>
           </div>
         </div>
