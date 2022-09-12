@@ -122,6 +122,14 @@ export default function PropertyPage() {
                 {data?.action === 'sell' ? t('FOR SALE') : t('FOR RENT')}
               </Button>
               <Button
+                onClick={() => {
+                  navigate('/contact-us');
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth',
+                  });
+                }}
                 style={{
                   width: isTabletOrMobile ? 112 : '',
                 }}
