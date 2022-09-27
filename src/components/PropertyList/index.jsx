@@ -101,6 +101,8 @@ export default function PropertyList({
           >
             {data &&
               data?.rows.map((property) => {
+                if (window.location.pathname.split('/')[2] === property.id)
+                  return false;
                 return (
                   <li key={property.id}>
                     <Property

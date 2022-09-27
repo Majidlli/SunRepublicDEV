@@ -1,10 +1,19 @@
+.header-background {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  url(../../assets/images/main-background.jpg);
+  background-size: cover;
+  border: 1px solid transparent;
+}
+
 .PropertyPage {
   display: flex;
   justify-content: center;
-  padding-top: 178px;
+  padding-top: 64px;
   padding-left: 100px;
   padding-right: 100px;
-
+  font-family: 'Open Sans', sans-serif;
   .container {
     flex: 1;
     max-width: 1240px;
@@ -115,7 +124,7 @@
 
 @media (max-width: 1024px) {
   .PropertyPage {
-    padding-top: 77px;
+    padding-top: 34px;
     padding-left: 20px;
     padding-right: 20px;
     .container {

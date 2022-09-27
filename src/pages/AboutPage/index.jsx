@@ -30,12 +30,12 @@ export default function AboutPage() {
       <PageTitle
         title={
           <span>
-            {t('About Our')} <br />
-            {t('Company')}
+            {t('About Our')} {t('Company')}
             <br />
           </span>
         }
         about="Sun Republic"
+        aboutPage
       />
       <div className={classes.container}>
         <div className={classNames(classes.content)} ref={contentRef}>

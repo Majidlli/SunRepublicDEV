@@ -74,6 +74,17 @@ export default function PropertyPage() {
 
   return (
     <>
+      {isTabletOrMobile ? (
+        <div
+          className={classes['header-background']}
+          style={{ height: '47px' }}
+        />
+      ) : (
+        <div
+          className={classes['header-background']}
+          style={{ height: '114px' }}
+        />
+      )}
       <div className={classes.PropertyPage}>
         <div className={classes.container} ref={containerRef}>
           <div className={classes.galleryContainer} ref={galleryContainerRef}>
@@ -88,7 +99,7 @@ export default function PropertyPage() {
             )}
           </div>
           {isTabletOrMobile && (
-            <div className={classes.description}>{description}</div>
+            <div className={classes.description}>{description}123</div>
           )}
           {isTabletOrMobile && (
             <div className={classes.restImages}>
@@ -188,6 +199,8 @@ export default function PropertyPage() {
               <div className={classes.similarPropertyContainer}>
                 {similarProperty &&
                   similarProperty?.rows?.slice(0, 3)?.map((prop) => {
+                    if (window.location.pathname.split('/')[2] === prop.id)
+                      return false;
                     return (
                       <div key={prop.id} className={classes.similarProp}>
                         <header>
