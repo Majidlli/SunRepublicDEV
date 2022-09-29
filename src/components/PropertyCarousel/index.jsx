@@ -2,8 +2,28 @@ import React, { useState, useEffect } from 'react';
 
 import ItemsCarousel from 'react-items-carousel';
 
+import photoOne from '../../assets/images/carouselImages/images.jpeg';
+import photoTwo from '../../assets/images/carouselImages/321312.jpeg';
+import photoThree from '../../assets/images/carouselImages/523523.jpeg';
+import photoFour from '../../assets/images/carouselImages/1999472.jpeg';
+import photoFive from '../../assets/images/carouselImages/63443543.jpg';
+import photoSix from '../../assets/images/carouselImages/4235124512.jpg';
+import photoSeven from '../../assets/images/carouselImages/1568648112267.jpeg';
+import photoEight from '../../assets/images/carouselImages/download.jpeg';
+
 import Item from './Item';
 import './styles.scss';
+
+const imagesData = [
+  { src: photoOne, label: 'Villa in Limassol' },
+  { src: photoTwo, label: 'New House in Limassol' },
+  { src: photoThree, label: 'New Villa in Paphos' },
+  { src: photoFour, label: 'Villa in Limassol' },
+  { src: photoFive, label: 'New House in Paphos' },
+  { src: photoSix, label: 'New House in Larnaca' },
+  { src: photoSeven, label: 'House in Agia Thekla' },
+  { src: photoEight, label: 'House in Paralimni' },
+];
 
 export default function PropetyCarousel({ containerRef }) {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
@@ -84,13 +104,9 @@ export default function PropetyCarousel({ containerRef }) {
         }}
         alwaysShowChevrons
       >
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        {imagesData.map((el) => {
+          return <Item key={el.label} photo={el} />;
+        })}
       </ItemsCarousel>
     </div>
   );

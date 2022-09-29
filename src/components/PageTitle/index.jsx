@@ -16,7 +16,7 @@ export default function PageTitle({ title, about = 'Sun', aboutPage = false }) {
             </span>
           </h1>
         ) : (
-          <h1>
+          <h1 style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
             {title}
             <span className={classes.accent}> {about}</span>
           </h1>

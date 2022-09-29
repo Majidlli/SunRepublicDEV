@@ -45,7 +45,7 @@ export default function HomePage() {
     <div className={classes.HomePage}>
       <div className={classes.searchContainer}>
         <div className={classes.container} ref={containerRef}>
-          <h1>
+          <h1 style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
             {t('Buy with')} <span>Sun</span>
           </h1>
           {/* <div className={classes.search}>
