@@ -12,8 +12,10 @@ import randomPerson2 from '../../assets/images/about/random-person-2.jpg';
 import classes from './styles.module.scss';
 import Regular from '../../components/BlogCards/Regular';
 import RenderTeam from '../../components/RenderTeam';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export default function AboutPage() {
+  const { width: dimWidth } = useWindowDimensions();
   const { data } = useQuery(
     'mostPopularBlogPosts',
     BlogPostsService.getMostPopularPosts
@@ -24,7 +26,6 @@ export default function AboutPage() {
   const { width } = useResizeObserver(contentRef);
 
   const postWidth = (width - 40) / 3;
-
   return (
     <div className={classes.AboutPage}>
       <PageTitle
@@ -134,9 +135,11 @@ export default function AboutPage() {
               />
             </ul>
           </div>
-          <div className={classes.faq}>
-            <h2>{t('Frequently Asked Questions')}</h2>
-          </div>
+          {dimWidth > 1024 && (
+            <div className={classes.faq}>
+              <h2>{t('Frequently Asked Questions')}</h2>
+            </div>
+          )}
         </div>
       </div>
       <FAQ />

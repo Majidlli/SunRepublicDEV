@@ -31,7 +31,7 @@ export default function WhatWeSellPage() {
       <div className={classes.container} ref={containerRef}>
         {mostPopularBlogPosts?.data && (
           <div className={classes.mostPopular}>
-            <h2>{t('Title')}</h2>
+            {/* <h2>{t('Title')}</h2> */}
             <div className={classes.posts}>
               {mostPopularBlogPosts.data[0] && (
                 <MostPopularBig data={mostPopularBlogPosts.data[0]} />
@@ -51,7 +51,7 @@ export default function WhatWeSellPage() {
           </div>
         )}
         <div className={classes.blogPostsList}>
-          <h2>{t('Title')}</h2>
+          {/* <h2>{t('Title')}</h2> */}
           {blogPosts?.data && (
             <ul>
               {blogPosts.data.map((post) => {

@@ -1,7 +1,7 @@
 .Question {
   .question {
     font-weight: 600;
-    font-size: 32px;
+    font-size: 24px;
     line-height: 148%;
     color: white;
     background-image: url("data:image/svg+xml,%3Csvg width='18' height='10' viewBox='0 0 18 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.00005 9.50005C8.80823 9.50005 8.61623 9.42673 8.4698 9.2803L0.969797 1.7803C0.676734 1.48723 0.676734 1.01267 0.969797 0.719797C1.26286 0.426922 1.73742 0.426734 2.0303 0.719797L9.00005 7.68955L15.9698 0.719797C16.2629 0.426734 16.7374 0.426734 17.0303 0.719797C17.3232 1.01286 17.3234 1.48742 17.0303 1.7803L9.5303 9.2803C9.38386 9.42673 9.19186 9.50005 9.00005 9.50005Z' fill='white'/%3E%3C/svg%3E%0A");
@@ -23,7 +23,7 @@
     padding-left: 16px;
     padding-right: 16px;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 148%;
     color: white;
     background-color: #3e3e3e;
@@ -56,7 +56,7 @@
     }
 
     .answer {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 }

@@ -10,7 +10,7 @@ export default function Item() {
     <Link to="/buy" className={classes.Item}>
       <div className={classes.container}>
         <img src={properyPlaceholder} alt="" />
-        <h1>Title</h1>
+        <h1 className={classes['item-title']}>Title</h1>
       </div>
     </Link>
   );

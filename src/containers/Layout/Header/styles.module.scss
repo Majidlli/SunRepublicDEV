@@ -1,4 +1,5 @@
 .Header {
+  font-family: 'Smooch Sans', 'Alumni Sans', sans-serif;
   position: absolute;
   z-index: 1;
   top: 0;
@@ -8,7 +9,7 @@
   justify-content: center;
   width: 100%;
   height: 114px;
-  padding-top: 35px;
+  //padding-top: 35px;
   padding-left: 180px;
   padding-right: 180px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -24,6 +25,7 @@
   .languageSwitcher {
     position: absolute;
     right: 40px;
+    top: 40px;
     display: flex;
     gap: 5px;
     font-family: 'Smooch Sans';
@@ -83,6 +85,7 @@
     display: flex;
     flex: 1;
     max-width: 1240px;
+    align-items: center;
 
     .phone {
       margin-left: auto;
@@ -98,7 +101,7 @@
     .navigationMenu {
       flex: 1;
       max-width: 835px;
-
+      margin-left: 40px;
       ul {
         display: flex;
         justify-content: space-between;
