@@ -2,8 +2,6 @@
   min-height: calc(100vh - 182px);
 
   .searchContainer {
-    position: absolute;
-    z-index: -1;
     top: 0;
     display: flex;
     justify-content: center;
@@ -24,9 +22,9 @@
 
       h1 {
         margin: 0;
-        margin-bottom: 61px;
         padding-left: 10px;
-        font-family: 'Smooch Sans';
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
         font-weight: 800;
         font-size: 100px;
         line-height: 120px;
@@ -35,6 +33,49 @@
         span {
           color: #ef5225;
           opacity: 0.8;
+        }
+      }
+
+      .text {
+        position: relative;
+        max-width: 681px;
+        margin-left: auto;
+        padding-top: 35px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 35px;
+
+        .background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(239, 82, 37, 0.38);
+          filter: blur(39px);
+        }
+
+        p {
+          max-width: 681px;
+          margin: 0;
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 25px;
+          color: white;
+
+          &.hidden {
+            visibility: hidden;
+          }
+
+          &.visible {
+            position: absolute;
+            top: 35px;
+            left: 15px;
+            visibility: visible;
+          }
         }
       }
 
@@ -47,6 +88,7 @@
           height: 65px;
           padding-left: 20px;
           padding-right: 20px;
+          font-family: 'Montserrat', sans-serif;
           font-weight: 400;
           font-size: 24px;
           line-height: 29px;
@@ -74,9 +116,78 @@
   .info {
     position: relative;
     display: block;
-    padding-top: 330px;
+    padding-top: 89px;
     padding-left: 100px;
     padding-right: 100px;
+
+    .reasons {
+      max-width: 1240px;
+      margin-bottom: 68px;
+      margin-left: auto;
+      margin-right: auto;
+      h2 {
+        display: none;
+        margin: 0;
+        margin-bottom: 24px;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 77px;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 49px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          width: calc((100% - 40px) / 3);
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 29px;
+
+          div {
+            min-width: 80px;
+            height: 80px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #ef5225;
+            border-radius: 50%;
+
+            &.first {
+              background-image: url(../../assets/images/about/notes.svg);
+            }
+
+            &.second {
+              background-image: url(../../assets/images/about/license.svg);
+            }
+
+            &.third {
+              background-image: url(../../assets/images/about/handshake.svg);
+            }
+
+            &.fourth {
+              background-image: url(../../assets/images/about/car.svg);
+            }
+
+            &.fifth {
+              background-image: url(../../assets/images/about/building.svg);
+            }
+
+            &.sixth {
+              background-image: url(../../assets/images/about/user.svg);
+            }
+          }
+        }
+      }
+    }
 
     .videoContainer {
       position: relative;
@@ -87,7 +198,7 @@
       margin-right: auto;
       margin-bottom: 44px;
       padding: 5px;
-      &::before{
+      &::before {
         content: '';
         display: block;
         width: 100%;
@@ -133,6 +244,7 @@
           width: 485px;
           margin: 0;
           margin-bottom: 17px;
+          font-family: 'Montserrat', sans-serif;
           font-weight: 700;
           font-size: 34px;
           line-height: 44px;
@@ -142,6 +254,7 @@
           width: 313px;
           margin: 0;
           margin-bottom: 24px;
+          font-family: 'Montserrat', sans-serif;
           font-weight: 400;
           font-size: 20px;
           line-height: 29px;
@@ -163,18 +276,36 @@
 
     .searchContainer {
       top: 47px;
-      height: 179px;
-      padding-top: 0;
+      height: 339px;
+      padding-top: 68px;
       padding-left: 20px;
       padding-right: 20px;
       .container {
         h1 {
-          margin-top: 42px;
-          margin-bottom: 20px;
           padding-left: 0;
+          font-family: 'Montserrat', sans-serif;
           font-weight: 800;
           font-size: 30px;
           line-height: 36px;
+        }
+
+        .text {
+          max-width: 250px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+
+          .background {
+            filter: blur(12px);
+          }
+
+          p {
+            font-size: 16px;
+
+            &.visible {
+              top: 15px;
+              left: 15px;
+            }
+          }
         }
 
         .search {
@@ -205,14 +336,44 @@
     }
 
     .info {
-      padding-top: 135px;
+      padding-top: 45px;
       padding-left: 0;
       padding-right: 0;
+
+      .reasons {
+        margin-bottom: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        h2 {
+          margin-bottom: 30px;
+          font-weight: 600;
+          font-size: 30px;
+          line-height: 36px;
+        }
+
+        ul {
+          flex-direction: column;
+
+          li {
+            width: 100%;
+
+            div {
+              min-width: 60px;
+              width: 60px;
+              height: 60px;
+              background-size: 35px;
+            }
+          }
+        }
+      }
+
       .videoContainer {
+        display: flex;
+        align-items: center;
         top: 15px;
         padding-left: 10px;
         padding-right: 10px;
-        &::before{
+        &::before {
           content: '';
           display: block;
           width: 100%;
@@ -230,7 +391,7 @@
           position: relative;
           //width: 100%;
           //max-width: 857px;
-          height: auto;
+          // height: auto;
           //z-index: 2;
         }
       }
@@ -263,6 +424,7 @@
           h2 {
             width: 100%;
             margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 26px;
             line-height: 34px;
@@ -274,6 +436,7 @@
             width: 100%;
             max-width: 313px;
             margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 400;
             font-size: 16px;
             line-height: 19px;

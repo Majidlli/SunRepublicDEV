@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useMediaQuery } from 'react-responsive';
 
 import Button from '../../components/Button';
+import RenderTeam from '../../components/RenderTeam';
 import PhoneInput from '../../components/PhoneInput';
 import TextInput from '../../components/TextInput';
 import { t } from '../../i18n';
 import PageTitle from '../../components/PageTitle';
+import randomPerson2 from '../../assets/images/about/random-person-2.jpg';
 import instagramIcon from '../../assets/images/instagram.svg';
 import facebookIcon from '../../assets/images/facebook.svg';
 import whatsAppIcon from '../../assets/images/whatsapp.svg';
 import youtubeIcon from '../../assets/images/youtube.png';
 import { API_URL } from '../../constants/main';
+import useResizeObserver from '../../hooks/useResizeObserver';
 import classes from './styles.module.scss';
 
 const validationSchema = yup.object({
@@ -66,11 +70,23 @@ export default function ContactUsPage() {
     onSubmit: sendMessage,
   });
 
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+
+  const formRef = useRef();
+  const contactsRef = useRef();
+
+  const { height } = useResizeObserver(formRef);
+  const { height: contactsHeight } = useResizeObserver(contactsRef);
+
   return (
     <div className={classes.ContactUsPage}>
       <PageTitle title={t('Write with')} />
       <div className={classes.forms}>
-        <form className={classes.form} onSubmit={formik.handleSubmit}>
+        <form
+          className={classes.form}
+          onSubmit={formik.handleSubmit}
+          ref={formRef}
+        >
           <h2>{t('MAKE A TOUR WITH US')}</h2>
           <div className={classes.inputs}>
             <div className={classes.textInputContainer}>
@@ -140,7 +156,7 @@ export default function ContactUsPage() {
             </Button>
           </div>
         </form>
-        <div className={classes.contactInfo}>
+        <div className={classes.contactInfo} ref={contactsRef}>
           <h2>{t('CONTACT US')}</h2>
           <div className={classes.social}>
             <a
@@ -185,7 +201,73 @@ export default function ContactUsPage() {
           </div>
         </div>
       </div>
-      <div className={classes.emptySpace} />
+      <div className={classes.container}>
+        <div
+          className={classes.team}
+          style={{
+            paddingTop: isTabletOrMobile
+              ? height + contactsHeight + 100
+              : height - 100,
+          }}
+        >
+          <ul>
+            <RenderTeam
+              name={t('Tural Aliyev')}
+              email="tural@sunrepublic.vip"
+              phone="+90 533 843 53 63"
+              img={randomPerson2}
+            />
+            <RenderTeam
+              name={t('Mamed Gafarov')}
+              email="mamed@sunrepublic.vip"
+              phone="+90 548 865 36 15"
+              img={randomPerson2}
+            />
+            <RenderTeam
+              name={t('Kseniya Kuksina')}
+              email="info@sunrepublic.vip"
+              phone="+90 533 857 85 35"
+              img={randomPerson2}
+            />
+            <RenderTeam
+              name={t('Andrii Yakimets')}
+              email="andrew@sunrepublic.vip"
+              phone="+90 533 845 77 88"
+              img={randomPerson2}
+            />
+            <RenderTeam
+              name={t('Shakhin Aliyev')}
+              email="shakhin@sunrepublic.vip"
+              phone="+90 533 825 04 55"
+              img={randomPerson2}
+            />
+            <RenderTeam
+              name={t('Margarita Zavraiska')}
+              email="margo@sunrepublic.vip"
+              phone="+90 539 104 77 88"
+              img={randomPerson2}
+            />
+            <RenderTeam
+              name={t('Daniyar Ishmedov')}
+              email="daniyar@sunrepublic.vip"
+              phone="+90 548 847 20 72"
+              img={randomPerson2}
+            />
+            <RenderTeam
+              name={t('Nargiz Ibragimova')}
+              email="sabina@sunrepublic.vip"
+              phone="+90 548 828 83 14"
+              img={randomPerson2}
+            />
+            <RenderTeam
+              name={t('Sabina Rahimova')}
+              email="sabina@sunrepublic.vip"
+              phone="+90 539 100 11 17"
+              img={randomPerson2}
+            />
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

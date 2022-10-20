@@ -16,7 +16,7 @@ export default function Regular({ data, postWidth, postsCount }) {
   }
 
   return (
-    <Link to={`/posts/${data.id}`}>
+    <Link to={`/blog/${data.id}`}>
       <article
         className={classes.Regular}
         style={{ width: postsCount >= 3 ? postWidth : '' }}

@@ -117,7 +117,7 @@ export default function Filters({
       </div>
       <div className={classes.col}>
         <Select
-          label={t('Square Feet')}
+          label={t('Square Meter')}
           placeholder={t('Any')}
           value={area}
           setValue={setArea}
@@ -161,7 +161,13 @@ export default function Filters({
           placeholder={t('Any')}
           value={region}
           setValue={setRegion}
-          options={[{ label: t('Any'), value: '' }]}
+          options={[
+            { label: t('Any'), value: '' },
+            { label: t('Kyrenia'), value: 'kyrenia' },
+            { label: t('Nicosia'), value: 'nicosia' },
+            { label: t('Famagusta'), value: 'famagusta' },
+            { label: t('Iskele'), value: 'iskele' },
+          ]}
         />
         <Select
           label={t('Floor Count')}

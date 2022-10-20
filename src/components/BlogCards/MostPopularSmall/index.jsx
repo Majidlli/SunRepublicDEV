@@ -51,7 +51,7 @@ export default function MostPopularSmall({ data }) {
   }
 
   return (
-    <Link to={`/posts/${data.id}`}>
+    <Link to={`/blog/${data.id}`}>
       <article className={classes.MostPopularSmall}>
         <div className={classes.imageContainer}>
           <img src={STATIC_URL + data?.imagePath} height={162} alt="" />

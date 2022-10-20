@@ -97,8 +97,8 @@ const RoutesComponent = () => {
               <Route path="/property/:id" element={<PropertyPage />} />
               <Route path="/contact-us" element={<ContactUsPage />} />
               <Route path="/add-post" element={<AddBlogPostPage />} />
-              <Route path="/what-we-sell" element={<WhatWeSellPage />} />
-              <Route path="/posts/:id" element={<BlogPostPage />} />
+              <Route path="/blog" element={<WhatWeSellPage />} />
+              <Route path="/blog/:id" element={<BlogPostPage />} />
               <Route path="/about" element={<AboutPage />} />
             </Routes>
           </Layout>

@@ -14,6 +14,7 @@ export default function Sidebar({ show, handleClose }) {
           <ul>
             <li>
               <NavLink
+                end
                 to="/"
                 onClick={handleClose}
                 className={({ isActive }) =>

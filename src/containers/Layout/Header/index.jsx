@@ -39,6 +39,7 @@ export default function Header() {
           <ul>
             <li>
               <NavLink
+                end
                 to="/"
                 className={({ isActive }) =>
                   isActive ? classes.active : undefined
@@ -79,12 +80,12 @@ export default function Header() {
             </li>
             <li>
               <NavLink
-                to="/what-we-sell"
+                to="/blog"
                 className={({ isActive }) =>
                   isActive ? classes.active : undefined
                 }
               >
-                {t('WHAT WE SELL')}
+                {t('BLOG')}
               </NavLink>
             </li>
             <li>

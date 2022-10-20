@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import classNames from 'classnames';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { API_URL } from '../../constants/main';
 import { t } from '../../i18n';
@@ -78,6 +80,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
       setImages([]);
       setCurrentStep(1);
       setIsFinished(false);
+      toast.success('Thank you for choosing us!');
     } catch (error) {
       console.log();
     }
@@ -193,6 +196,7 @@ export default function SellForm({ currentStep, setCurrentStep }) {
           </Button>
         )}
       </div>
+      <ToastContainer />
     </form>
   );
 }

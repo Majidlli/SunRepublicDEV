@@ -12,6 +12,7 @@ import PropertyList from '../../components/PropertyList';
 import Button from '../../components/Button';
 import PropertyService from '../../services/PropertyService';
 import { STATIC_URL } from '../../constants/main';
+import whatsAppIcon from '../../assets/images/whatsapp.svg';
 import classes from './styles.module.scss';
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -132,21 +133,30 @@ export default function PropertyPage() {
               >
                 {data?.action === 'sell' ? t('FOR SALE') : t('FOR RENT')}
               </Button>
-              <Button
-                onClick={() => {
-                  navigate('/contact-us');
-                  window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: 'smooth',
-                  });
-                }}
-                style={{
-                  width: isTabletOrMobile ? 112 : '',
-                }}
-              >
-                {t('CONTACT US')}
-              </Button>
+              <div className={classes.contactButtons}>
+                <Button
+                  onClick={() => {
+                    navigate('/contact-us');
+                    window.scrollTo({
+                      top: 0,
+                      left: 0,
+                      behavior: 'smooth',
+                    });
+                  }}
+                  style={{
+                    width: isTabletOrMobile ? 112 : '',
+                  }}
+                >
+                  {t('CONTACT US')}
+                </Button>
+                <a
+                  href="https://wa.me/905338457788"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={whatsAppIcon} alt="WhatsApp" />
+                </a>
+              </div>
             </div>
             <div className={classes.specs}>
               <div className={classes.col}>

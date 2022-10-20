@@ -3,7 +3,7 @@
   "BUY": "КУПИТЬ",
   "RENT": "АРЕНДОВАТЬ",
   "SELL": "ПРОДАТЬ",
-  "WHAT WE SELL": "ЧТО МЫ ПРОДАЕМ",
+  "BLOG": "БЛОГ",
   "CONTACT US": "КОНТАКТЫ",
   "ABOUT": "О НАС",
   "Buy with": "Покупайте с",
@@ -14,7 +14,7 @@
   "Bedrooms": "Спальни",
   "Bathrooms": "Ванные",
   "Price": "Цена",
-  "Square Feet": "Площадь",
+  "Square Meter": "Площадь",
   "Pool": "Бассейн",
   "HOA Fee": "Платеж HOA",
   "Type": "Тип",
@@ -101,5 +101,9 @@
   "Margarita Zavraiska": "Марго Заврайская",
   "Daniyar Ishmedov": "Данияр Ишмедов",
   "Nargiz Ibragimova": "Наргиз Ибрагимова",
-  "Sabina Rahimova": "Сабина Рагимова"
+  "Sabina Rahimova": "Сабина Рагимова",
+  "Kyrenia": "Кириния",
+  "Nicosia": "Никосия",
+  "Famagusta": "Фамагуста",
+  "Iskele": "Искеле"
 }

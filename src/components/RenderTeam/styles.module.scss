@@ -1,0 +1,74 @@
+.RenderTeam {
+  .photoContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .buttonContainer {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+
+      button {
+        width: 126px;
+        border-radius: 6px;
+      }
+    }
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .RenderTeam {
+    .photoContainer {
+      height: unset;
+      aspect-ratio: 185 / 139;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      overflow: hidden;
+
+      .buttonContainer {
+        right: 10px;
+        bottom: 10px;
+        button {
+          width: 63px;
+          min-height: 29px;
+
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+        }
+      }
+    }
+    h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    p {
+      margin: 0;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}

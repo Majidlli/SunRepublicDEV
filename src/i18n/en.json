@@ -4,7 +4,7 @@
   "BUY": "BUY",
   "RENT": "RENT",
   "SELL": "SELL",
-  "WHAT WE SELL": "WHAT WE SELL",
+  "BLOG": "BLOG",
   "CONTACT US": "CONTACT US",
   "ABOUT": "ABOUT",
   "Buy with": "Buy with",
@@ -15,7 +15,7 @@
   "Bedrooms": "Bedrooms",
   "Bathrooms": "Bathrooms",
   "Price": "Price",
-  "Square Feet": "Square Feet",
+  "Square Meter": "Square Meter",
   "Pool": "Pool",
   "HOA Fee": "HOA Fee",
   "Type": "Type",
@@ -100,6 +100,9 @@
   "Margarita Zavraiska": "Margarita Zavraiska",
   "Daniyar Ishmedov": "Daniyar Ishmedov",
   "Nargiz Ibragimova": "Nargiz Ibragimova",
-  "Sabina Rahimova": "Sabina Rahimova"
-
+  "Sabina Rahimova": "Sabina Rahimova",
+  "Kyrenia": "Kyrenia",
+  "Nicosia": "Nicosia",
+  "Famagusta": "Famagusta",
+  "Iskele": "Iskele"
 }
