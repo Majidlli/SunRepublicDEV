@@ -17,7 +17,7 @@ import classes from './styles.module.scss';
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
-  currency: 'USD',
+  currency: 'GBP',
   minimumFractionDigits: 0,
 });
 
@@ -120,7 +120,7 @@ export default function PropertyPage() {
             <header>
               <h1>{title}</h1>
               <span className={classes.price}>
-                $ {formatter.format(data?.price).replace('$', '')}
+                £ {formatter.format(data?.price).replace('£', '')}
               </span>
             </header>
             <div className={classes.buttons}>

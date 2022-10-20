@@ -28,21 +28,21 @@ export default function Filters({
   setSearchKey,
 }) {
   const [maxPriceOptions, setMaxPriceOptions] = useState([
-    100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000,
-    1000000,
+    50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000,
+    500000,
   ]);
 
   useEffect(() => {
     const prices = [
-      100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000,
-      1000000,
+      50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000,
+      500000,
     ];
 
     const maxPrices = [];
 
     prices.forEach((price) => {
       if (price >= minPrice) {
-        maxPrices.push({ label: price, value: price });
+        maxPrices.push({ label: `£${price}`, value: price });
       }
     });
 
@@ -93,17 +93,16 @@ export default function Filters({
             value={minPrice}
             setValue={setMinPrice}
             options={[
-              { label: 1, value: 1 },
-              { label: 100000, value: 100000 },
-              { label: 200000, value: 200000 },
-              { label: 300000, value: 300000 },
-              { label: 400000, value: 400000 },
-              { label: 500000, value: 500000 },
-              { label: 600000, value: 600000 },
-              { label: 700000, value: 700000 },
-              { label: 800000, value: 800000 },
-              { label: 900000, value: 900000 },
-              { label: 1000000, value: 1000000 },
+              { label: '£50000', value: 50000 },
+              { label: '£100000', value: 100000 },
+              { label: '£150000', value: 150000 },
+              { label: '£200000', value: 200000 },
+              { label: '£250000', value: 250000 },
+              { label: '£300000', value: 300000 },
+              { label: '£350000', value: 350000 },
+              { label: '£400000', value: 400000 },
+              { label: '£450000', value: 450000 },
+              { label: '£500000', value: 500000 },
             ]}
           />
           <Select
@@ -123,11 +122,7 @@ export default function Filters({
           setValue={setArea}
           options={[
             { label: t('Any'), value: '' },
-            { label: 1, value: 1 },
-            { label: 2, value: 2 },
-            { label: 3, value: 3 },
-            { label: 4, value: 4 },
-            { label: 5, value: 5 },
+            { label: 500, value: 500 },
           ]}
         />
         <Select
