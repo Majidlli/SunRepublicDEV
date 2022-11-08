@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useMediaQuery } from 'react-responsive';
 
+import Map from '../../components/Map';
 import Button from '../../components/Button';
 import RenderTeam from '../../components/RenderTeam';
 import PhoneInput from '../../components/PhoneInput';
@@ -267,6 +268,9 @@ export default function ContactUsPage() {
             />
           </ul>
         </div>
+      </div>
+      <div className={classes.container}>
+        <Map />
       </div>
     </div>
   );
