@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import Button from '../Button';
 import Select from '../Select';
+import TextInput from '../TextInput';
 import { t } from '../../i18n';
 import classes from './styles.module.scss';
 
@@ -15,8 +16,10 @@ export default function Filters({
   setMinPrice,
   maxPrice,
   setMaxPrice,
-  area,
-  setArea,
+  minArea,
+  setMinArea,
+  maxArea,
+  setMaxArea,
   hasPool,
   setHasPool,
   type,
@@ -27,12 +30,12 @@ export default function Filters({
   setFloorCount,
   setSearchKey,
 }) {
-  const [maxPriceOptions, setMaxPriceOptions] = useState([
+  /* const [maxPriceOptions, setMaxPriceOptions] = useState([
     50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000,
     500000,
-  ]);
+  ]); */
 
-  useEffect(() => {
+  /* useEffect(() => {
     const prices = [
       50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000,
       500000,
@@ -47,13 +50,21 @@ export default function Filters({
     });
 
     setMaxPriceOptions(maxPrices);
-  }, [minPrice]);
+  }, [minPrice]); */
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (minPrice > maxPrice) {
       setMaxPrice('');
     }
-  }, [maxPrice, minPrice, setMaxPrice]);
+  }, [maxPrice, minPrice, setMaxPrice]); */
+
+  const changeNumberInputValue = (value, setter) => {
+    const re = /^[0-9\b]+$/;
+
+    if (value === '' || re.test(value)) {
+      setter(value);
+    }
+  };
 
   return (
     <div className={classes.Filters} ref={filtersRef}>
@@ -87,7 +98,23 @@ export default function Filters({
           ]}
         />
         <div className={classes.shortSelects}>
-          <Select
+          <TextInput
+            label="Price"
+            placeholder="From"
+            value={minPrice}
+            onChange={(event) =>
+              changeNumberInputValue(event.target.value, setMinPrice)
+            }
+          />
+          <TextInput
+            placeholder="To"
+            label="&nbsp;"
+            value={maxPrice}
+            onChange={(event) =>
+              changeNumberInputValue(event.target.value, setMaxPrice)
+            }
+          />
+          {/* <Select
             label={t('Price')}
             placeholder={t('From')}
             value={minPrice}
@@ -111,20 +138,38 @@ export default function Filters({
             value={maxPrice}
             setValue={setMaxPrice}
             options={maxPriceOptions}
-          />
+          /> */}
         </div>
       </div>
       <div className={classes.col}>
-        <Select
-          label={t('Square Meter')}
-          placeholder={t('Any')}
-          value={area}
-          setValue={setArea}
-          options={[
-            { label: t('Any'), value: '' },
-            { label: 500, value: 500 },
-          ]}
-        />
+        <div className={classes.shortSelects}>
+          {/*    <Select
+            label={t('Square Meter')}
+            placeholder={t('Any')}
+            value={area}
+            setValue={setArea}
+            options={[
+              { label: t('Any'), value: '' },
+              { label: 500, value: 500 },
+            ]}
+          /> */}
+          <TextInput
+            label="Square Meter"
+            placeholder="From"
+            value={minArea}
+            onChange={(event) =>
+              changeNumberInputValue(event.target.value, setMinArea)
+            }
+          />
+          <TextInput
+            placeholder="To"
+            label="&nbsp;"
+            value={maxArea}
+            onChange={(event) =>
+              changeNumberInputValue(event.target.value, setMaxArea)
+            }
+          />
+        </div>
         <Select
           label={t('Pool')}
           placeholder={t('All')}

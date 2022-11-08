@@ -77,11 +77,19 @@ export default function HomePage() {
           )}
         >
           <div className={classes.description}>
-            <h2>{t('Make your property an island with Sun')}</h2>
-            <p>{t(`Lorem Ipsum`)}</p>
+            <h2>{t('Book the property tour now')}</h2>
+            <ol>
+              <li>{t('Individual approach to each client')}</li>
+              <li>{t('Meetings with developers')}</li>
+              <li>{t(`Cultural insight into the island's culture`)}</li>
+            </ol>
             <div className={classes.buttons}>
-              <Button onClick={() => navigate('/buy')}>{t('BUY')}</Button>
-              <Button onClick={() => navigate('/sell')}>{t('SELL')}</Button>
+              <Button onClick={() => navigate('/buy')}>
+                {t('Reserve a Tour')}
+              </Button>
+              <Button onClick={() => navigate('/sell')}>
+                {t('Learn More')}
+              </Button>
             </div>
           </div>
           <div className={classes.videoContainer}>

@@ -250,8 +250,8 @@
           line-height: 44px;
         }
 
-        p {
-          width: 313px;
+        ol {
+          width: 100%;
           margin: 0;
           margin-bottom: 24px;
           font-family: 'Montserrat', sans-serif;
@@ -259,6 +259,16 @@
           font-size: 20px;
           line-height: 29px;
         }
+
+        /*   p {
+          width: 313px;
+          margin: 0;
+          margin-bottom: 24px;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 29px;
+        } */
 
         .buttons {
           display: flex;
@@ -432,7 +442,7 @@
             white-space: wrap;
           }
 
-          p {
+          ol {
             width: 100%;
             max-width: 313px;
             margin-bottom: 25px;
@@ -440,7 +450,7 @@
             font-weight: 400;
             font-size: 16px;
             line-height: 19px;
-            text-align: center;
+            // text-align: center;
           }
 
           .buttons {
@@ -454,7 +464,7 @@
               flex: 1;
               max-width: 164px;
               font-weight: 600;
-              font-size: 18px;
+              font-size: 16px;
               line-height: 22px;
             }
           }
