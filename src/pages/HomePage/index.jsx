@@ -32,18 +32,8 @@ export default function HomePage() {
           </h1>
           <div className={classes.text}>
             <div className={classes.background} />
-            <p className={classes.hidden}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry.
-            </p>
-            <p className={classes.visible}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry.
-            </p>
+            <p className={classes.hidden}>{t('homePageHeaderText')}</p>
+            <p className={classes.visible}>{t('homePageHeaderText')}</p>
           </div>
         </div>
       </div>

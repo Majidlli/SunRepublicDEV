@@ -50,9 +50,9 @@
           top: 0;
           left: 0;
           right: 0;
-          bottom: 0;
+          bottom: 30px;
           width: 100%;
-          height: 100%;
+          //  height: 100%;
           background: rgba(239, 82, 37, 0.38);
           filter: blur(39px);
         }
@@ -276,7 +276,7 @@
 
     .searchContainer {
       top: 47px;
-      height: 339px;
+      height: 410px;
       padding-top: 68px;
       padding-left: 20px;
       padding-right: 20px;
@@ -295,7 +295,7 @@
           padding-bottom: 15px;
 
           .background {
-            filter: blur(12px);
+            filter: blur(39px);
           }
 
           p {
