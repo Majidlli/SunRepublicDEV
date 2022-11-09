@@ -212,11 +212,13 @@
         .phoneNumbers {
           gap: 10px;
           .phone {
-            //width: 119px;
+            width: 190px;
             font-weight: 600;
             font-size: 18px;
             line-height: 148%;
             background-size: 20px;
+            text-align: right;
+            margin: 0 auto;
           }
         }
       }
