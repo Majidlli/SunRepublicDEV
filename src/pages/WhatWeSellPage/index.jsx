@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 
 import { useQuery } from 'react-query';
+import { useMediaQuery } from 'react-responsive';
 
 import { t } from '../../i18n';
 import StickyMenu from '../../components/StickyMenu';
@@ -14,6 +15,8 @@ import useResizeObserver from '../../hooks/useResizeObserver';
 import classes from './styles.module.scss';
 
 export default function WhatWeSellPage() {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+
   const mostPopularBlogPosts = useQuery(
     'mostPopularBlogPosts',
     BlogPostsService.getMostPopularPosts
@@ -29,9 +32,11 @@ export default function WhatWeSellPage() {
 
   return (
     <div className={classes.WhatWeSellPage}>
-      <StickyMenu>
-        <BlogButtons />
-      </StickyMenu>
+      {!isTabletOrMobile && (
+        <StickyMenu>
+          <BlogButtons />
+        </StickyMenu>
+      )}
       <PageTitle title={t('Read with')} />
       <div className={classes.container} ref={containerRef}>
         {mostPopularBlogPosts?.data && (

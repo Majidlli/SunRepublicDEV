@@ -84,10 +84,28 @@ export default function HomePage() {
               <li>{t(`Cultural insight into the island's culture`)}</li>
             </ol>
             <div className={classes.buttons}>
-              <Button onClick={() => navigate('/buy')}>
+              <Button
+                onClick={() => {
+                  navigate('/contact-us');
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth',
+                  });
+                }}
+              >
                 {t('Reserve a Tour')}
               </Button>
-              <Button onClick={() => navigate('/sell')}>
+              <Button
+                onClick={() => {
+                  navigate('/about');
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth',
+                  });
+                }}
+              >
                 {t('Learn More')}
               </Button>
             </div>

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 import i18n, { t } from '../../i18n';
 import { STATIC_URL } from '../../constants/main';
@@ -13,6 +14,7 @@ import BlogButtons from '../../components/StickyMenu/BlogButtons';
 import classes from './styles.module.scss';
 
 export default function BlogPostPage() {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const { id } = useParams();
   const { title: postTitle } = useParams();
 
@@ -45,9 +47,11 @@ export default function BlogPostPage() {
 
   return (
     <div className={classes.BlogPostPage}>
-      <StickyMenu>
-        <BlogButtons />
-      </StickyMenu>
+      {!isTabletOrMobile && (
+        <StickyMenu>
+          <BlogButtons />
+        </StickyMenu>
+      )}
       <PageTitle title={t('Title')} />
       <div className={classes.container}>
         <div className={classes.content}>

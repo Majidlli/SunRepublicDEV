@@ -48,6 +48,10 @@
   .BlogPostPage {
     min-height: unset;
 
+    * {
+      overflow-x: hidden;
+    }
+
     .container {
       padding-left: 20px;
       padding-right: 20px;
