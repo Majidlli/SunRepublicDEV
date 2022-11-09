@@ -99,6 +99,7 @@ const RoutesComponent = () => {
               <Route path="/add-post" element={<AddBlogPostPage />} />
               <Route path="/blog" element={<WhatWeSellPage />} />
               <Route path="/blog/:id" element={<BlogPostPage />} />
+              <Route path="/blog/title/:title" element={<BlogPostPage />} />
               <Route path="/about" element={<AboutPage />} />
             </Routes>
           </Layout>

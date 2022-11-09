@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
@@ -8,14 +8,30 @@ import i18n, { t } from '../../i18n';
 import { STATIC_URL } from '../../constants/main';
 import BlogPostsService from '../../services/BlogPostsService';
 import PageTitle from '../../components/PageTitle';
+import StickyMenu from '../../components/StickyMenu';
+import BlogButtons from '../../components/StickyMenu/BlogButtons';
 import classes from './styles.module.scss';
 
 export default function BlogPostPage() {
   const { id } = useParams();
+  const { title: postTitle } = useParams();
 
-  const { data } = useQuery(['blogPost', id], () =>
-    BlogPostsService.getPost(id)
-  );
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
+  }, [id, postTitle]);
+
+  // eslint-disable-next-line consistent-return
+  const { data } = useQuery(['blogPost', id, postTitle], () => {
+    if (id) {
+      return BlogPostsService.getPost(id);
+    }
+    if (postTitle) {
+      return BlogPostsService.getPostByTitle(postTitle);
+    }
+  });
 
   let title = data?.title;
   let textContent = data?.textContent;
@@ -29,6 +45,9 @@ export default function BlogPostPage() {
 
   return (
     <div className={classes.BlogPostPage}>
+      <StickyMenu>
+        <BlogButtons />
+      </StickyMenu>
       <PageTitle title={t('Title')} />
       <div className={classes.container}>
         <div className={classes.content}>

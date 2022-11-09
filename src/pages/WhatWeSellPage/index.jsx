@@ -3,6 +3,8 @@ import React, { useRef } from 'react';
 import { useQuery } from 'react-query';
 
 import { t } from '../../i18n';
+import StickyMenu from '../../components/StickyMenu';
+import BlogButtons from '../../components/StickyMenu/BlogButtons';
 import BlogPostsService from '../../services/BlogPostsService';
 import MostPopularBig from '../../components/BlogCards/MostPopularBig';
 import MostPopularSmall from '../../components/BlogCards/MostPopularSmall';
@@ -27,6 +29,9 @@ export default function WhatWeSellPage() {
 
   return (
     <div className={classes.WhatWeSellPage}>
+      <StickyMenu>
+        <BlogButtons />
+      </StickyMenu>
       <PageTitle title={t('Read with')} />
       <div className={classes.container} ref={containerRef}>
         {mostPopularBlogPosts?.data && (
@@ -51,7 +56,6 @@ export default function WhatWeSellPage() {
           </div>
         )}
         <div className={classes.blogPostsList}>
-          {/* <h2>{t('Title')}</h2> */}
           {blogPosts?.data && (
             <ul>
               {blogPosts.data.map((post) => {

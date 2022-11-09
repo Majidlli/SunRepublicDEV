@@ -15,6 +15,10 @@ const BlogPostsService = {
     const response = await axios.get(`${API_URL}/blog-posts/${id}`);
     return response.data;
   },
+  async getPostByTitle(title) {
+    const response = await axios.get(`${API_URL}/blog-posts/title/${title}`);
+    return response.data;
+  },
 };
 
 export default BlogPostsService;
