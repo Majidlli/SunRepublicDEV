@@ -16,7 +16,7 @@ export default function BlogButton({ image, title }) {
       className={classNames(classes.BlogButton, {
         [classes.hovered]: isHovered,
       })}
-      onClick={() => navigate(`/blog/title/${title}`)}
+      onClick={() => navigate(`/cyprus/title/${title}`)}
     >
       <span
         onMouseEnter={() => setIsHovered(true)}
