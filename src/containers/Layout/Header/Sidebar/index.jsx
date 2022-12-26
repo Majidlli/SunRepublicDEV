@@ -60,12 +60,12 @@ export default function Sidebar({ show, handleClose }) {
             <li>
               <NavLink
                 onClick={handleClose}
-                to="/blog"
+                to="/cyprus"
                 className={({ isActive }) =>
                   isActive ? classes.active : undefined
                 }
               >
-                {t('BLOG')}
+                {t('CYPRUS')}
               </NavLink>
             </li>
             <li>
