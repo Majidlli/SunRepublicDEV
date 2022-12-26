@@ -80,12 +80,12 @@ export default function Header() {
             </li>
             <li>
               <NavLink
-                to="/blog"
+                to="/cyprus"
                 className={({ isActive }) =>
                   isActive ? classes.active : undefined
                 }
               >
-                {t('BLOG')}
+                {t('CYPRUS')}
               </NavLink>
             </li>
             <li>
