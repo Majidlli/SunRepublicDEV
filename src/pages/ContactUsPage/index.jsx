@@ -5,7 +5,8 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useMediaQuery } from 'react-responsive';
 
-import Map from '../../components/Map';
+// import Map from '../../components/Map';
+import * as employee from '../../assets/images/agents_photos/index';
 import Button from '../../components/Button';
 import RenderTeam from '../../components/RenderTeam';
 import PhoneInput from '../../components/PhoneInput';
@@ -216,37 +217,37 @@ export default function ContactUsPage() {
               name={t('Tural Aliyev')}
               email="tural@sunrepublic.vip"
               phone="+90 533 843 53 63"
-              img={randomPerson2}
+              img={employee.tural}
             />
             <RenderTeam
               name={t('Mamed Gafarov')}
               email="mamed@sunrepublic.vip"
               phone="+90 548 865 36 15"
-              img={randomPerson2}
+              img={employee.mamed}
             />
             <RenderTeam
               name={t('Kseniya Kuksina')}
               email="info@sunrepublic.vip"
               phone="+90 533 857 85 35"
-              img={randomPerson2}
+              img={employee.kseniya}
             />
             <RenderTeam
               name={t('Andrii Yakimets')}
               email="andrew@sunrepublic.vip"
               phone="+90 533 845 77 88"
-              img={randomPerson2}
+              img={employee.andrii}
             />
             <RenderTeam
               name={t('Shakhin Aliyev')}
               email="shakhin@sunrepublic.vip"
               phone="+90 533 825 04 55"
-              img={randomPerson2}
+              img={employee.shahin}
             />
             <RenderTeam
               name={t('Margarita Zavraiska')}
               email="margo@sunrepublic.vip"
               phone="+90 539 104 77 88"
-              img={randomPerson2}
+              img={employee.margo}
             />
             <RenderTeam
               name={t('Daniyar Ishmedov')}
@@ -258,7 +259,7 @@ export default function ContactUsPage() {
               name={t('Nargiz Ibragimova')}
               email="sabina@sunrepublic.vip"
               phone="+90 548 828 83 14"
-              img={randomPerson2}
+              img={employee.nargiz}
             />
             <RenderTeam
               name={t('Sabina Rahimova')}
@@ -269,9 +270,9 @@ export default function ContactUsPage() {
           </ul>
         </div>
       </div>
-      <div className={classes.container}>
+      {/* <div className={classes.container}>
         <Map />
-      </div>
+      </div> */}
     </div>
   );
 }
