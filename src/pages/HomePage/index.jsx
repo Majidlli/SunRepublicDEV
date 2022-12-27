@@ -98,7 +98,7 @@ export default function HomePage() {
               </Button>
               <Button
                 onClick={() => {
-                  navigate('/about');
+                  navigate('/tours');
                   window.scrollTo({
                     top: 0,
                     left: 0,

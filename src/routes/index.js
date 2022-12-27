@@ -19,6 +19,7 @@ import AboutPage from '../pages/AboutPage';
 import BlogPostsService from '../services/BlogPostsService';
 import PropertyService from '../services/PropertyService';
 import { UIContext } from '../context';
+import PropertyTourPage from '../pages/PropertyTourPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -101,6 +102,7 @@ const RoutesComponent = () => {
               <Route path="/cyprus/:id" element={<BlogPostPage />} />
               <Route path="/cyprus/title/:title" element={<BlogPostPage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/tours" element={<PropertyTourPage />} />
             </Routes>
           </Layout>
         </UIContext.Provider>

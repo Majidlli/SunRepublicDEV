@@ -1,0 +1,90 @@
+.propertyTourPage {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+
+    .content {
+      margin: 0 auto;
+      max-width: 1240px;
+      flex: 1;
+      padding-top: 64px;
+
+      h1.mainHeading {
+        margin: 0;
+        margin-bottom: 16px;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 77px;
+      }
+
+      .features {
+        display: flex;
+        img {
+          width: 34px;
+          height: 34px;
+          margin: 7px;
+        }
+      }
+      .whyus_heading {
+        text-align: center;
+      }
+      .whyus {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        .whyus__element {
+          display: flex;
+          img {
+            width: 34px;
+            height: 34px;
+            margin: 8px;
+          }
+        }
+      }
+      .fullSupport_heading {
+        text-align: center;
+      }
+      .fullSupport {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 35px;
+        .fullSupport__element {
+          display: flex;
+          padding-left: 30px;
+          img {
+            width: 34px;
+            height: 34px;
+            margin: 7px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .propertyTourPage {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+      .content {
+        padding-top: 30px;
+        h1.mainHeading {
+          font-size: 24px;
+          text-align: center;
+        }
+        .whyus {
+          grid-template-columns: 1fr;
+        }
+        .fullSupport {
+          font-size: smaller;
+          grid-template-columns: 1fr;
+          .fullSupport__element {
+            padding-left: 45px;
+          }
+        }
+      }
+    }
+  }
+}
