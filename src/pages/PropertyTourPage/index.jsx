@@ -27,131 +27,87 @@ export default function PropertyTourPage() {
       <div className={classes.container}>
         <div className={classNames(classes.content)} ref={contentRef}>
           <h1 className={classes.mainHeading}>
-            {t('Что такое property-тур?')}
+            {t("What's a property tour?")}
           </h1>
-          <p>
-            Что такое property-тур? Property-туры совмещают в себе первоклассный
-            комфортный и насыщенный отдых и просмотр объектов недвижимости. Вам
-            не нужно ни о чем беспокоиться – расскажите о ваших интересах, и мы
-            все организуем за вас. Вы увидите лучшие виллы и апартаменты острова
-            для инвестиций, понежитесь на лучших пляжах Маврикия, откроете двери
-            роскошных закрытых мест, а также при желании попробуете гольф,
-            яхтинг, дайвинг, серфинг в самых лучших локациях острова.
-          </p>
+          <p>{t('About tour')}</p>
         </div>
         <section className={classes.content}>
           <div className={classes.features}>
             <img src={companyQuality} alt="company quality" />
             <div>
-              <h3>Отдых высшего класса</h3>
-              <p>
-                Мы индивидуально подберем места для проживания, ориентируясь на
-                ваши предпочтения. Организуем комфортные трансферы любого
-                класса. Позаботимся о программе для детей, если вы решите
-                отправиться на Маврикий с семьей.
-              </p>
+              <h3>{t('tour feature1')}</h3>
+              <p>{t('tour feature desc1')}</p>
             </div>
           </div>
           <div className={classes.features}>
             <img src={travelBeach} alt="travel Beach" />
             <div>
-              <h3>Специальные условия</h3>
-              <p>
-                Предложим индивидуальную программу посещения Маврикия. Морские
-                прогулки на яхте, спортивная рыбалка, индивидуальное обучение
-                игры в гольф, SPA-процедуры по специальным условиям.
-              </p>
+              <h3>{t('tour feature2')}</h3>
+              <p>{t('tour feature desc2')}</p>
             </div>
           </div>
           <div className={classes.features}>
             <img src={building} alt="building" />
             <div>
-              <h3>Роскошные виллы и апартаменты</h3>
-              <p>
-                Наша команда предложит объекты, которые идеально подойдут вашим
-                требованиям и целям поездки. Из тысяч вариантов мы найдем лучшие
-                предложения, чтобы вы смогли насладиться каждой минутой
-                пребывания на острове.
-              </p>
+              <h3>{t('tour feature3')}</h3>
+              <p>{t('tour feature desc3')}</p>
             </div>
           </div>
           <div className={classes.features}>
             <img src={lawProtection} alt="shield" />
             <div>
-              <h3>Удобство и безопасность</h3>
-              <p>
-                Вам не нужно будет думать ни о чем – мы все сделаем за вас.
-                Гарантируем безопасность и приватность. Организуем сопровождение
-                русскоговорящего гида, который ответит на любой вопрос.
-              </p>
+              <h3>{t('tour feature4')}</h3>
+              <p>{t('tour feature desc4')}</p>
             </div>
           </div>
         </section>
         <section className={classes.content}>
-          <h3 className={classes.whyus_heading}>Почему именно мы?</h3>
+          <h3 className={classes.whyus_heading}>{t('Why us')}</h3>
           <div className={classes.whyus}>
             <div className={classes.whyus__element}>
               <img src={writePage} alt="writePage" />
-              <p>
-                Мы берем на себя оформление всех документов, трансфер,
-                бронирование отеля, подбор экскурсий и мероприятий в
-                соответствии с вашими интересами.
-              </p>
+              <p>{t('whyus desc1')}</p>
             </div>
             <div className={classes.whyus__element}>
               <img src={magnifying} alt="magnifying glass" />
-              <p>
-                Мы берем на себя оформление всех документов, трансфер,
-                бронирование отеля, подбор экскурсий и мероприятий в
-                соответствии с вашими интересами.
-              </p>
+              <p>{t('whyus desc2')}</p>
             </div>
             <div className={classes.whyus__element}>
               <img src={shield} alt="shield" />
-              <p>
-                Мы берем на себя оформление всех документов, трансфер,
-                бронирование отеля, подбор экскурсий и мероприятий в
-                соответствии с вашими интересами.
-              </p>
+              <p>{t('whyus desc3')}</p>
             </div>
             <div className={classes.whyus__element}>
               <img src={palmTree} alt="palm tree" />
-              <p>
-                Мы берем на себя оформление всех документов, трансфер,
-                бронирование отеля, подбор экскурсий и мероприятий в
-                соответствии с вашими интересами.
-              </p>
+              <p>{t('whyus desc4')}</p>
             </div>
           </div>
         </section>
         <section className={classes.content}>
-          <h3 className={classes.fullSupport_heading}>
-            Полная поддержка при переезде
-          </h3>
+          <h3 className={classes.fullSupport_heading}>{t('tour support')}</h3>
           <div className={classes.fullSupport}>
             <div className={classes.fullSupport__element}>
               <img src={briefcase} alt="writePage" />
-              <p>Регистрация бизнеса</p>
+              <p>{t('tour support1')}</p>
             </div>
             <div className={classes.fullSupport__element}>
               <img src={storecost} alt="magnifying glass" />
-              <p>Открытие счета в банке</p>
+              <p>{t('tour support2')}</p>
             </div>
             <div className={classes.fullSupport__element}>
               <img src={plane} alt="shield" />
-              <p>Транспортные услуги</p>
+              <p>{t('tour support3')}</p>
             </div>
             <div className={classes.fullSupport__element}>
               <img src={teacher} alt="palm tree" />
-              <p>Помощь в поступлении в школу</p>
+              <p>{t('tour support4')}</p>
             </div>
             <div className={classes.fullSupport__element}>
               <img src={writePage} alt="palm tree" />
-              <p>Бухгалтерские услуги</p>
+              <p>{t('tour support5')}</p>
             </div>
             <div className={classes.fullSupport__element}>
               <img src={cat} alt="palm tree" />
-              <p>Переезд с животными</p>
+              <p>{t('tour support6')}</p>
             </div>
           </div>
         </section>
