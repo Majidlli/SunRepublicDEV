@@ -4,6 +4,7 @@
     padding-right: 100px;
 
     .content {
+      margin: 0 auto;
       max-width: 1240px;
       flex: 1;
       padding-top: 64px;
@@ -15,83 +16,72 @@
         font-size: 36px;
         line-height: 77px;
       }
-    }
-  }
-  .features {
-    display: flex;
-    flex-direction: column;
-    .feature {
-      margin: 0 auto;
-      display: flex;
-      width: 600px;
-      img {
-        width: 34px;
-        height: 34px;
-        margin: 7px;
+
+      .features {
+        display: flex;
+        img {
+          width: 34px;
+          height: 34px;
+          margin: 7px;
+        }
       }
-    }
-  }
-  .whyus_grid {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    .whyus_grid__element {
-      display: flex;
-      img {
-        width: 34px;
-        height: 34px;
-        margin: 7px;
+      .whyus_heading {
+        text-align: center;
       }
-    }
-  }
-  .fullSupport_grid {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    .fullSupport_grid__element {
-      display: flex;
-      img {
-        width: 34px;
-        height: 34px;
-        margin: 7px;
+      .whyus {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        .whyus__element {
+          display: flex;
+          img {
+            width: 34px;
+            height: 34px;
+            margin: 8px;
+          }
+        }
+      }
+      .fullSupport_heading {
+        text-align: center;
+      }
+      .fullSupport {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 35px;
+        .fullSupport__element {
+          display: flex;
+          padding-left: 30px;
+          img {
+            width: 34px;
+            height: 34px;
+            margin: 7px;
+          }
+        }
       }
     }
   }
 }
 
 @media (max-width: 1024px) {
-  .AboutPage {
+  .propertyTourPage {
     .container {
       padding-left: 20px;
       padding-right: 20px;
-
       .content {
         padding-top: 30px;
         h1.mainHeading {
-          display: none;
+          font-size: 24px;
+          text-align: center;
         }
-
-        ol {
-          display: none;
+        .whyus {
+          grid-template-columns: 1fr;
         }
-
-        .faq {
-          h2 {
-            font-size: 30px;
-          }
-        }
-
-        .blog {
-          padding-bottom: 39px;
-          h2 {
-            margin-bottom: 30px;
-            font-weight: 600;
-            font-size: 30px;
-            line-height: 43px;
-          }
-          ul {
-            flex-direction: column;
-            gap: 20px;
+        .fullSupport {
+          font-size: smaller;
+          grid-template-columns: 1fr;
+          .fullSupport__element {
+            padding-left: 45px;
           }
         }
       }
