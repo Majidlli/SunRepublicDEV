@@ -41,16 +41,22 @@ export default function Property({
       <header
         style={{
           backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,
-          transform: isHovering ? 'scale(1.5)' : '',
+          transform: isHovering ? 'scale(1.4)' : '',
           cursor: 'pointer',
           transition: 'all 0.5s ease-out',
+          zIndex: isHovering ? '100' : '',
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={() => navigate(`/property/${propertyData.id}`)}
       >
         <Button
-          style={{ width: 126, borderRadius: 6 }}
+          style={{
+            width: 126,
+            borderRadius: 6,
+            right: isHovering ? '66px' : '16px',
+            transition: 'all 0.5s ease-out',
+          }}
           onClick={() => navigate(`/property/${propertyData.id}`)}
         >
           {t('DETAILS')}
