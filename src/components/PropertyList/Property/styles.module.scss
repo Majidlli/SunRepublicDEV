@@ -3,9 +3,12 @@
 
   .zoom {
     position: fixed;
-    height: 278px;
-    width: 500px;
+    top: 250px;
+    height: 276px;
+    width: 400px;
     background-size: cover;
+    transform: scale(1.5);
+    z-index: 10;
   }
   header {
     position: relative;
@@ -13,12 +16,6 @@
     height: 278px;
     margin-bottom: 20px;
     background-size: cover;
-    // &:hover {
-    //   transform: scale(1.5);
-    //   cursor: pointer;
-    //   transition: all 0.5s ease-out;
-    //   z-index: 10;
-    // }
 
     button {
       position: absolute;

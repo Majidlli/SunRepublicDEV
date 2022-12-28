@@ -43,9 +43,7 @@ export default function Property({
         className={classes.zoom}
         style={{
           backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,
-          transform: isHovering ? 'scale(1.4)' : '',
           display: isHovering ? 'block' : 'none',
-          zIndex: isHovering ? '10' : '',
         }}
         onClick={() => navigate(`/property/${propertyData.id}`)}
       />
