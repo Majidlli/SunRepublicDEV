@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import MultiClamp from 'react-multi-clamp';
@@ -14,6 +14,14 @@ export default function Property({
   propertyData,
 }) {
   const navigate = useNavigate();
+
+  const [isHovering, setIsHovering] = useState(false);
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
 
   let { title } = propertyData;
   let { description } = propertyData;
@@ -31,10 +39,23 @@ export default function Property({
       className={classes.Property}
       style={{ width: propertyCount >= 3 ? propertyWidth : '' }}
     >
+      <div
+        className={classes.zoom}
+        style={{
+          backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,
+          transform: isHovering ? 'scale(1.4)' : '',
+          display: isHovering ? 'block' : 'none',
+          zIndex: isHovering ? '10' : '',
+        }}
+        onClick={() => navigate(`/property/${propertyData.id}`)}
+      />
       <header
         style={{
           backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,
+          cursor: 'pointer',
         }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         onClick={() => navigate(`/property/${propertyData.id}`)}
       >
         <Button
