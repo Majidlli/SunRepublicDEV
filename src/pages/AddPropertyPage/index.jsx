@@ -29,6 +29,28 @@ export default function AddPropertyPage() {
   const [distanceToErcan, setDistanceToErcan] = useState('');
   const [market, setMarket] = useState('');
   const [hospital, setHospital] = useState('');
+  const [action, setAction] = useState('rent');
+  const [price, setPrice] = useState('');
+  const [features, setFeatures] = useState({
+    barbecue: false,
+    carPark: false,
+    garage: false,
+    publicPool: false,
+    elevator: false,
+    garden: false,
+    generator: false,
+    roofTerrace: false,
+    loft: false,
+    balcony: false,
+    airConditioner: false,
+    furniture: false,
+    whiteGoods: false,
+    firePlace: false,
+  });
+
+  const changeFeatures = (value) => {
+    setFeatures({ ...features, ...value });
+  };
 
   const formRef = useRef();
 
@@ -70,6 +92,9 @@ export default function AddPropertyPage() {
       form.append('distanceToErcan', distanceToErcan);
       form.append('market', market);
       form.append('hospital', hospital);
+      form.append('action', action);
+      form.append('price', price);
+      form.append('features', JSON.stringify(features));
 
       await axios.post(`${API_URL}/property`, form, {
         headers: {
@@ -96,6 +121,24 @@ export default function AddPropertyPage() {
       setDistanceToErcan('');
       setMarket('');
       setHospital('');
+      setAction('rent');
+      setPrice('');
+      setFeatures({
+        barbecue: false,
+        carPark: false,
+        garage: false,
+        publicPool: false,
+        elevator: false,
+        garden: false,
+        generator: false,
+        roofTerrace: false,
+        loft: false,
+        balcony: false,
+        airConditioner: false,
+        furniture: false,
+        whiteGoods: false,
+        firePlace: false,
+      });
 
       formRef.current.reset();
 
@@ -309,6 +352,159 @@ export default function AddPropertyPage() {
             <textarea
               value={descriptionRus}
               onChange={(event) => setDescriptionRus(event.target.value)}
+            />
+          </label>
+          <label>
+            Action
+            <input
+              type="radio"
+              value="rent"
+              name="action"
+              onChange={() => setAction('rent')}
+              checked={action === 'rent'}
+            />
+            Rent
+            <input
+              type="radio"
+              value="sell"
+              name="action"
+              onChange={() => setAction('sell')}
+              checked={action === 'sell'}
+            />
+            Sell
+          </label>
+          <label>
+            Price
+            <input
+              type="number"
+              value={price}
+              onChange={(event) => setPrice(event.target.value)}
+            />
+          </label>
+          <label>
+            Barbecue
+            <input
+              type="checkbox"
+              checked={features.barbecue}
+              onChange={() => changeFeatures({ barbecue: !features.barbecue })}
+            />
+          </label>
+          <label>
+            Car Park
+            <input
+              type="checkbox"
+              checked={features.carPark}
+              onChange={() => changeFeatures({ carPark: !features.carPark })}
+            />
+          </label>
+          <label>
+            Garage
+            <input
+              type="checkbox"
+              checked={features.garage}
+              onChange={() => changeFeatures({ garage: !features.garage })}
+            />
+          </label>
+          <label>
+            Public Pool
+            <input
+              type="checkbox"
+              checked={features.publicPool}
+              onChange={() =>
+                changeFeatures({ publicPool: !features.publicPool })
+              }
+            />
+          </label>
+          <label>
+            Elevator
+            <input
+              type="checkbox"
+              checked={features.elevator}
+              onChange={() => changeFeatures({ elevator: !features.elevator })}
+            />
+          </label>
+          <label>
+            Garden
+            <input
+              type="checkbox"
+              checked={features.garden}
+              onChange={() => changeFeatures({ garden: !features.garden })}
+            />
+          </label>
+          <label>
+            Generator
+            <input
+              type="checkbox"
+              checked={features.generator}
+              onChange={() =>
+                changeFeatures({ generator: !features.generator })
+              }
+            />
+          </label>
+          <label>
+            Roof Terrace
+            <input
+              type="checkbox"
+              checked={features.roofTerrace}
+              onChange={() =>
+                changeFeatures({ roofTerrace: !features.roofTerrace })
+              }
+            />
+          </label>
+          <label>
+            Loft
+            <input
+              type="checkbox"
+              checked={features.loft}
+              onChange={() => changeFeatures({ loft: !features.loft })}
+            />
+          </label>
+          <label>
+            Balcony
+            <input
+              type="checkbox"
+              checked={features.balcony}
+              onChange={() => changeFeatures({ balcony: !features.balcony })}
+            />
+          </label>
+          <label>
+            Air Conditioner
+            <input
+              type="checkbox"
+              checked={features.airConditioner}
+              onChange={() =>
+                changeFeatures({ airConditioner: !features.airConditioner })
+              }
+            />
+          </label>
+          <label>
+            Furniture
+            <input
+              type="checkbox"
+              checked={features.furniture}
+              onChange={() =>
+                changeFeatures({ furniture: !features.furniture })
+              }
+            />
+          </label>
+          <label>
+            White Goods
+            <input
+              type="checkbox"
+              checked={features.whiteGoods}
+              onChange={() =>
+                changeFeatures({ whiteGoods: !features.whiteGoods })
+              }
+            />
+          </label>
+          <label>
+            Fire Place
+            <input
+              type="checkbox"
+              checked={features.firePlace}
+              onChange={() =>
+                changeFeatures({ firePlace: !features.firePlace })
+              }
             />
           </label>
           <label>

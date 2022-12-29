@@ -12,7 +12,22 @@ import PropertyList from '../../components/PropertyList';
 import Button from '../../components/Button';
 import PropertyService from '../../services/PropertyService';
 import { STATIC_URL } from '../../constants/main';
+import bathroomIcon from '../../assets/images/icons/bathroom.svg';
+import bedroomIcon from '../../assets/images/icons/bedroom.svg';
+import buildingageIcon from '../../assets/images/icons/buildingage.svg';
+import squareFeetIcon from '../../assets/images/icons/square-feet.svg';
+import swimmingPoolIcon from '../../assets/images/icons/swimming-pool-2.svg';
+import plotIcon from '../../assets/images/icons/plot.svg';
+import furnitureIcon from '../../assets/images/icons/furniture.svg';
+import typesIcon from '../../assets/images/icons/types.svg';
+import locationIcon from '../../assets/images/icons/location.svg';
+import floorIcon from '../../assets/images/icons/floor.svg';
+import shareIcon from '../../assets/images/icons/share.svg';
 import whatsAppIcon from '../../assets/images/whatsapp.svg';
+import featuresCheckIcon from '../../assets/images/icons/featurescheck.svg';
+// import cityIcon from '../../assets/images/icons/city.svg';
+// import airportIcon from '../../assets/images/icons/airport.svg';
+// import marketIcon from '../../assets/images/icons/market.svg';
 import classes from './styles.module.scss';
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -24,6 +39,7 @@ const formatter = new Intl.NumberFormat('en-US', {
 export default function PropertyPage() {
   const [titleImage, setTitleImage] = useState({});
   const [galleryImages, setGalleryImages] = useState([]);
+  const [features, setFeatures] = useState({});
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -53,6 +69,9 @@ export default function PropertyPage() {
   }, []);
 
   useEffect(() => {
+    if (data?.features) setFeatures(JSON.parse(data?.features));
+    // console.log(data?.features);
+    // setFeatures(JSON.parse(data?.features));
     setGalleryImages(data?.Images?.slice(1));
     setTitleImage(data?.Images?.[0]);
   }, [data]);
@@ -72,7 +91,7 @@ export default function PropertyPage() {
     title = data?.titleRus || data?.title;
     description = data?.descriptionRus || data?.description;
   }
-
+  console.log(features);
   return (
     <>
       {isTabletOrMobile ? (
@@ -134,67 +153,488 @@ export default function PropertyPage() {
                 {data?.action === 'sell' ? t('FOR SALE') : t('FOR RENT')}
               </Button>
               <div className={classes.contactButtons}>
-                <Button
-                  onClick={() => {
-                    navigate('/contact-us');
-                    window.scrollTo({
-                      top: 0,
-                      left: 0,
-                      behavior: 'smooth',
-                    });
-                  }}
-                  style={{
-                    width: isTabletOrMobile ? 112 : '',
-                  }}
-                >
-                  {t('CONTACT US')}
-                </Button>
                 <a
                   href="https://wa.me/905338457788"
                   target="_blank"
                   rel="noreferrer"
+                  className={classes.contactButton}
                 >
-                  <img src={whatsAppIcon} alt="WhatsApp" />
+                  <img
+                    width={40}
+                    height={40}
+                    src={whatsAppIcon}
+                    alt="whatsAppIcon"
+                    style={{ marginRight: '10px' }}
+                  />
+                  {t('Contact')}
+                </a>
+                <a
+                  href="https://wa.me/905338457788"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={classes.shareButton}
+                >
+                  <img
+                    style={{ marginRight: '10px' }}
+                    width={20}
+                    height={20}
+                    src={shareIcon}
+                    alt="shareIcon"
+                  />
+                  {t('Share')}
                 </a>
               </div>
             </div>
             <div className={classes.specs}>
               <div className={classes.col}>
                 <ul>
-                  <li>
-                    {t('Bedrooms')}: {data?.bedrooms}
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={squareFeetIcon}
+                        alt="squareFeetIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('SquareFeet')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.squareFeet}m<sup>2</sup>
+                        </p>
+                      </div>
+                    </div>
                   </li>
-                  <li>
-                    {t('Bathrooms')}: {data?.bathrooms}
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={bedroomIcon}
+                        alt="bedroomIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Bedrooms')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.bedrooms}
+                        </p>
+                      </div>
+                    </div>
                   </li>
-                  <li>
-                    {t('Pool')}: {data?.hasPool === true ? t('Yes') : t('No')}
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={bathroomIcon}
+                        alt="bathroomIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Bathrooms')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.bathrooms}
+                        </p>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </div>
               <div className={classes.col}>
                 <ul>
-                  <li>
-                    {t('Region')}: {data?.region}
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={buildingageIcon}
+                        alt="buildingageIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('BuildingAge')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.buildingAge}
+                        </p>
+                      </div>
+                    </div>
                   </li>
                   <li style={{ textTransform: 'none' }}>
-                    {t('Square Feet')}: {data?.area}ft<sup>2</sup>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={plotIcon}
+                        alt="plotIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('plotArea')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.plotArea}m<sup>2</sup>
+                        </p>
+                      </div>
+                    </div>
                   </li>
-                  <li>
-                    {t('Type')}:{' '}
-                    {t(
-                      data?.type?.charAt(0)?.toUpperCase() +
-                        data?.type?.slice(1)
-                    )}
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={swimmingPoolIcon}
+                        alt="swimmingPoolIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('SwimmingPool')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.swimmingPool === true ? t('Yes') : t('No')}
+                        </p>
+                      </div>
+                    </div>
                   </li>
-                  <li>
-                    {t('Floor Count')}: {data?.floorCount}
+                </ul>
+              </div>
+              <div className={classes.col}>
+                <ul>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={locationIcon}
+                        alt="locationIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Region')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.region}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={furnitureIcon}
+                        alt="furnitureIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Furniture')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.furniture ? 'Yes' : 'No'}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div className={classes.col}>
+                <ul>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={typesIcon}
+                        alt="typesIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('biuldingType')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.buildingType}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={floorIcon}
+                        alt="floorIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Floors')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.floorCount}
+                        </p>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </div>
             </div>
+
             {!isTabletOrMobile && (
-              <div className={classes.description}>{description}</div>
+              <>
+                <div className={classes.description}>{description}</div>
+                <h1
+                  style={{
+                    borderTop: '1px solid black',
+                    display: 'block',
+                    padding: '20px 0px',
+                  }}
+                >
+                  {t('Features')}
+                </h1>
+                <div className={classes.specs}>
+                  <div className={classes.col}>
+                    <ul>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Barbecue')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Carpark')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Garage')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Whitegoods')}
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className={classes.col}>
+                    <ul>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Publicpool')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Elevator')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Garden')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Fireplace')}
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className={classes.col}>
+                    <ul>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Generator')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Roofterrace')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Airconditioner')}
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className={classes.col}>
+                    <ul>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Loft')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Balcony')}
+                          </p>
+                        </div>
+                      </li>
+                      <li style={{ textTransform: 'none' }}>
+                        <div className={classes.featuresContainer}>
+                          <img
+                            className={classes.propertyContainerIcon}
+                            src={featuresCheckIcon}
+                            alt="featuresCheckIcon"
+                            width={25}
+                            height={25}
+                            style={{ marginRight: '5px' }}
+                          />
+                          <p className={classes.featuresContainerText}>
+                            {t('Furniture')}
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </div>
