@@ -7,6 +7,71 @@
   border: 1px solid transparent;
 }
 
+.featuresContainer {
+  display: flex;
+  text-align: center;
+}
+.featuresContainerText {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.propertyContainer {
+  display: flex;
+}
+.propertyContainerIcon {
+  margin-right: 15px;
+}
+.propertyContainerDescription {
+  display: flex;
+  flex-direction: column;
+}
+.propertyContainerText {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+.propertyContainerTextTitle {
+  margin: 0;
+  font-weight: bold;
+}
+
+.shareButton {
+  width: 180px;
+  min-height: 42px;
+  max-height: 42px;
+  font-family: 'Smooch Sans';
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: white;
+  background-color: #ef5225;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactButton {
+  width: 180px;
+  min-height: 42px;
+  max-height: 42px;
+  font-family: 'Smooch Sans';
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: white;
+  background-color: #2aa81a;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .PropertyPage {
   display: flex;
   justify-content: center;
@@ -48,13 +113,15 @@
 
       .buttons {
         display: flex;
-        justify-content: space-between;
+        // justify-content: space-between;
         margin-bottom: 39px;
+        align-items: center;
+        gap: 15px;
 
         .contactButtons {
           display: flex;
           gap: 15px;
-          flex-direction: column;
+          // flex-direction: column;
           align-items: flex-end;
         }
       }

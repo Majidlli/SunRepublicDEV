@@ -16,14 +16,41 @@ export default function AddPropertyPage() {
   const [descriptionRus, setDescriptionRus] = useState('');
   const [images, setImages] = useState('');
   const [bedrooms, setBedrooms] = useState('');
+  const [squareFeet, setSquareFeet] = useState('');
+  const [buildingAge, setBuildingAge] = useState('');
   const [bathrooms, setBathrooms] = useState('');
-  const [price, setPrice] = useState('');
-  const [area, setArea] = useState('');
+  const [plotArea, setPlotArea] = useState('');
   const [hasPool, setHasPool] = useState(false);
-  const [type, setType] = useState('');
+  const [furniture, setFurniture] = useState(false);
+  const [buildingType, setBuildingType] = useState('');
   const [region, setRegion] = useState('');
   const [floorCount, setFloorCount] = useState('');
-  const [action, setAction] = useState('sell');
+  const [distanceToLarnaca, setDistanceToLarnaca] = useState('');
+  const [distanceToErcan, setDistanceToErcan] = useState('');
+  const [market, setMarket] = useState('');
+  const [hospital, setHospital] = useState('');
+  const [action, setAction] = useState('rent');
+  const [price, setPrice] = useState('');
+  const [features, setFeatures] = useState({
+    barbecue: false,
+    carPark: false,
+    garage: false,
+    publicPool: false,
+    elevator: false,
+    garden: false,
+    generator: false,
+    roofTerrace: false,
+    loft: false,
+    balcony: false,
+    airConditioner: false,
+    furniture: false,
+    whiteGoods: false,
+    firePlace: false,
+  });
+
+  const changeFeatures = (value) => {
+    setFeatures({ ...features, ...value });
+  };
 
   const formRef = useRef();
 
@@ -52,14 +79,22 @@ export default function AddPropertyPage() {
       form.append('description', description);
       form.append('descriptionRus', descriptionRus);
       form.append('bedrooms', bedrooms);
+      form.append('squareFeet', squareFeet);
+      form.append('buildingAge', buildingAge);
       form.append('bathrooms', bathrooms);
-      form.append('price', price);
-      form.append('area', area);
-      form.append('hasPool', hasPool);
-      form.append('type', type);
+      form.append('plotArea', plotArea);
+      form.append('swimmingPool', hasPool);
+      form.append('furniture', furniture);
+      form.append('buildingType', buildingType);
       form.append('region', region);
       form.append('floorCount', floorCount);
+      form.append('distanceToLarnaca', distanceToLarnaca);
+      form.append('distanceToErcan', distanceToErcan);
+      form.append('market', market);
+      form.append('hospital', hospital);
       form.append('action', action);
+      form.append('price', price);
+      form.append('features', JSON.stringify(features));
 
       await axios.post(`${API_URL}/property`, form, {
         headers: {
@@ -68,17 +103,42 @@ export default function AddPropertyPage() {
       });
 
       setTitle('');
+      setTitleRus('');
       setDescription('');
+      setDescriptionRus('');
       setImages('');
       setBedrooms('');
+      setSquareFeet('');
+      setBuildingAge('');
       setBathrooms('');
-      setPrice('');
-      setArea('');
+      setPlotArea('');
       setHasPool(false);
-      setType('');
+      setFurniture(false);
+      setBuildingType('');
       setRegion('');
       setFloorCount('');
-      setAction('sell');
+      setDistanceToLarnaca('');
+      setDistanceToErcan('');
+      setMarket('');
+      setHospital('');
+      setAction('rent');
+      setPrice('');
+      setFeatures({
+        barbecue: false,
+        carPark: false,
+        garage: false,
+        publicPool: false,
+        elevator: false,
+        garden: false,
+        generator: false,
+        roofTerrace: false,
+        loft: false,
+        balcony: false,
+        airConditioner: false,
+        furniture: false,
+        whiteGoods: false,
+        firePlace: false,
+      });
 
       formRef.current.reset();
 
@@ -144,6 +204,22 @@ export default function AddPropertyPage() {
             />
           </label>
           <label>
+            Square Feet
+            <input
+              type="number"
+              value={squareFeet}
+              onChange={(event) => setSquareFeet(event.target.value)}
+            />
+          </label>
+          <label>
+            Building age
+            <input
+              type="number"
+              value={buildingAge}
+              onChange={(event) => setBuildingAge(event.target.value)}
+            />
+          </label>
+          <label>
             Bathrooms
             <input
               type="number"
@@ -152,23 +228,23 @@ export default function AddPropertyPage() {
             />
           </label>
           <label>
-            Price
+            Plot area
             <input
               type="number"
-              value={price}
-              onChange={(event) => setPrice(event.target.value)}
+              value={plotArea}
+              onChange={(event) => setPlotArea(event.target.value)}
             />
           </label>
           <label>
-            Area
+            Floors
             <input
               type="number"
-              value={area}
-              onChange={(event) => setArea(event.target.value)}
+              value={floorCount}
+              onChange={(event) => setFloorCount(event.target.value)}
             />
           </label>
           <label>
-            Has pool
+            Swimming Pool
             <input
               type="radio"
               value="Yes"
@@ -187,51 +263,82 @@ export default function AddPropertyPage() {
             No
           </label>
           <label>
-            Type
+            Furniture
+            <input
+              type="radio"
+              value="Yes"
+              name="furniture"
+              onChange={() => setFurniture(true)}
+              checked={furniture}
+            />
+            Yes
+            <input
+              type="radio"
+              value="No"
+              name="furniture"
+              onChange={() => setFurniture(false)}
+              checked={!furniture}
+            />
+            No
+          </label>
+          <label>
+            Building Type
             <select
-              value={type}
-              onChange={(event) => setType(event.target.value)}
+              value={buildingType}
+              onChange={(event) => setBuildingType(event.target.value)}
             >
-              <option value="single family">Single Family</option>
-              <option value="townhouse">Townhouse</option>
-              <option value="condo">Condo</option>
-              <option value="other">Other</option>
+              <option value="Studio">Studio</option>
+              <option value="One bedroom">One bedroom</option>
+              <option value="Two bedrooms">Two bedrooms</option>
+              <option value="Three bedrooms">Three bedrooms</option>
+              <option value="Four bedrooms">Four bedrooms</option>
+              <option value="Villa">Villa</option>
+              <option value="Bungalow Townhouse">Bungalow Townhouse</option>
             </select>
           </label>
           <label>
             Region
-            <input
-              type="text"
+            <select
               value={region}
               onChange={(event) => setRegion(event.target.value)}
-            />
+            >
+              <option value="Girne">Girne</option>
+              <option value="Famagusta">Famagusta</option>
+              <option value="Nicosia">Nicosia</option>
+              <option value="İskele">İskele</option>
+            </select>
           </label>
           <label>
-            Floors
+            Distance to LARNACA
             <input
               type="number"
-              value={floorCount}
-              onChange={(event) => setFloorCount(event.target.value)}
+              value={distanceToLarnaca}
+              onChange={(event) => setDistanceToLarnaca(event.target.value)}
             />
           </label>
           <label>
-            Action
+            Distance to ERCAN
             <input
-              type="radio"
-              value="Rent"
-              name="action"
-              checked={action === 'rent'}
-              onChange={() => setAction('rent')}
+              type="number"
+              value={distanceToErcan}
+              onChange={(event) => setDistanceToErcan(event.target.value)}
             />
-            Rent
+          </label>
+          <label>
+            Market
             <input
-              type="radio"
-              value="Sell"
-              name="action"
-              checked={action === 'sell'}
-              onChange={() => setAction('sell')}
+              type="string"
+              value={market}
+              onChange={(event) => setMarket(event.target.value)}
             />
-            Sell
+          </label>
+          <label>
+            Hospital
+            <input
+              type="string"
+              value={hospital}
+              onChange={(event) => setHospital(event.target.value)}
+            />
           </label>
           <label>
             Description
@@ -245,6 +352,159 @@ export default function AddPropertyPage() {
             <textarea
               value={descriptionRus}
               onChange={(event) => setDescriptionRus(event.target.value)}
+            />
+          </label>
+          <label>
+            Action
+            <input
+              type="radio"
+              value="rent"
+              name="action"
+              onChange={() => setAction('rent')}
+              checked={action === 'rent'}
+            />
+            Rent
+            <input
+              type="radio"
+              value="sell"
+              name="action"
+              onChange={() => setAction('sell')}
+              checked={action === 'sell'}
+            />
+            Sell
+          </label>
+          <label>
+            Price
+            <input
+              type="number"
+              value={price}
+              onChange={(event) => setPrice(event.target.value)}
+            />
+          </label>
+          <label>
+            Barbecue
+            <input
+              type="checkbox"
+              checked={features.barbecue}
+              onChange={() => changeFeatures({ barbecue: !features.barbecue })}
+            />
+          </label>
+          <label>
+            Car Park
+            <input
+              type="checkbox"
+              checked={features.carPark}
+              onChange={() => changeFeatures({ carPark: !features.carPark })}
+            />
+          </label>
+          <label>
+            Garage
+            <input
+              type="checkbox"
+              checked={features.garage}
+              onChange={() => changeFeatures({ garage: !features.garage })}
+            />
+          </label>
+          <label>
+            Public Pool
+            <input
+              type="checkbox"
+              checked={features.publicPool}
+              onChange={() =>
+                changeFeatures({ publicPool: !features.publicPool })
+              }
+            />
+          </label>
+          <label>
+            Elevator
+            <input
+              type="checkbox"
+              checked={features.elevator}
+              onChange={() => changeFeatures({ elevator: !features.elevator })}
+            />
+          </label>
+          <label>
+            Garden
+            <input
+              type="checkbox"
+              checked={features.garden}
+              onChange={() => changeFeatures({ garden: !features.garden })}
+            />
+          </label>
+          <label>
+            Generator
+            <input
+              type="checkbox"
+              checked={features.generator}
+              onChange={() =>
+                changeFeatures({ generator: !features.generator })
+              }
+            />
+          </label>
+          <label>
+            Roof Terrace
+            <input
+              type="checkbox"
+              checked={features.roofTerrace}
+              onChange={() =>
+                changeFeatures({ roofTerrace: !features.roofTerrace })
+              }
+            />
+          </label>
+          <label>
+            Loft
+            <input
+              type="checkbox"
+              checked={features.loft}
+              onChange={() => changeFeatures({ loft: !features.loft })}
+            />
+          </label>
+          <label>
+            Balcony
+            <input
+              type="checkbox"
+              checked={features.balcony}
+              onChange={() => changeFeatures({ balcony: !features.balcony })}
+            />
+          </label>
+          <label>
+            Air Conditioner
+            <input
+              type="checkbox"
+              checked={features.airConditioner}
+              onChange={() =>
+                changeFeatures({ airConditioner: !features.airConditioner })
+              }
+            />
+          </label>
+          <label>
+            Furniture
+            <input
+              type="checkbox"
+              checked={features.furniture}
+              onChange={() =>
+                changeFeatures({ furniture: !features.furniture })
+              }
+            />
+          </label>
+          <label>
+            White Goods
+            <input
+              type="checkbox"
+              checked={features.whiteGoods}
+              onChange={() =>
+                changeFeatures({ whiteGoods: !features.whiteGoods })
+              }
+            />
+          </label>
+          <label>
+            Fire Place
+            <input
+              type="checkbox"
+              checked={features.firePlace}
+              onChange={() =>
+                changeFeatures({ firePlace: !features.firePlace })
+              }
             />
           </label>
           <label>
