@@ -14,7 +14,6 @@ export default function Property({
   propertyData,
 }) {
   const navigate = useNavigate();
-
   const [isHovering, setIsHovering] = useState(false);
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -41,21 +40,16 @@ export default function Property({
         width: propertyCount >= 3 ? propertyWidth : '',
       }}
     >
-      <div
-        className={classes.zoom}
-        style={{
-          backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,
-          display: isHovering ? 'block' : 'none',
-        }}
-        onClick={() => navigate(`/property/${propertyData.id}`)}
-      />
       <header
         style={{
           backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,
           position: isHovering ? 'absolute' : 'relative',
+          // top: isHovering ? '50px' : '0px',
           width: '400px',
           transform: isHovering ? 'scale(1.2)' : '',
           cursor: 'pointer',
+          transition: 'all 0.5s ease-out',
+          zIndex: isHovering ? '100' : '',
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -65,6 +59,8 @@ export default function Property({
           style={{
             width: 126,
             borderRadius: 6,
+            right: isHovering ? '66px' : '16px',
+            transition: 'all 0.5s ease-out',
           }}
           onClick={() => navigate(`/property/${propertyData.id}`)}
         >
