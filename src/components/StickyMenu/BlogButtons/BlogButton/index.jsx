@@ -2,21 +2,23 @@
 import React, { useState } from 'react';
 
 import classNames from 'classnames';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import classes from './styles.module.scss';
 
 export default function BlogButton({ image, title }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <li
       className={classNames(classes.BlogButton, {
         [classes.hovered]: isHovered,
       })}
-      onClick={() => navigate(`/cyprus/title/${title}`)}
+      onClick={() =>
+        document.getElementById(title).scrollIntoView({ behavior: 'smooth' })
+      }
     >
       <span
         onMouseEnter={() => setIsHovered(true)}
