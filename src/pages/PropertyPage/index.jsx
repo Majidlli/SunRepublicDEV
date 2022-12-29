@@ -7,11 +7,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import MultiClamp from 'react-multi-clamp';
 
 import i18n, { t } from '../../i18n';
+import Modal from '../../components/Modal/Modal';
 import ImageGallery from '../../components/ImageGallery';
 import PropertyList from '../../components/PropertyList';
 import Button from '../../components/Button';
 import PropertyService from '../../services/PropertyService';
 import { STATIC_URL } from '../../constants/main';
+import instagramIcon from '../../assets/images/instagram.svg';
+import facebookIcon from '../../assets/images/facebook.svg';
+import youtubeIcon from '../../assets/images/youtube.png';
 import bathroomIcon from '../../assets/images/icons/bathroom.svg';
 import bedroomIcon from '../../assets/images/icons/bedroom.svg';
 import buildingageIcon from '../../assets/images/icons/buildingage.svg';
@@ -41,6 +45,11 @@ export default function PropertyPage() {
   const [titleImage, setTitleImage] = useState({});
   const [galleryImages, setGalleryImages] = useState([]);
   const [features, setFeatures] = useState({});
+  const [isShowModal, setIsShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setIsShowModal(!isShowModal);
+  };
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -71,8 +80,6 @@ export default function PropertyPage() {
 
   useEffect(() => {
     if (data?.features) setFeatures(JSON.parse(data?.features));
-    // console.log(data?.features);
-    // setFeatures(JSON.parse(data?.features));
     setGalleryImages(data?.Images?.slice(1));
     setTitleImage(data?.Images?.[0]);
   }, [data]);
@@ -92,7 +99,7 @@ export default function PropertyPage() {
     title = data?.titleRus || data?.title;
     description = data?.descriptionRus || data?.description;
   }
-  console.log(features);
+
   return (
     <>
       {isTabletOrMobile ? (
@@ -169,10 +176,9 @@ export default function PropertyPage() {
                   />
                   {t('Contact')}
                 </a>
-                <a
-                  href="https://wa.me/905338457788"
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  type="button"
+                  onClick={handleShowModal}
                   className={classes.shareButton}
                 >
                   <img
@@ -183,7 +189,7 @@ export default function PropertyPage() {
                     alt="shareIcon"
                   />
                   {t('Share')}
-                </a>
+                </button>
               </div>
             </div>
             <div className={classes.specs}>
@@ -840,6 +846,43 @@ export default function PropertyPage() {
               />
             )}
           </>
+        )}
+        {isShowModal && (
+          <Modal hideModal={handleShowModal}>
+            <div className={classes.modal}>
+              <h1 className={classes.title}>Social Platform</h1>
+              <div className={classes.social}>
+                <a
+                  href="https://www.instagram.com/sunrepublic.vip/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={instagramIcon} alt="Instagram" />
+                </a>
+                <a
+                  href="https://www.facebook.com/sunrepublic.vip/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={facebookIcon} alt="Facebook" />
+                </a>
+                <a
+                  href="https://wa.me/905338457788"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={whatsAppIcon} alt="WhatsApp" />
+                </a>
+                <a
+                  href="https://www.youtube.com/c/IrinDrealty"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={youtubeIcon} alt="YouTube" />
+                </a>
+              </div>
+            </div>
+          </Modal>
         )}
       </div>
     </>
