@@ -99,7 +99,7 @@ export default function PropertyList({
         <ul className={classes.list}>
           <div
             className={classes.inner}
-            style={{ left: page * -width - 20 * page }}
+            style={{ marginLeft: page * -width - 20 * page }}
           >
             {data &&
               data?.rows.map((property) => {

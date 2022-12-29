@@ -36,12 +36,17 @@ export default function Property({
   return (
     <div
       className={classes.Property}
-      style={{ width: propertyCount >= 3 ? propertyWidth : '' }}
+      style={{
+        width: propertyCount >= 3 ? propertyWidth : '',
+      }}
     >
       <header
         style={{
           backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,
-          transform: isHovering ? 'scale(1.4)' : '',
+          position: isHovering ? 'absolute' : 'relative',
+          // top: isHovering ? '50px' : '0px',
+          width: '400px',
+          transform: isHovering ? 'scale(1.2)' : '',
           cursor: 'pointer',
           transition: 'all 0.5s ease-out',
           zIndex: isHovering ? '100' : '',
@@ -62,7 +67,11 @@ export default function Property({
           {t('DETAILS')}
         </Button>
       </header>
-      <div className={classes.info}>
+      {isHovering && <div style={{ height: '298px' }} />}
+      <div
+        className={classes.info}
+        // style={{ marginTop: isHovering ? '278px' : '0px' }}
+      >
         <h1>
           <MultiClamp clamp={1}>{title}</MultiClamp>
         </h1>
