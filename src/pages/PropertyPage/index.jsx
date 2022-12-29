@@ -24,7 +24,8 @@ import locationIcon from '../../assets/images/icons/location.svg';
 import floorIcon from '../../assets/images/icons/floor.svg';
 import shareIcon from '../../assets/images/icons/share.svg';
 import whatsAppIcon from '../../assets/images/whatsapp.svg';
-import featuresCheckIcon from '../../assets/images/icons/featurescheck.svg';
+import featuresCheckIcon from '../../assets/images/icons/checked.svg';
+import featuresNonCheckIcon from '../../assets/images/icons/nonChecked.svg';
 // import cityIcon from '../../assets/images/icons/city.svg';
 // import airportIcon from '../../assets/images/icons/airport.svg';
 // import marketIcon from '../../assets/images/icons/market.svg';
@@ -411,14 +412,25 @@ export default function PropertyPage() {
                     <ul>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.barbecue ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Barbecue')}
                           </p>
@@ -426,14 +438,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.carPark ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Carpark')}
                           </p>
@@ -441,14 +464,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.garage ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Garage')}
                           </p>
@@ -456,14 +490,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.whiteGoods ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Whitegoods')}
                           </p>
@@ -475,14 +520,25 @@ export default function PropertyPage() {
                     <ul>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.publicPool ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Publicpool')}
                           </p>
@@ -490,14 +546,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.elevator ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Elevator')}
                           </p>
@@ -505,14 +572,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.garden ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Garden')}
                           </p>
@@ -520,14 +598,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.firePlace ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Fireplace')}
                           </p>
@@ -539,14 +628,25 @@ export default function PropertyPage() {
                     <ul>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.generator ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Generator')}
                           </p>
@@ -554,14 +654,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.roofTerrace ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Roofterrace')}
                           </p>
@@ -569,14 +680,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.airConditioner ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Airconditioner')}
                           </p>
@@ -588,14 +710,25 @@ export default function PropertyPage() {
                     <ul>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.loft ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Loft')}
                           </p>
@@ -603,14 +736,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.balcony ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Balcony')}
                           </p>
@@ -618,14 +762,25 @@ export default function PropertyPage() {
                       </li>
                       <li style={{ textTransform: 'none' }}>
                         <div className={classes.featuresContainer}>
-                          <img
-                            className={classes.propertyContainerIcon}
-                            src={featuresCheckIcon}
-                            alt="featuresCheckIcon"
-                            width={25}
-                            height={25}
-                            style={{ marginRight: '5px' }}
-                          />
+                          {features.furniture ? (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresCheckIcon}
+                              alt="featuresCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          ) : (
+                            <img
+                              className={classes.propertyContainerIcon}
+                              src={featuresNonCheckIcon}
+                              alt="featuresNonCheckIcon"
+                              width={25}
+                              height={25}
+                              style={{ marginRight: '5px' }}
+                            />
+                          )}
                           <p className={classes.featuresContainerText}>
                             {t('Furniture')}
                           </p>
