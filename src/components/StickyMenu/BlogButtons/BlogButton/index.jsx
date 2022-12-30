@@ -8,7 +8,7 @@ import classes from './styles.module.scss';
 
 export default function BlogButton({ image, title, isActive }) {
   const [isHovered, setIsHovered] = useState(false);
-
+  console.log(isActive);
   // const navigate = useNavigate();
   return (
     <li
