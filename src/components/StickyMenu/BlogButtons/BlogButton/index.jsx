@@ -6,11 +6,10 @@ import classNames from 'classnames';
 
 import classes from './styles.module.scss';
 
-export default function BlogButton({ image, title }) {
+export default function BlogButton({ image, title, isActive }) {
   const [isHovered, setIsHovered] = useState(false);
 
   // const navigate = useNavigate();
-
   return (
     <li
       className={classNames(classes.BlogButton, {

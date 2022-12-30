@@ -9,7 +9,7 @@ import nicosia from '../../../assets/images/aside/nicosia.jpg';
 import Button from './BlogButton';
 import classes from './styles.module.scss';
 
-export default function BlogButtons() {
+export default function BlogButtons({ activeRef }) {
   const buttons = [
     { title: t('Northern Cyprus'), image: iskele },
     { title: t('Famagusta'), image: famagusta },
@@ -18,9 +18,20 @@ export default function BlogButtons() {
   ];
   return (
     <ul className={classes.BlogButtons}>
-      {buttons.map((button) => (
-        <Button title={button.title} image={button.image} key={button.title} />
-      ))}
+      {buttons.map((button) => {
+        let active = false;
+        activeRef.forEach((el) => {
+          if (el.name === button.title) active = el.isActiveRef;
+        });
+        return (
+          <Button
+            title={button.title}
+            image={button.image}
+            key={button.title}
+            isActive={active}
+          />
+        );
+      })}
     </ul>
   );
 }
