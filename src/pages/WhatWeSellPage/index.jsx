@@ -21,19 +21,19 @@ export default function WhatWeSellPage() {
   const ref = useRef(null);
   const famagustaRef = useInView({
     /* Optional options */
-    threshold: 0.2,
+    threshold: 0.5,
   });
   const nothernCyprusRef = useInView({
     /* Optional options */
-    threshold: 0.2,
+    threshold: 0.5,
   });
   const kyreniaRef = useInView({
     /* Optional options */
-    threshold: 0.2,
+    threshold: 0.5,
   });
   const nicosiaRef = useInView({
     /* Optional options */
-    threshold: 0.2,
+    threshold: 0.5,
   });
 
   const blogPosts = useQuery('blogPosts', BlogPostsService.getPosts);
