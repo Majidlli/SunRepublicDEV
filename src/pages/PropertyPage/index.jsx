@@ -192,8 +192,18 @@ export default function PropertyPage() {
                 </button>
               </div>
             </div>
-            <div className={classes.specs}>
-              <div className={classes.col}>
+            <div
+              className={classes.specs}
+              style={{
+                flexFlow: isTabletOrMobile ? 'row wrap' : 'inherit',
+                gap: isTabletOrMobile ? '0px' : '10px',
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                className={classes.col}
+                style={{ marginBottom: isTabletOrMobile ? '10px' : '0px' }}
+              >
                 <ul>
                   <li style={{ textTransform: 'none' }}>
                     <div className={classes.propertyContainer}>
@@ -233,7 +243,11 @@ export default function PropertyPage() {
                       </div>
                     </div>
                   </li>
-                  <li style={{ textTransform: 'none' }}>
+                  <li
+                    style={{
+                      textTransform: 'none',
+                    }}
+                  >
                     <div className={classes.propertyContainer}>
                       <img
                         className={classes.propertyContainerIcon}
@@ -254,7 +268,10 @@ export default function PropertyPage() {
                   </li>
                 </ul>
               </div>
-              <div className={classes.col}>
+              <div
+                className={classes.col}
+                style={{ marginBottom: isTabletOrMobile ? '10px' : '0px' }}
+              >
                 <ul>
                   <li style={{ textTransform: 'none' }}>
                     <div className={classes.propertyContainer}>
@@ -294,7 +311,12 @@ export default function PropertyPage() {
                       </div>
                     </div>
                   </li>
-                  <li style={{ textTransform: 'none' }}>
+                  <li
+                    style={{
+                      textTransform: 'none',
+                      marginBottom: isTabletOrMobile ? '10px' : '0px',
+                    }}
+                  >
                     <div className={classes.propertyContainer}>
                       <img
                         className={classes.propertyContainerIcon}
@@ -400,403 +422,416 @@ export default function PropertyPage() {
                 </ul>
               </div>
             </div>
-
-            {!isTabletOrMobile && (
-              <>
-                <div className={classes.description}>{description}</div>
-                <h1
-                  style={{
-                    borderTop: '1px solid black',
-                    display: 'block',
-                    padding: '20px 0px',
-                  }}
-                >
-                  {t('Features')}
-                </h1>
-                <div className={classes.specs}>
-                  <div className={classes.col}>
-                    <ul>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.barbecue ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Barbecue')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.carPark ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Carpark')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.garage ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Garage')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.whiteGoods ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Whitegoods')}
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className={classes.col}>
-                    <ul>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.publicPool ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Publicpool')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.elevator ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Elevator')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.garden ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Garden')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.firePlace ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Fireplace')}
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className={classes.col}>
-                    <ul>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.generator ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Generator')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.roofTerrace ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Roofterrace')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.airConditioner ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Airconditioner')}
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className={classes.col}>
-                    <ul>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.loft ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Loft')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.balcony ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Balcony')}
-                          </p>
-                        </div>
-                      </li>
-                      <li style={{ textTransform: 'none' }}>
-                        <div className={classes.featuresContainer}>
-                          {features.furniture ? (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresCheckIcon}
-                              alt="featuresCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          ) : (
-                            <img
-                              className={classes.propertyContainerIcon}
-                              src={featuresNonCheckIcon}
-                              alt="featuresNonCheckIcon"
-                              width={25}
-                              height={25}
-                              style={{ marginRight: '5px' }}
-                            />
-                          )}
-                          <p className={classes.featuresContainerText}>
-                            {t('Furniture')}
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </>
-            )}
+            {/* FEATURES */}
+            <div className={classes.description}>{description}</div>
+            <h1
+              style={{
+                borderTop: '1px solid black',
+                display: 'block',
+                padding: '20px 0px',
+              }}
+            >
+              {t('Features')}
+            </h1>
+            <div
+              className={classes.specs}
+              style={{
+                flexFlow: isTabletOrMobile ? 'row wrap' : 'inherit',
+                gap: isTabletOrMobile ? '0px' : '10px',
+                justifyContent: 'center',
+              }}
+            >
+              <div className={classes.col}>
+                <ul>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.barbecue ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Barbecue')}
+                      </p>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.carPark ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Carpark')}
+                      </p>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.garage ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Garage')}
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    style={{
+                      textTransform: 'none',
+                      marginBottom: isTabletOrMobile ? '10px' : '0px',
+                    }}
+                  >
+                    <div className={classes.featuresContainer}>
+                      {features.whiteGoods ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Whitegoods')}
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div className={classes.col}>
+                <ul>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.publicPool ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Publicpool')}
+                      </p>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.elevator ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Elevator')}
+                      </p>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.garden ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Garden')}
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    style={{
+                      textTransform: 'none',
+                      marginBottom: isTabletOrMobile ? '10px' : '0px',
+                    }}
+                  >
+                    <div className={classes.featuresContainer}>
+                      {features.firePlace ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Fireplace')}
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div className={classes.col}>
+                <ul>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.generator ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Generator')}
+                      </p>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.roofTerrace ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Roofterrace')}
+                      </p>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.airConditioner ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Airconditioner')}
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div className={classes.col}>
+                <ul>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.loft ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Loft')}
+                      </p>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.balcony ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Balcony')}
+                      </p>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.featuresContainer}>
+                      {features.furniture ? (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresCheckIcon}
+                          alt="featuresCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      ) : (
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={featuresNonCheckIcon}
+                          alt="featuresNonCheckIcon"
+                          width={25}
+                          height={25}
+                          style={{ marginRight: '5px' }}
+                        />
+                      )}
+                      <p className={classes.featuresContainerText}>
+                        {t('Furniture')}
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
