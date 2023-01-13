@@ -1,6 +1,6 @@
 import andrii from './andrii.jpg';
 import elmar from './elmar.jpg';
-import irina from './irina.jpg';
+import irina from './Irina.jpg';
 import kseniya from './kseniya.jpg';
 import mamed from './mamed.jpg';
 import margo from './margo.jpg';

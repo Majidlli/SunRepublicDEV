@@ -2,27 +2,27 @@ import React, { useState, useEffect } from 'react';
 
 import ItemsCarousel from 'react-items-carousel';
 
-import photoOne from '../../assets/images/carouselImages/images.jpeg';
-import photoTwo from '../../assets/images/carouselImages/321312.jpeg';
-import photoThree from '../../assets/images/carouselImages/523523.jpeg';
-import photoFour from '../../assets/images/carouselImages/1999472.jpeg';
-import photoFive from '../../assets/images/carouselImages/63443543.jpg';
-import photoSix from '../../assets/images/carouselImages/4235124512.jpg';
-import photoSeven from '../../assets/images/carouselImages/1568648112267.jpeg';
-import photoEight from '../../assets/images/carouselImages/download.jpeg';
+import photoOne from '../../assets/images/carouselImages/1+1iniskele.jpg';
+import photoTwo from '../../assets/images/carouselImages/2+1iniskele.jpg';
+import photoThree from '../../assets/images/carouselImages/3+1iniskele.jpg';
+import photoFour from '../../assets/images/carouselImages/bungalowinKyrenia.jpg';
+import photoFive from '../../assets/images/carouselImages/duplexinKyrenia.jpg';
+import photoSix from '../../assets/images/carouselImages/penthouseiniskele.jpg';
+import photoSeven from '../../assets/images/carouselImages/villainKyrenia.jpeg';
+import photoEight from '../../assets/images/carouselImages/villainkyrenia2.jpg';
 
 import Item from './Item';
 import './styles.scss';
 
 const imagesData = [
-  { src: photoOne, label: 'Villa in Limassol' },
-  { src: photoTwo, label: 'New House in Limassol' },
-  { src: photoThree, label: 'New Villa in Paphos' },
-  { src: photoFour, label: 'Villa in Limassol' },
-  { src: photoFive, label: 'New House in Paphos' },
-  { src: photoSix, label: 'New House in Larnaca' },
-  { src: photoSeven, label: 'House in Agia Thekla' },
-  { src: photoEight, label: 'House in Paralimni' },
+  { src: photoOne, label: '1+1 in iskele' },
+  { src: photoTwo, label: '2+1 in iskele' },
+  { src: photoThree, label: '3+1 in iskele' },
+  { src: photoFour, label: 'bungalow in Kyrenia' },
+  { src: photoFive, label: 'duplex in Kyrenia' },
+  { src: photoSix, label: 'penthouse in iskele' },
+  { src: photoSeven, label: 'villa in Kyrenia' },
+  { src: photoEight, label: 'villa in Kyrenia' },
 ];
 
 export default function PropetyCarousel({ containerRef }) {

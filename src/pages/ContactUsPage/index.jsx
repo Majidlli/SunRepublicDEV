@@ -13,7 +13,6 @@ import PhoneInput from '../../components/PhoneInput';
 import TextInput from '../../components/TextInput';
 import { t } from '../../i18n';
 import PageTitle from '../../components/PageTitle';
-import randomPerson2 from '../../assets/images/about/random-person-2.jpg';
 import instagramIcon from '../../assets/images/instagram.svg';
 import facebookIcon from '../../assets/images/facebook.svg';
 import whatsAppIcon from '../../assets/images/whatsapp.svg';
@@ -250,10 +249,10 @@ export default function ContactUsPage() {
               img={employee.margo}
             />
             <RenderTeam
-              name={t('Daniyar Ishmedov')}
-              email="daniyar@sunrepublic.vip"
-              phone="+90 548 847 20 72"
-              img={randomPerson2}
+              name={t('Elmar Hasanov')}
+              email="elmar@sunrepublic.vip"
+              phone="+90 539 105 77 88"
+              img={employee.elmar}
             />
             <RenderTeam
               name={t('Nargiz Ibragimova')}
@@ -262,10 +261,10 @@ export default function ContactUsPage() {
               img={employee.nargiz}
             />
             <RenderTeam
-              name={t('Sabina Rahimova')}
-              email="sabina@sunrepublic.vip"
-              phone="+90 539 100 11 17"
-              img={randomPerson2}
+              name={t('Irina D')}
+              email="irina@sunrepublic.vip"
+              phone="+90 539 117 36 15"
+              img={employee.irina}
             />
           </ul>
         </div>
