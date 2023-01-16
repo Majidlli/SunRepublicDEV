@@ -18,11 +18,11 @@ const imagesData = [
   { src: photoOne, label: '1+1 in iskele' },
   { src: photoTwo, label: '2+1 in iskele' },
   { src: photoThree, label: '3+1 in iskele' },
-  { src: photoFour, label: 'bungalow in Kyrenia' },
-  { src: photoFive, label: 'duplex in Kyrenia' },
-  { src: photoSix, label: 'penthouse in iskele' },
-  { src: photoSeven, label: 'villa in Kyrenia' },
-  { src: photoEight, label: 'villa in Kyrenia' },
+  { src: photoFour, label: 'Bungalow in Kyrenia' },
+  { src: photoFive, label: 'Duplex in Kyrenia' },
+  { src: photoSix, label: 'Penthouse in iskele' },
+  { src: photoSeven, label: 'Villa in Kyrenia' },
+  { src: photoEight, label: 'Villa in Kyrenia' },
 ];
 
 export default function PropetyCarousel({ containerRef }) {
