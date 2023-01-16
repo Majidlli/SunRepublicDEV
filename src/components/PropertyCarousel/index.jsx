@@ -15,12 +15,12 @@ import Item from './Item';
 import './styles.scss';
 
 const imagesData = [
-  { src: photoOne, label: '1+1 in iskele' },
-  { src: photoTwo, label: '2+1 in iskele' },
-  { src: photoThree, label: '3+1 in iskele' },
+  { src: photoOne, label: '1+1 in Iskele' },
+  { src: photoTwo, label: '2+1 in Iskele' },
+  { src: photoThree, label: '3+1 in Iskele' },
   { src: photoFour, label: 'Bungalow in Kyrenia' },
   { src: photoFive, label: 'Duplex in Kyrenia' },
-  { src: photoSix, label: 'Penthouse in iskele' },
+  { src: photoSix, label: 'Penthouse in Iskele' },
   { src: photoSeven, label: 'Villa in Kyrenia' },
   { src: photoEight, label: 'Villa in Kyrenia' },
 ];
