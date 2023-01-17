@@ -392,7 +392,7 @@ export default function PropertyPage() {
                       />
                       <div className={classes.propertyContainerDescription}>
                         <p className={classes.propertyContainerTextTitle}>
-                          {t('biuldingType')}
+                          {t('buildingType')}
                         </p>
                         <p className={classes.propertyContainerText}>
                           {data?.buildingType}
