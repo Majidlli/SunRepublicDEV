@@ -45,7 +45,7 @@ export default function Footer() {
           <div className={classNames(classes.col, classes.third)}>
             <ul>
               <li>
-                <Link to="/what-we-sell">{t('WHAT WE SELL')}</Link>
+                <Link to="/cyprus">{t('CYPRUS')}</Link>
               </li>
               <li>
                 <Link to="/contact-us">{t('CONTACT US')}</Link>

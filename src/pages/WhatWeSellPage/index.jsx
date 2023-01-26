@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { useQuery } from 'react-query';
 import { useMediaQuery } from 'react-responsive';
@@ -9,11 +9,7 @@ import StickyMenu from '../../components/StickyMenu';
 import BlogButtons from '../../components/StickyMenu/BlogButtons';
 import BlogPostsService from '../../services/BlogPostsService';
 import { STATIC_URL } from '../../constants/main';
-// import MostPopularBig from '../../components/BlogCards/MostPopularBig';
-// import MostPopularSmall from '../../components/BlogCards/MostPopularSmall';
-// import Regular from '../../components/BlogCards/Regular';
 import PageTitle from '../../components/PageTitle';
-// import useResizeObserver from '../../hooks/useResizeObserver';
 import classes from './styles.module.scss';
 
 export default function WhatWeSellPage() {
@@ -46,6 +42,10 @@ export default function WhatWeSellPage() {
     if (name === 'Nicosia') return nicosiaRef.ref;
     return ref;
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <div className={classes.WhatWeSellPage}>

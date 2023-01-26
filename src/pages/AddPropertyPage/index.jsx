@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
+import BeatLoader from 'react-spinners/BeatLoader';
 
 import axios from 'axios';
 
@@ -8,6 +9,7 @@ import { API_URL } from '../../constants/main';
 import classes from './styles.module.scss';
 
 export default function AddPropertyPage() {
+  const [isLoading, setIsLoading] = useState(false);
   const [password, setPassword] = useState('');
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [title, setTitle] = useState('');
@@ -72,6 +74,11 @@ export default function AddPropertyPage() {
 
   const createProperty = async () => {
     try {
+      if (descriptionRus.length > 1000 || description.length > 1000) {
+        alert('ERROR. Too long description');
+        return;
+      }
+      setIsLoading(true);
       const form = new FormData();
       Array.from(images).forEach((image) => form.append('file', image));
       form.append('title', title);
@@ -143,9 +150,11 @@ export default function AddPropertyPage() {
       formRef.current.reset();
 
       alert('SUCCESS');
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
       alert('ERROR');
+      setIsLoading(false);
     }
   };
 
@@ -341,15 +350,31 @@ export default function AddPropertyPage() {
             />
           </label>
           <label>
-            Description
+            Description{' '}
+            <span style={{ marginLeft: '5px' }}>
+              (characters :{description.length})
+            </span>
             <textarea
+              style={{
+                borderColor:
+                  description.length > 1000 ? 'red' : 'rgb(118, 118, 118)',
+              }}
               value={description}
-              onChange={(event) => setDescription(event.target.value)}
+              onChange={(event) => {
+                setDescription(event.target.value);
+              }}
             />
           </label>
           <label>
-            Description (russian)
+            Description (russian){' '}
+            <span style={{ marginLeft: '5px' }}>
+              (characters :{descriptionRus.length})
+            </span>
             <textarea
+              style={{
+                borderColor:
+                  descriptionRus.length > 1000 ? 'red' : 'rgb(118, 118, 118)',
+              }}
               value={descriptionRus}
               onChange={(event) => setDescriptionRus(event.target.value)}
             />
@@ -517,7 +542,24 @@ export default function AddPropertyPage() {
             />
           </label>
         </form>
-        <Button onClick={createProperty}>Submit</Button>
+        <Button
+          onClick={createProperty}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          disabled={isLoading}
+        >
+          <span style={{ marginRight: '10px' }}>Submit</span>
+          <BeatLoader
+            color="#fff"
+            loading={isLoading}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </Button>
       </div>
     </div>
   );
