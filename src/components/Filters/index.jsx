@@ -99,7 +99,7 @@ export default function Filters({
         />
         <div className={classes.shortSelects}>
           <TextInput
-            label="Price"
+            label={t('Price')}
             placeholder="From"
             value={minPrice}
             onChange={(event) =>
@@ -154,7 +154,7 @@ export default function Filters({
             ]}
           /> */}
           <TextInput
-            label="Square Meter"
+            label={t('squareMeter')}
             placeholder="From"
             value={minArea}
             onChange={(event) =>
@@ -190,10 +190,13 @@ export default function Filters({
           setValue={setType}
           options={[
             { label: t('Any'), value: '' },
-            { label: t('Single Family'), value: 'single family' },
-            { label: t('Townhouse'), value: 'townhouse' },
-            { label: t('Condo'), value: 'condo' },
-            { label: t('Other'), value: 'other' },
+            { label: t('Studio'), value: 'Studio' },
+            { label: t('Onebedroom'), value: 'One bedroom' },
+            { label: t('Twobedrooms'), value: 'Two bedrooms' },
+            { label: t('Threebedrooms'), value: 'Three bedrooms' },
+            { label: t('Fourbedrooms'), value: 'Four bedrooms' },
+            { label: t('Villa'), value: 'Villa' },
+            { label: t('BungalowTownhouse'), value: 'Bungalow Townhouse' },
           ]}
         />
         <Select
@@ -203,10 +206,10 @@ export default function Filters({
           setValue={setRegion}
           options={[
             { label: t('Any'), value: '' },
-            { label: t('Kyrenia'), value: 'kyrenia' },
-            { label: t('Nicosia'), value: 'nicosia' },
-            { label: t('Famagusta'), value: 'famagusta' },
-            { label: t('Iskele'), value: 'iskele' },
+            { label: t('Kyrenia'), value: 'Kyrenia' },
+            { label: t('Nicosia'), value: 'Nicosia' },
+            { label: t('Famagusta'), value: 'Famagusta' },
+            { label: t('Iskele'), value: 'Iskele' },
           ]}
         />
         <Select

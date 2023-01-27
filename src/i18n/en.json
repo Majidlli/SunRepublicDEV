@@ -157,5 +157,13 @@
   "Balcony": "Balcony",
   "Airconditioner": "Air conditioner",
   "Whitegoods": "White goods",
-  "Fireplace": "Fire place"
+  "Fireplace": "Fire place",
+  "squareMeter": "Square Meter",
+  "Studio": "Studio",
+  "Onebedroom": "One bedroom",
+  "Twobedrooms": "One bedroom",
+  "Threebedrooms": "Three bedrooms",
+  "Fourbedrooms": "Four bedrooms",
+  "Villa": "Villa",
+  "BungalowTownhouse": "Bungalow Townhouse"
 }

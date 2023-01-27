@@ -216,7 +216,7 @@ export default function PropertyPage() {
                       />
                       <div className={classes.propertyContainerDescription}>
                         <p className={classes.propertyContainerTextTitle}>
-                          {t('SquareFeet')}
+                          {t('squareMeter')}
                         </p>
                         <p className={classes.propertyContainerText}>
                           {data?.squareFeet}m<sup>2</sup>
@@ -400,25 +400,27 @@ export default function PropertyPage() {
                       </div>
                     </div>
                   </li>
-                  <li style={{ textTransform: 'none' }}>
-                    <div className={classes.propertyContainer}>
-                      <img
-                        className={classes.propertyContainerIcon}
-                        src={floorIcon}
-                        alt="floorIcon"
-                        width={60}
-                        height={60}
-                      />
-                      <div className={classes.propertyContainerDescription}>
-                        <p className={classes.propertyContainerTextTitle}>
-                          {t('Floors')}
-                        </p>
-                        <p className={classes.propertyContainerText}>
-                          {data?.floorCount}
-                        </p>
+                  {data?.floorCount !== 0 && (
+                    <li style={{ textTransform: 'none' }}>
+                      <div className={classes.propertyContainer}>
+                        <img
+                          className={classes.propertyContainerIcon}
+                          src={floorIcon}
+                          alt="floorIcon"
+                          width={60}
+                          height={60}
+                        />
+                        <div className={classes.propertyContainerDescription}>
+                          <p className={classes.propertyContainerTextTitle}>
+                            {t('Floors')}
+                          </p>
+                          <p className={classes.propertyContainerText}>
+                            {data?.floorCount}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </li>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
