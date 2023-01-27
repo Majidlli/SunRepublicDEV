@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
 import BeatLoader from 'react-spinners/BeatLoader';
+import Compressor from 'compressorjs';
 
 import axios from 'axios';
 
@@ -72,15 +73,39 @@ export default function AddPropertyPage() {
     }
   };
 
+  const compressImage = (file) => {
+    return new Promise((resolve, reject) => {
+      /* eslint-disable no-new */
+      new Compressor(file, {
+        quality: 0.6,
+        success: (result) => {
+          resolve(new File([result], file.name, { type: result.type }));
+        },
+        error: (error) => reject(error),
+      });
+    });
+  };
+
   const createProperty = async () => {
     try {
       if (descriptionRus.length > 1000 || description.length > 1000) {
         alert('ERROR. Too long description');
         return;
       }
+
       setIsLoading(true);
       const form = new FormData();
-      Array.from(images).forEach((image) => form.append('file', image));
+      const compressPromises = Array.from(images).map((image) => {
+        return compressImage(image);
+      });
+      await Promise.all(compressPromises)
+        .then((compressedFiles) => {
+          compressedFiles.forEach((image) => {
+            form.append('file', image);
+          });
+        })
+        .catch((error) => console.log('ooops :(', error));
+
       form.append('title', title);
       form.append('titleRus', titleRus);
       form.append('description', description);
