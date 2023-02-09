@@ -95,11 +95,13 @@ export default function PropertyPage() {
 
   const addEnter = (text) => {
     if (text === undefined) return text;
-    return text.split('\n').map((str) => (
-      <p key={nanoid()} style={{ margin: 0 }}>
-        {str}
-      </p>
-    ));
+    return text.split('\n').map((str) => {
+      return (
+        <p key={nanoid()} style={{ margin: 0, minHeight: '29px' }}>
+          {str}
+        </p>
+      );
+    });
   };
 
   if (i18n.language === 'en') {
