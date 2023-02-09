@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect, useRef } from 'react';
+import { nanoid } from 'nanoid';
 
 import { useMediaQuery } from 'react-responsive';
 import { useQuery } from 'react-query';
@@ -92,6 +93,15 @@ export default function PropertyPage() {
     setGalleryImages(data?.Images?.filter((img) => img.id !== image.id));
   };
 
+  const addEnter = (text) => {
+    if (text === undefined) return text;
+    return text.split('\n').map((str) => (
+      <p key={nanoid()} style={{ margin: 0 }}>
+        {str}
+      </p>
+    ));
+  };
+
   if (i18n.language === 'en') {
     title = data?.title || data?.titleRus;
     description = data?.description || data?.descriptionRus;
@@ -127,7 +137,7 @@ export default function PropertyPage() {
             )}
           </div>
           {isTabletOrMobile && (
-            <div className={classes.description}>{description}123</div>
+            <div className={classes.description}>{addEnter(description)}</div>
           )}
           {isTabletOrMobile && (
             <div className={classes.restImages}>
@@ -425,7 +435,7 @@ export default function PropertyPage() {
               </div>
             </div>
             {/* FEATURES */}
-            <div className={classes.description}>{description}</div>
+            <div className={classes.description}>{addEnter(description)}</div>
             <h1
               style={{
                 borderTop: '1px solid black',
