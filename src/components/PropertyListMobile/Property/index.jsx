@@ -22,7 +22,10 @@ export default function Property({ propertyData }) {
   }
 
   return (
-    <div className={classes.Property}>
+    <div
+      className={classes.Property}
+      onClick={() => navigate(`/property/${propertyData.id}`)}
+    >
       <header
         style={{
           backgroundImage: `url(${STATIC_URL}${propertyData.Images?.[0]?.path})`,

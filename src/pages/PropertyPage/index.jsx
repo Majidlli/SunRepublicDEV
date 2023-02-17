@@ -31,9 +31,9 @@ import shareIcon from '../../assets/images/icons/share.svg';
 import whatsAppIcon from '../../assets/images/whatsapp.svg';
 import featuresCheckIcon from '../../assets/images/icons/checked.svg';
 import featuresNonCheckIcon from '../../assets/images/icons/nonChecked.svg';
-// import cityIcon from '../../assets/images/icons/city.svg';
-// import airportIcon from '../../assets/images/icons/airport.svg';
-// import marketIcon from '../../assets/images/icons/market.svg';
+import airportIcon from '../../assets/images/icons/airport-2.svg';
+import supermarketIcon from '../../assets/images/icons/supermaket-2.svg';
+import hospitalIcon from '../../assets/images/icons/hospital-2.svg';
 import classes from './styles.module.scss';
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -111,6 +111,8 @@ export default function PropertyPage() {
     title = data?.titleRus || data?.title;
     description = data?.descriptionRus || data?.description;
   }
+
+  console.log(data);
 
   return (
     <>
@@ -278,6 +280,29 @@ export default function PropertyPage() {
                       </div>
                     </div>
                   </li>
+                  <li
+                    style={{
+                      textTransform: 'none',
+                    }}
+                  >
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={supermarketIcon}
+                        alt="supermarketIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Market')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.market}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
               <div
@@ -326,7 +351,6 @@ export default function PropertyPage() {
                   <li
                     style={{
                       textTransform: 'none',
-                      marginBottom: isTabletOrMobile ? '10px' : '0px',
                     }}
                   >
                     <div className={classes.propertyContainer}>
@@ -343,6 +367,30 @@ export default function PropertyPage() {
                         </p>
                         <p className={classes.propertyContainerText}>
                           {data?.swimmingPool === true ? t('Yes') : t('No')}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    style={{
+                      textTransform: 'none',
+                      marginBottom: isTabletOrMobile ? '10px' : '0px',
+                    }}
+                  >
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={hospitalIcon}
+                        alt="hospitalIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Hospital')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.hospital}
                         </p>
                       </div>
                     </div>
@@ -385,6 +433,25 @@ export default function PropertyPage() {
                         </p>
                         <p className={classes.propertyContainerText}>
                           {data?.furniture ? 'Yes' : 'No'}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={airportIcon}
+                        alt="airportIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Distance to Ercan')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.distanceToErcan}
                         </p>
                       </div>
                     </div>
@@ -433,6 +500,25 @@ export default function PropertyPage() {
                       </div>
                     </li>
                   )}
+                  <li style={{ textTransform: 'none' }}>
+                    <div className={classes.propertyContainer}>
+                      <img
+                        className={classes.propertyContainerIcon}
+                        src={airportIcon}
+                        alt="airportIcon"
+                        width={60}
+                        height={60}
+                      />
+                      <div className={classes.propertyContainerDescription}>
+                        <p className={classes.propertyContainerTextTitle}>
+                          {t('Distance to Larnaca')}
+                        </p>
+                        <p className={classes.propertyContainerText}>
+                          {data?.distanceToLarnaca}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
