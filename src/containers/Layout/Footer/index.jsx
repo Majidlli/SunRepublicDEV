@@ -160,7 +160,7 @@ export default function Footer() {
               <Link to="/sell">{t('SELL')}</Link>
             </li>
             <li>
-              <Link to="/what-we-sell">{t('WHAT WE SELL')}</Link>
+              <Link to="/cyprus">{t('Cyprus')}</Link>
             </li>
             <li>
               <Link to="/contact-us">{t('CONTACT US')}</Link>
