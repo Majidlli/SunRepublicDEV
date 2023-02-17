@@ -35,6 +35,8 @@
   "FOR RENT": "Аренда",
   "Yes": "Есть",
   "No": "Нет",
+  "yes": "Есть",
+  "no": "Нет",
   "TITLE": "ЗАГОЛОВОК",
   "step": "шаг",
   "Name": "Имя",
@@ -170,5 +172,11 @@
   "Distance to Ercan": "Расстояние до Эркан",
   "Distance to Larnaca": "Расстояние до Ларнаки",
   "Market": "Супермаркет",
-  "Hospital": "Больница"
+  "Hospital": "Больница",
+  "One bedroom": "Одна спальня",
+  "Two bedrooms": "Две спальни",
+  "Three bedrooms": "Три спальни",
+  "Four bedrooms": "Четыре спальни",
+  "Bungalow Townhouse": "Бунгало",
+  "SEARCH": "ПОИСК"
 }

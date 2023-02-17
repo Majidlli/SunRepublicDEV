@@ -188,7 +188,7 @@ export default function PropertyPage() {
                     alt="whatsAppIcon"
                     style={{ marginRight: '10px' }}
                   />
-                  {t('Contact')}
+                  {t('CONTACT')}
                 </a>
                 <button
                   type="button"
@@ -298,7 +298,7 @@ export default function PropertyPage() {
                           {t('Market')}
                         </p>
                         <p className={classes.propertyContainerText}>
-                          {data?.market}
+                          {t(`${data?.market}`)}
                         </p>
                       </div>
                     </div>
@@ -390,7 +390,7 @@ export default function PropertyPage() {
                           {t('Hospital')}
                         </p>
                         <p className={classes.propertyContainerText}>
-                          {data?.hospital}
+                          {t(`${data?.hospital}`)}
                         </p>
                       </div>
                     </div>
@@ -413,7 +413,7 @@ export default function PropertyPage() {
                           {t('Region')}
                         </p>
                         <p className={classes.propertyContainerText}>
-                          {data?.region}
+                          {t(`${data?.region}`)}
                         </p>
                       </div>
                     </div>
@@ -432,7 +432,7 @@ export default function PropertyPage() {
                           {t('Furniture')}
                         </p>
                         <p className={classes.propertyContainerText}>
-                          {data?.furniture ? 'Yes' : 'No'}
+                          {data?.furniture ? t('Yes') : t('No')}
                         </p>
                       </div>
                     </div>
@@ -474,7 +474,7 @@ export default function PropertyPage() {
                           {t('buildingType')}
                         </p>
                         <p className={classes.propertyContainerText}>
-                          {data?.buildingType}
+                          {t(`${data?.buildingType}`)}
                         </p>
                       </div>
                     </div>

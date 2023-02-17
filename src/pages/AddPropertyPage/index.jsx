@@ -25,8 +25,8 @@ export default function AddPropertyPage() {
   const [plotArea, setPlotArea] = useState('');
   const [hasPool, setHasPool] = useState(false);
   const [furniture, setFurniture] = useState(false);
-  const [buildingType, setBuildingType] = useState('');
-  const [region, setRegion] = useState('');
+  const [buildingType, setBuildingType] = useState('Studio');
+  const [region, setRegion] = useState('Kyrenia');
   const [floorCount, setFloorCount] = useState('');
   const [distanceToLarnaca, setDistanceToLarnaca] = useState('');
   const [distanceToErcan, setDistanceToErcan] = useState('');
@@ -336,10 +336,10 @@ export default function AddPropertyPage() {
               value={region}
               onChange={(event) => setRegion(event.target.value)}
             >
-              <option value="Girne">Girne</option>
+              <option value="Kyrenia">Kyrenia</option>
               <option value="Famagusta">Famagusta</option>
               <option value="Nicosia">Nicosia</option>
-              <option value="İskele">İskele</option>
+              <option value="Iskele">İskele</option>
             </select>
           </label>
           <label>

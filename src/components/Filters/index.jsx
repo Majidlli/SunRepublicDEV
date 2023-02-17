@@ -3,7 +3,7 @@ import React from 'react';
 import Button from '../Button';
 import Select from '../Select';
 import TextInput from '../TextInput';
-import { t } from '../../i18n';
+import i18n, { t } from '../../i18n';
 import classes from './styles.module.scss';
 
 export default function Filters({
@@ -30,34 +30,6 @@ export default function Filters({
   setFloorCount,
   setSearchKey,
 }) {
-  /* const [maxPriceOptions, setMaxPriceOptions] = useState([
-    50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000,
-    500000,
-  ]); */
-
-  /* useEffect(() => {
-    const prices = [
-      50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000,
-      500000,
-    ];
-
-    const maxPrices = [];
-
-    prices.forEach((price) => {
-      if (price >= minPrice) {
-        maxPrices.push({ label: `£${price}`, value: price });
-      }
-    });
-
-    setMaxPriceOptions(maxPrices);
-  }, [minPrice]); */
-
-  /* useEffect(() => {
-    if (minPrice > maxPrice) {
-      setMaxPrice('');
-    }
-  }, [maxPrice, minPrice, setMaxPrice]); */
-
   const changeNumberInputValue = (value, setter) => {
     const re = /^[0-9\b]+$/;
 
@@ -100,14 +72,14 @@ export default function Filters({
         <div className={classes.shortSelects}>
           <TextInput
             label={t('Price')}
-            placeholder="From"
+            placeholder={t('From')}
             value={minPrice}
             onChange={(event) =>
               changeNumberInputValue(event.target.value, setMinPrice)
             }
           />
           <TextInput
-            placeholder="To"
+            placeholder={t('To')}
             label="&nbsp;"
             value={maxPrice}
             onChange={(event) =>
@@ -155,14 +127,14 @@ export default function Filters({
           /> */}
           <TextInput
             label={t('squareMeter')}
-            placeholder="From"
+            placeholder={t('From')}
             value={minArea}
             onChange={(event) =>
               changeNumberInputValue(event.target.value, setMinArea)
             }
           />
           <TextInput
-            placeholder="To"
+            placeholder={t('To')}
             label="&nbsp;"
             value={maxArea}
             onChange={(event) =>
@@ -227,7 +199,14 @@ export default function Filters({
           ]}
         />
         <div className={classes.buttonContainer}>
-          <Button onClick={() => setSearchKey(Math.random())}>SEARCH</Button>
+          <Button
+            style={{
+              fontFamily: i18n.language === 'en' ? 'Smooch Sans' : 'sans-serif',
+            }}
+            onClick={() => setSearchKey(Math.random())}
+          >
+            {t('SEARCH')}
+          </Button>
         </div>
       </div>
     </div>
